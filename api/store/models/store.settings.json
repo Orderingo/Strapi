@@ -1,0 +1,98 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stores",
+  "info": {
+    "name": "Store",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "StoreName": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "via": "store",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "delivers": {
+      "collection": "delivers",
+      "via": "stores",
+      "dominant": true
+    },
+    "preferred_categories": {
+      "via": "store",
+      "collection": "preferred-category"
+    },
+    "menu_categories": {
+      "via": "stores",
+      "collection": "menu-category",
+      "dominant": true
+    },
+    "reviews": {
+      "via": "store",
+      "collection": "reviews"
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "products": {
+      "via": "stores",
+      "collection": "product"
+    },
+    "deliver_types": {
+      "via": "stores",
+      "collection": "deliver-type"
+    },
+    "offers": {
+      "via": "store",
+      "collection": "offer"
+    },
+    "orders": {
+      "via": "store",
+      "collection": "order"
+    },
+    "self_delivery": {
+      "type": "boolean",
+      "default": false
+    },
+    "delivery_days": {
+      "collection": "delivery-days",
+      "via": "stores",
+      "dominant": true
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "Latitude": {
+      "type": "float"
+    },
+    "Storeopen": {
+      "type": "time"
+    },
+    "StoreClose": {
+      "type": "time"
+    },
+    "promotion": {
+      "via": "store",
+      "model": "promotions"
+    },
+    "promotions": {
+      "via": "stores",
+      "collection": "promotions"
+    }
+  }
+}

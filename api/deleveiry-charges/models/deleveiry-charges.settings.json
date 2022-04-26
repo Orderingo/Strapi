@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deleveiry_charges",
+  "info": {
+    "name": "Deleveiry Charges"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DistanceFrom": {
+      "type": "integer"
+    },
+    "DistanceTo": {
+      "type": "integer"
+    },
+    "Rate": {
+      "type": "decimal"
+    }
+  }
+}

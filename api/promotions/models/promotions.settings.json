@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "name": "promotions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "offerimage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "stores": {
+      "collection": "store",
+      "via": "promotions",
+      "model": "store",
+      "dominant": true
+    },
+    "delivery_days": {
+      "collection": "delivery-days",
+      "via": "promotions",
+      "dominant": true
+    },
+    "product_category": {
+      "model": "menu-category",
+      "via": "promotions"
+    },
+    "store": {
+      "via": "promotion",
+      "model": "store"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "products": {
+      "collection": "product",
+      "via": "promotions",
+      "dominant": true
+    },
+    "promotion_types": {
+      "collection": "product-type"
+    },
+    "product_sizes": {
+      "collection": "product-size"
+    },
+    "packingings": {
+      "collection": "packinging"
+    },
+    "product_properties": {
+      "collection": "product-properties"
+    },
+    "OfferImage": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "OfferVIdeo": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "DIscount": {
+      "type": "decimal"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

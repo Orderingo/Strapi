@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_sizes",
+  "info": {
+    "name": "ProductSize",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "Price": {
+      "type": "decimal"
+    }
+  }
+}

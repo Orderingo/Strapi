@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store": {
+      "via": "orders",
+      "model": "store"
+    },
+    "users_permissions_users": {
+      "via": "orders",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "delivery_date": {
+      "type": "datetime"
+    },
+    "order_status": {
+      "model": "order-status",
+      "via": "orders"
+    },
+    "name": {
+      "type": "string"
+    },
+    "Deliver_type": {
+      "model": "deliver-type"
+    },
+    "Weekly_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "Total_amount": {
+      "type": "float"
+    },
+    "Disocunt": {
+      "type": "float"
+    },
+    "order_details": {
+      "via": "orders",
+      "collection": "order-detail",
+      "dominant": true
+    }
+  }
+}

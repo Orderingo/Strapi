@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_details",
+  "info": {
+    "name": "productDetail"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "product_sizes": {
+      "collection": "product-size"
+    },
+    "products": {
+      "collection": "product"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "address_types",
+  "info": {
+    "name": "Address Type",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "users": {
+      "via": "addressTypes",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

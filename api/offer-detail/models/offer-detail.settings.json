@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offer_details",
+  "info": {
+    "name": "OfferDetail"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offers": {
+      "collection": "offer",
+      "via": "offer_details",
+      "dominant": true
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Discount": {
+      "type": "decimal"
+    },
+    "products": {
+      "via": "offerDetails",
+      "collection": "product",
+      "dominant": true
+    }
+  }
+}
