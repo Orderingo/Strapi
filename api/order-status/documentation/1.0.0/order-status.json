@@ -541,64 +541,6 @@
           "IsActive": {
             "type": "boolean"
           },
-          "orders": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "store": {
-                  "type": "string"
-                },
-                "users_permissions_users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "delivery_date": {
-                  "type": "string"
-                },
-                "order_status": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "Deliver_type": {
-                  "type": "string"
-                },
-                "Weekly_needed": {
-                  "type": "boolean"
-                },
-                "Total_amount": {
-                  "type": "number"
-                },
-                "Disocunt": {
-                  "type": "number"
-                },
-                "order_details": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -612,12 +554,6 @@
           },
           "IsActive": {
             "type": "boolean"
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "published_at": {
             "type": "string",

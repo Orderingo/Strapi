@@ -623,6 +623,9 @@
                   "type": "string"
                 }
               },
+              "commission": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -634,90 +637,128 @@
               }
             }
           },
-          "users_permissions_users": {
+          "customer": {
+            "required": [
+              "id",
+              "username",
+              "email",
+              "FirstName",
+              "lastName",
+              "DOB",
+              "vendorCode"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "FirstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "DOB": {
+                "type": "string"
+              },
+              "ineracEmail": {
+                "type": "string"
+              },
+              "vendorCode": {
+                "type": "uid"
+              },
+              "userImage": {
+                "type": "string"
+              },
+              "documentsRequired": {
+                "type": "boolean"
+              },
+              "user_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "store": {
+                "type": "string"
+              },
+              "addresses": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "delivery_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "deliver_types": {
             "type": "array",
             "items": {
               "required": [
-                "id",
-                "username",
-                "email",
-                "FirstName",
-                "lastName",
-                "DOB",
-                "vendorCode"
+                "id"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "username": {
+                "Name": {
                   "type": "string"
                 },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
+                "IsActive": {
                   "type": "boolean"
                 },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "FirstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "DOB": {
-                  "type": "string"
-                },
-                "ineracEmail": {
-                  "type": "string"
-                },
-                "vendorCode": {
-                  "type": "uid"
-                },
-                "userImage": {
-                  "type": "string"
-                },
-                "documentsRequired": {
-                  "type": "boolean"
-                },
-                "user_types": {
+                "stores": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "store": {
+                "published_at": {
                   "type": "string"
-                },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "addresses": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -728,83 +769,14 @@
               }
             }
           },
-          "delivery_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "order_status": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Name": {
-                "type": "string"
-              },
-              "IsActive": {
-                "type": "boolean"
-              },
-              "orders": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "name": {
-            "type": "string"
-          },
-          "Deliver_type": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Name": {
-                "type": "string"
-              },
-              "IsActive": {
-                "type": "boolean"
-              },
-              "stores": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "Weekly_needed": {
             "type": "boolean",
             "default": false
           },
-          "Total_amount": {
+          "total_amount": {
             "type": "number"
           },
-          "Disocunt": {
+          "disocunt": {
             "type": "number"
           },
           "order_details": {
@@ -851,6 +823,77 @@
               }
             }
           },
+          "discount_code": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "order_statuses": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "IsActive": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "order_histories": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "OrderName": {
+                  "type": "string"
+                },
+                "order": {
+                  "type": "string"
+                },
+                "order_statuses": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "payment_status": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -862,36 +905,51 @@
           "store": {
             "type": "string"
           },
-          "users_permissions_users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "customer": {
+            "type": "string"
           },
           "delivery_date": {
             "type": "string",
             "format": "date-time"
           },
-          "order_status": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
-          "Deliver_type": {
-            "type": "string"
+          "deliver_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "Weekly_needed": {
             "type": "boolean",
             "default": false
           },
-          "Total_amount": {
+          "total_amount": {
             "type": "number"
           },
-          "Disocunt": {
+          "disocunt": {
             "type": "number"
           },
           "order_details": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "discount_code": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "order_statuses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "order_histories": {
             "type": "array",
             "items": {
               "type": "string"

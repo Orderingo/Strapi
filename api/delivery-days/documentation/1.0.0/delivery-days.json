@@ -647,6 +647,9 @@
                     "type": "string"
                   }
                 },
+                "commission": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },

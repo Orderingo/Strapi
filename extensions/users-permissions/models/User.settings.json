@@ -103,14 +103,14 @@
       "via": "users_permissions_user",
       "model": "store"
     },
-    "orders": {
-      "via": "users_permissions_users",
-      "collection": "order"
-    },
     "addresses": {
       "via": "userAddresses",
       "collection": "address",
       "dominant": true
+    },
+    "orders": {
+      "via": "customer",
+      "collection": "order"
     }
   }
 }

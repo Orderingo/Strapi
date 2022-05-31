@@ -16,39 +16,47 @@
       "via": "orders",
       "model": "store"
     },
-    "users_permissions_users": {
-      "via": "orders",
+    "customer": {
       "plugin": "users-permissions",
-      "collection": "user",
-      "dominant": true
+      "model": "user",
+      "via": "orders"
     },
     "delivery_date": {
       "type": "datetime"
     },
-    "order_status": {
-      "model": "order-status",
-      "via": "orders"
-    },
     "name": {
       "type": "string"
     },
-    "Deliver_type": {
-      "model": "deliver-type"
+    "deliver_types": {
+      "collection": "deliver-type"
     },
     "Weekly_needed": {
       "type": "boolean",
       "default": false
     },
-    "Total_amount": {
+    "total_amount": {
       "type": "float"
     },
-    "Disocunt": {
+    "disocunt": {
       "type": "float"
     },
     "order_details": {
       "via": "orders",
       "collection": "order-detail",
       "dominant": true
+    },
+    "discount_code": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "biginteger"
+    },
+    "order_statuses": {
+      "collection": "order-status"
+    },
+    "order_histories": {
+      "via": "order",
+      "collection": "order-history"
     }
   }
 }

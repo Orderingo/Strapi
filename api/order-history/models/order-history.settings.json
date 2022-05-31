@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_histories",
+  "info": {
+    "name": "Order History"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OrderName": {
+      "type": "string"
+    },
+    "order": {
+      "model": "order",
+      "via": "order_histories"
+    },
+    "order_statuses": {
+      "collection": "order-status"
+    },
+    "payment_status": {
+      "type": "string"
+    }
+  }
+}

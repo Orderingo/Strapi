@@ -605,13 +605,13 @@
               "store": {
                 "type": "string"
               },
-              "orders": {
+              "addresses": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "addresses": {
+              "orders": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -725,6 +725,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "commission": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

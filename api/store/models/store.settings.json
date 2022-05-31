@@ -96,6 +96,10 @@
     "product_properties": {
       "collection": "product-properties",
       "via": "store"
+    },
+    "commission": {
+      "via": "store",
+      "model": "commission"
     }
   }
 }

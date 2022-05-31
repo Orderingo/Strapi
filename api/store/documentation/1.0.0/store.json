@@ -596,13 +596,13 @@
               "store": {
                 "type": "string"
               },
-              "orders": {
+              "addresses": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "addresses": {
+              "orders": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -1009,34 +1009,49 @@
                 "store": {
                   "type": "string"
                 },
-                "users_permissions_users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "delivery_date": {
+                "customer": {
                   "type": "string"
                 },
-                "order_status": {
+                "delivery_date": {
                   "type": "string"
                 },
                 "name": {
                   "type": "string"
                 },
-                "Deliver_type": {
-                  "type": "string"
+                "deliver_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "Weekly_needed": {
                   "type": "boolean"
                 },
-                "Total_amount": {
+                "total_amount": {
                   "type": "number"
                 },
-                "Disocunt": {
+                "disocunt": {
                   "type": "number"
                 },
                 "order_details": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discount_code": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "order_statuses": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "order_histories": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1281,6 +1296,34 @@
               }
             }
           },
+          "commission": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "store": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1379,6 +1422,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "commission": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
