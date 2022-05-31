@@ -16,10 +16,6 @@
       "type": "boolean",
       "default": true
     },
-    "offers": {
-      "collection": "offer",
-      "via": "order_detail"
-    },
     "isOffer": {
       "type": "boolean",
       "default": false

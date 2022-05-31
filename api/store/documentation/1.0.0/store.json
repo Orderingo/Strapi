@@ -578,18 +578,6 @@
               "ineracEmail": {
                 "type": "string"
               },
-              "deliveryRadius": {
-                "type": "string"
-              },
-              "secondaryContactsName": {
-                "type": "string"
-              },
-              "secondaryContactsPhone": {
-                "type": "string"
-              },
-              "secondaryContactsEmail": {
-                "type": "string"
-              },
               "vendorCode": {
                 "type": "uid"
               },
@@ -614,14 +602,11 @@
                   "type": "string"
                 }
               },
-              "addressTypes": {
+              "addresses": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
-              },
-              "address": {
-                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -631,7 +616,7 @@
               }
             }
           },
-          "delivers": {
+          "delivers_area": {
             "type": "array",
             "items": {
               "required": [
@@ -920,12 +905,6 @@
                 "createdBy": {
                   "type": "string"
                 },
-                "offerDetails": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "orderDetail": {
                   "type": "string"
                 },
@@ -971,12 +950,6 @@
                     "type": "string"
                   }
                 },
-                "promotions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1010,58 +983,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "offers": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "OfferName": {
-                  "type": "string"
-                },
-                "Description": {
-                  "type": "string"
-                },
-                "store": {
-                  "type": "string"
-                },
-                "Price": {
-                  "type": "number"
-                },
-                "OfferImage": {
-                  "type": "string"
-                },
-                "OfferImage1": {
-                  "type": "string"
-                },
-                "IsActive": {
-                  "type": "boolean"
-                },
-                "offer_details": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "order_detail": {
-                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -1198,103 +1119,6 @@
           "StoreClose": {
             "type": "string"
           },
-          "promotion": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Name": {
-                "type": "string"
-              },
-              "offerimage": {
-                "type": "string"
-              },
-              "isActive": {
-                "type": "boolean"
-              },
-              "stores": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "delivery_days": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "product_category": {
-                "type": "string"
-              },
-              "store": {
-                "type": "string"
-              },
-              "Price": {
-                "type": "integer"
-              },
-              "products": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "promotion_types": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "product_sizes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "packingings": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "product_properties": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "OfferImage": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "OfferVIdeo": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "DIscount": {
-                "type": "number"
-              },
-              "Description": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "promotions": {
             "type": "array",
             "items": {
@@ -1305,7 +1129,7 @@
                 "id": {
                   "type": "string"
                 },
-                "Name": {
+                "name": {
                   "type": "string"
                 },
                 "offerimage": {
@@ -1329,25 +1153,7 @@
                 "product_category": {
                   "type": "string"
                 },
-                "store": {
-                  "type": "string"
-                },
-                "Price": {
-                  "type": "integer"
-                },
-                "products": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "promotion_types": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "product_sizes": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1377,11 +1183,23 @@
                     "type": "string"
                   }
                 },
-                "DIscount": {
-                  "type": "number"
-                },
-                "Description": {
+                "description": {
                   "type": "string"
+                },
+                "discount_type": {
+                  "type": "string"
+                },
+                "product_size_price": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "promotion_details": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -1477,7 +1295,7 @@
           "users_permissions_user": {
             "type": "string"
           },
-          "delivers": {
+          "delivers_area": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1513,12 +1331,6 @@
               "type": "string"
             }
           },
-          "offers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "orders": {
             "type": "array",
             "items": {
@@ -1545,9 +1357,6 @@
             "type": "string"
           },
           "StoreClose": {
-            "type": "string"
-          },
-          "promotion": {
             "type": "string"
           },
           "promotions": {

@@ -24,17 +24,14 @@
     "address_types": {
       "collection": "address-type"
     },
-    "userName": {
-      "type": "string"
+    "streetaddress": {
+      "type": "string",
+      "required": true
     },
-    "user": {
+    "userAddresses": {
+      "via": "addresses",
       "plugin": "users-permissions",
-      "model": "user"
-    },
-    "userAddress": {
-      "via": "address",
-      "plugin": "users-permissions",
-      "model": "user"
+      "collection": "user"
     }
   }
 }

@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
     "offerimage": {
@@ -45,23 +45,8 @@
       "model": "menu-category",
       "via": "promotions"
     },
-    "store": {
-      "via": "promotion",
-      "model": "store"
-    },
-    "Price": {
-      "type": "integer"
-    },
-    "products": {
-      "collection": "product",
-      "via": "promotions",
-      "dominant": true
-    },
     "promotion_types": {
       "collection": "product-type"
-    },
-    "product_sizes": {
-      "collection": "product-size"
     },
     "packingings": {
       "collection": "packinging"
@@ -93,11 +78,19 @@
       "required": false,
       "pluginOptions": {}
     },
-    "DIscount": {
-      "type": "decimal"
-    },
-    "Description": {
+    "description": {
       "type": "text"
+    },
+    "discount_type": {
+      "type": "string"
+    },
+    "product_size_price": {
+      "via": "promotions",
+      "collection": "product-size"
+    },
+    "promotion_details": {
+      "via": "promotions",
+      "collection": "promotion-detail"
     }
   }
 }

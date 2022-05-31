@@ -542,8 +542,108 @@
             "type": "boolean",
             "default": true
           },
-          "Price": {
+          "price": {
             "type": "number"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "promotions": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "offerimage": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "stores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "delivery_days": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_category": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packingings": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "OfferImage": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "OfferVIdeo": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "discount_type": {
+                  "type": "string"
+                },
+                "product_size_price": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "promotion_details": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -560,8 +660,20 @@
             "type": "boolean",
             "default": true
           },
-          "Price": {
+          "price": {
             "type": "number"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "promotions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

@@ -516,7 +516,8 @@
     "schemas": {
       "Address": {
         "required": [
-          "id"
+          "id",
+          "streetaddress"
         ],
         "properties": {
           "id": {
@@ -619,12 +620,6 @@
                 "isActive": {
                   "type": "boolean"
                 },
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -637,218 +632,100 @@
               }
             }
           },
-          "userName": {
+          "streetaddress": {
             "type": "string"
           },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email",
-              "FirstName",
-              "lastName",
-              "DOB",
-              "vendorCode"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "FirstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "DOB": {
-                "type": "string"
-              },
-              "ineracEmail": {
-                "type": "string"
-              },
-              "deliveryRadius": {
-                "type": "string"
-              },
-              "secondaryContactsName": {
-                "type": "string"
-              },
-              "secondaryContactsPhone": {
-                "type": "string"
-              },
-              "secondaryContactsEmail": {
-                "type": "string"
-              },
-              "vendorCode": {
-                "type": "uid"
-              },
-              "userImage": {
-                "type": "string"
-              },
-              "documentsRequired": {
-                "type": "boolean"
-              },
-              "user_types": {
-                "type": "array",
-                "items": {
+          "userAddresses": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email",
+                "FirstName",
+                "lastName",
+                "DOB",
+                "vendorCode"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "FirstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "DOB": {
+                  "type": "string"
+                },
+                "ineracEmail": {
+                  "type": "string"
+                },
+                "vendorCode": {
+                  "type": "uid"
+                },
+                "userImage": {
+                  "type": "string"
+                },
+                "documentsRequired": {
+                  "type": "boolean"
+                },
+                "user_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "store": {
+                  "type": "string"
+                },
+                "orders": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "addresses": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "store": {
-                "type": "string"
-              },
-              "orders": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "addressTypes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "address": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "userAddress": {
-            "required": [
-              "id",
-              "username",
-              "email",
-              "FirstName",
-              "lastName",
-              "DOB",
-              "vendorCode"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "FirstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "DOB": {
-                "type": "string"
-              },
-              "ineracEmail": {
-                "type": "string"
-              },
-              "deliveryRadius": {
-                "type": "string"
-              },
-              "secondaryContactsName": {
-                "type": "string"
-              },
-              "secondaryContactsPhone": {
-                "type": "string"
-              },
-              "secondaryContactsEmail": {
-                "type": "string"
-              },
-              "vendorCode": {
-                "type": "uid"
-              },
-              "userImage": {
-                "type": "string"
-              },
-              "documentsRequired": {
-                "type": "boolean"
-              },
-              "user_types": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "store": {
-                "type": "string"
-              },
-              "orders": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "addressTypes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "address": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -859,6 +736,9 @@
         }
       },
       "NewAddress": {
+        "required": [
+          "streetaddress"
+        ],
         "properties": {
           "city": {
             "type": "string"
@@ -875,14 +755,14 @@
               "type": "string"
             }
           },
-          "userName": {
+          "streetaddress": {
             "type": "string"
           },
-          "user": {
-            "type": "string"
-          },
-          "userAddress": {
-            "type": "string"
+          "userAddresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

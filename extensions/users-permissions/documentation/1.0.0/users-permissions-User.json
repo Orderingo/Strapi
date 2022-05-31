@@ -1267,18 +1267,6 @@
           "ineracEmail": {
             "type": "string"
           },
-          "deliveryRadius": {
-            "type": "string"
-          },
-          "secondaryContactsName": {
-            "type": "string"
-          },
-          "secondaryContactsPhone": {
-            "type": "string"
-          },
-          "secondaryContactsEmail": {
-            "type": "string"
-          },
           "vendorCode": {
             "type": "uid",
             "maxLength": 15,
@@ -1397,7 +1385,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "delivers": {
+              "delivers_area": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -1436,12 +1424,6 @@
                   "type": "string"
                 }
               },
-              "offers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "orders": {
                 "type": "array",
                 "items": {
@@ -1467,9 +1449,6 @@
                 "type": "string"
               },
               "StoreClose": {
-                "type": "string"
-              },
-              "promotion": {
                 "type": "string"
               },
               "promotions": {
@@ -1562,23 +1541,36 @@
               }
             }
           },
-          "addressTypes": {
+          "addresses": {
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "streetaddress"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "name": {
+                "city": {
                   "type": "string"
                 },
-                "isActive": {
-                  "type": "boolean"
+                "state": {
+                  "type": "string"
                 },
-                "users": {
+                "country": {
+                  "type": "string"
+                },
+                "address_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "streetaddress": {
+                  "type": "string"
+                },
+                "userAddresses": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1593,49 +1585,6 @@
                 "updated_by": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "address": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "city": {
-                "type": "string"
-              },
-              "state": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "address_types": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "userName": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              },
-              "userAddress": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           }
@@ -1696,18 +1645,6 @@
           "ineracEmail": {
             "type": "string"
           },
-          "deliveryRadius": {
-            "type": "string"
-          },
-          "secondaryContactsName": {
-            "type": "string"
-          },
-          "secondaryContactsPhone": {
-            "type": "string"
-          },
-          "secondaryContactsEmail": {
-            "type": "string"
-          },
           "vendorCode": {
             "type": "uid",
             "maxLength": 15,
@@ -1732,14 +1669,11 @@
               "type": "string"
             }
           },
-          "addressTypes": {
+          "addresses": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "address": {
-            "type": "string"
           },
           "created_by": {
             "type": "string"

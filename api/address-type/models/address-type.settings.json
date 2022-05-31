@@ -16,11 +16,6 @@
     },
     "isActive": {
       "type": "boolean"
-    },
-    "users": {
-      "via": "addressTypes",
-      "plugin": "users-permissions",
-      "collection": "user"
     }
   }
 }

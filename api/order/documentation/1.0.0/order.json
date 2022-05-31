@@ -536,7 +536,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "delivers": {
+              "delivers_area": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -575,12 +575,6 @@
                   "type": "string"
                 }
               },
-              "offers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "orders": {
                 "type": "array",
                 "items": {
@@ -606,9 +600,6 @@
                 "type": "string"
               },
               "StoreClose": {
-                "type": "string"
-              },
-              "promotion": {
                 "type": "string"
               },
               "promotions": {
@@ -698,18 +689,6 @@
                 "ineracEmail": {
                   "type": "string"
                 },
-                "deliveryRadius": {
-                  "type": "string"
-                },
-                "secondaryContactsName": {
-                  "type": "string"
-                },
-                "secondaryContactsPhone": {
-                  "type": "string"
-                },
-                "secondaryContactsEmail": {
-                  "type": "string"
-                },
                 "vendorCode": {
                   "type": "uid"
                 },
@@ -734,14 +713,11 @@
                     "type": "string"
                   }
                 },
-                "addressTypes": {
+                "addresses": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
-                },
-                "address": {
-                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -844,12 +820,6 @@
                 },
                 "isActive": {
                   "type": "boolean"
-                },
-                "offers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "isOffer": {
                   "type": "boolean"

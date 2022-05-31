@@ -540,58 +540,6 @@
             "type": "boolean",
             "default": true
           },
-          "offers": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "OfferName": {
-                  "type": "string"
-                },
-                "Description": {
-                  "type": "string"
-                },
-                "store": {
-                  "type": "string"
-                },
-                "Price": {
-                  "type": "number"
-                },
-                "OfferImage": {
-                  "type": "string"
-                },
-                "OfferImage1": {
-                  "type": "string"
-                },
-                "IsActive": {
-                  "type": "boolean"
-                },
-                "offer_details": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "order_detail": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "isOffer": {
             "type": "boolean",
             "default": false
@@ -704,12 +652,6 @@
                 "createdBy": {
                   "type": "string"
                 },
-                "offerDetails": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "orderDetail": {
                   "type": "string"
                 },
@@ -755,12 +697,6 @@
                     "type": "string"
                   }
                 },
-                "promotions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -787,12 +723,6 @@
           "isActive": {
             "type": "boolean",
             "default": true
-          },
-          "offers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "isOffer": {
             "type": "boolean",

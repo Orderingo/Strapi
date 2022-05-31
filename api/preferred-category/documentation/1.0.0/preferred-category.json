@@ -555,7 +555,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "delivers": {
+              "delivers_area": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -594,12 +594,6 @@
                   "type": "string"
                 }
               },
-              "offers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "orders": {
                 "type": "array",
                 "items": {
@@ -625,9 +619,6 @@
                 "type": "string"
               },
               "StoreClose": {
-                "type": "string"
-              },
-              "promotion": {
                 "type": "string"
               },
               "promotions": {
@@ -709,12 +700,6 @@
                 "createdBy": {
                   "type": "string"
                 },
-                "offerDetails": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "orderDetail": {
                   "type": "string"
                 },
@@ -755,12 +740,6 @@
                   }
                 },
                 "delivery_days": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "promotions": {
                   "type": "array",
                   "items": {
                     "type": "string"

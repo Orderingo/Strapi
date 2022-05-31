@@ -18,7 +18,7 @@
       "default": true
     },
     "stores": {
-      "via": "delivers",
+      "via": "delivers_area",
       "collection": "store"
     }
   }

@@ -46,10 +46,6 @@
     "createdBy": {
       "type": "string"
     },
-    "offerDetails": {
-      "collection": "offer-detail",
-      "via": "products"
-    },
     "orderDetail": {
       "model": "order-detail",
       "via": "products"
@@ -77,10 +73,6 @@
     },
     "delivery_days": {
       "collection": "delivery-days"
-    },
-    "promotions": {
-      "via": "products",
-      "collection": "promotions"
     }
   }
 }

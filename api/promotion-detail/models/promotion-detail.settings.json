@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotion_details",
+  "info": {
+    "name": "Promotion Detail",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "free_product": {
+      "type": "boolean"
+    },
+    "promotions": {
+      "collection": "promotions",
+      "via": "promotion_details",
+      "dominant": true
+    },
+    "products": {
+      "collection": "product"
+    },
+    "product_name": {
+      "type": "string"
+    }
+  }
+}

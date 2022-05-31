@@ -560,7 +560,7 @@
                 "users_permissions_user": {
                   "type": "string"
                 },
-                "delivers": {
+                "delivers_area": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -599,12 +599,6 @@
                     "type": "string"
                   }
                 },
-                "offers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "orders": {
                   "type": "array",
                   "items": {
@@ -630,9 +624,6 @@
                   "type": "string"
                 },
                 "StoreClose": {
-                  "type": "string"
-                },
-                "promotion": {
                   "type": "string"
                 },
                 "promotions": {
@@ -742,7 +733,7 @@
                 "id": {
                   "type": "string"
                 },
-                "Name": {
+                "name": {
                   "type": "string"
                 },
                 "offerimage": {
@@ -766,25 +757,7 @@
                 "product_category": {
                   "type": "string"
                 },
-                "store": {
-                  "type": "string"
-                },
-                "Price": {
-                  "type": "integer"
-                },
-                "products": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "promotion_types": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "product_sizes": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -814,11 +787,23 @@
                     "type": "string"
                   }
                 },
-                "DIscount": {
-                  "type": "number"
-                },
-                "Description": {
+                "description": {
                   "type": "string"
+                },
+                "discount_type": {
+                  "type": "string"
+                },
+                "product_size_price": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "promotion_details": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"

@@ -522,7 +522,7 @@
           "id": {
             "type": "string"
           },
-          "Name": {
+          "name": {
             "type": "string"
           },
           "offerimage": {
@@ -612,7 +612,7 @@
                 "users_permissions_user": {
                   "type": "string"
                 },
-                "delivers": {
+                "delivers_area": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -651,12 +651,6 @@
                     "type": "string"
                   }
                 },
-                "offers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "orders": {
                   "type": "array",
                   "items": {
@@ -682,9 +676,6 @@
                   "type": "string"
                 },
                 "StoreClose": {
-                  "type": "string"
-                },
-                "promotion": {
                   "type": "string"
                 },
                 "promotions": {
@@ -830,246 +821,6 @@
               }
             }
           },
-          "store": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "StoreName": {
-                "type": "string"
-              },
-              "users_permissions_user": {
-                "type": "string"
-              },
-              "delivers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "preferred_categories": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "menu_categories": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "reviews": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "Image": {
-                "type": "string"
-              },
-              "products": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "deliver_types": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "offers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "orders": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "self_delivery": {
-                "type": "boolean"
-              },
-              "delivery_days": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "longitude": {
-                "type": "number"
-              },
-              "Latitude": {
-                "type": "number"
-              },
-              "Storeopen": {
-                "type": "string"
-              },
-              "StoreClose": {
-                "type": "string"
-              },
-              "promotion": {
-                "type": "string"
-              },
-              "promotions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "allergen": {
-                "type": "string"
-              },
-              "promotion_types": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "product_properties": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "Price": {
-            "type": "integer"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "Price"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "productName": {
-                  "type": "string"
-                },
-                "stores": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "productCategories": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "Price": {
-                  "type": "number"
-                },
-                "preferredCategories": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "createdDate": {
-                  "type": "string"
-                },
-                "createdBy": {
-                  "type": "string"
-                },
-                "offerDetails": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "orderDetail": {
-                  "type": "string"
-                },
-                "itemCode": {
-                  "type": "string"
-                },
-                "productProperty1": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "productProperty2": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "productProperty3": {
-                  "type": "string"
-                },
-                "productProperty4": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "productProperty5": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "productImages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "delivery_days": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "promotions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "promotion_types": {
             "type": "array",
             "items": {
@@ -1088,37 +839,6 @@
                 },
                 "store": {
                   "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "product_sizes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "Price": {
-                  "type": "number"
                 },
                 "published_at": {
                   "type": "string"
@@ -1334,11 +1054,94 @@
               }
             }
           },
-          "DIscount": {
-            "type": "number"
-          },
-          "Description": {
+          "description": {
             "type": "string"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "product_size_price": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "discount_type": {
+                  "type": "string"
+                },
+                "discount": {
+                  "type": "number"
+                },
+                "promotions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "promotion_details": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "free_product": {
+                  "type": "boolean"
+                },
+                "promotions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_name": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -1348,7 +1151,7 @@
       },
       "NewPromotions": {
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
           "isActive": {
@@ -1370,25 +1173,7 @@
           "product_category": {
             "type": "string"
           },
-          "store": {
-            "type": "string"
-          },
-          "Price": {
-            "type": "integer"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "promotion_types": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "product_sizes": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1406,11 +1191,23 @@
               "type": "string"
             }
           },
-          "DIscount": {
-            "type": "number"
-          },
-          "Description": {
+          "description": {
             "type": "string"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "product_size_price": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "promotion_details": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

@@ -74,18 +74,6 @@
     "ineracEmail": {
       "type": "string"
     },
-    "deliveryRadius": {
-      "type": "string"
-    },
-    "secondaryContactsName": {
-      "type": "string"
-    },
-    "secondaryContactsPhone": {
-      "type": "string"
-    },
-    "secondaryContactsEmail": {
-      "type": "string"
-    },
     "vendorCode": {
       "type": "uid",
       "required": true,
@@ -119,14 +107,10 @@
       "via": "users_permissions_users",
       "collection": "order"
     },
-    "addressTypes": {
-      "collection": "address-type",
-      "via": "users",
+    "addresses": {
+      "via": "userAddresses",
+      "collection": "address",
       "dominant": true
-    },
-    "address": {
-      "model": "address",
-      "via": "userAddress"
     }
   }
 }

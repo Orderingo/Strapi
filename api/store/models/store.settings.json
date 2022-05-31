@@ -19,7 +19,7 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "delivers": {
+    "delivers_area": {
       "collection": "delivers",
       "via": "stores",
       "dominant": true
@@ -57,10 +57,6 @@
       "via": "stores",
       "collection": "deliver-type"
     },
-    "offers": {
-      "via": "store",
-      "collection": "offer"
-    },
     "orders": {
       "via": "store",
       "collection": "order"
@@ -85,10 +81,6 @@
     },
     "StoreClose": {
       "type": "time"
-    },
-    "promotion": {
-      "via": "store",
-      "model": "promotions"
     },
     "promotions": {
       "via": "stores",

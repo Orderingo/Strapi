@@ -48,7 +48,6 @@ type AddressType {
   name: String
   isActive: Boolean
   published_at: DateTime
-  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
 
 type AddressTypeConnection {
@@ -104,7 +103,6 @@ type AddressTypeConnectionPublished_at {
 input AddressTypeInput {
   name: String
   isActive: Boolean
-  users: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -113,7 +111,6 @@ input AddressTypeInput {
 input editAddressTypeInput {
   name: String
   isActive: Boolean
-  users: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -151,11 +148,10 @@ type Address {
   city: City
   state: State
   country: Country
-  userName: String
-  user: UsersPermissionsUser
-  userAddress: UsersPermissionsUser
+  streetaddress: String!
   published_at: DateTime
   address_types(sort: String, limit: Int, start: Int, where: JSON): [AddressType]
+  userAddresses(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
 
 type AddressConnection {
@@ -176,9 +172,7 @@ type AddressGroupBy {
   city: [AddressConnectionCity]
   state: [AddressConnectionState]
   country: [AddressConnectionCountry]
-  userName: [AddressConnectionUserName]
-  user: [AddressConnectionUser]
-  userAddress: [AddressConnectionUserAddress]
+  streetaddress: [AddressConnectionStreetaddress]
   published_at: [AddressConnectionPublished_at]
 }
 
@@ -212,18 +206,8 @@ type AddressConnectionCountry {
   connection: AddressConnection
 }
 
-type AddressConnectionUserName {
+type AddressConnectionStreetaddress {
   key: String
-  connection: AddressConnection
-}
-
-type AddressConnectionUser {
-  key: ID
-  connection: AddressConnection
-}
-
-type AddressConnectionUserAddress {
-  key: ID
   connection: AddressConnection
 }
 
@@ -237,9 +221,8 @@ input AddressInput {
   state: ID
   country: ID
   address_types: [ID]
-  userName: String
-  user: ID
-  userAddress: ID
+  streetaddress: String!
+  userAddresses: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -250,9 +233,8 @@ input editAddressInput {
   state: ID
   country: ID
   address_types: [ID]
-  userName: String
-  user: ID
-  userAddress: ID
+  streetaddress: String
+  userAddresses: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -281,97 +263,6 @@ input deleteAddressInput {
 
 type deleteAddressPayload {
   address: Address
-}
-
-type Allergen {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  allergen: String
-  published_at: DateTime
-}
-
-type AllergenConnection {
-  values: [Allergen]
-  groupBy: AllergenGroupBy
-  aggregate: AllergenAggregator
-}
-
-type AllergenAggregator {
-  count: Int
-  totalCount: Int
-}
-
-type AllergenGroupBy {
-  id: [AllergenConnectionId]
-  created_at: [AllergenConnectionCreated_at]
-  updated_at: [AllergenConnectionUpdated_at]
-  allergen: [AllergenConnectionAllergen]
-  published_at: [AllergenConnectionPublished_at]
-}
-
-type AllergenConnectionId {
-  key: ID
-  connection: AllergenConnection
-}
-
-type AllergenConnectionCreated_at {
-  key: DateTime
-  connection: AllergenConnection
-}
-
-type AllergenConnectionUpdated_at {
-  key: DateTime
-  connection: AllergenConnection
-}
-
-type AllergenConnectionAllergen {
-  key: String
-  connection: AllergenConnection
-}
-
-type AllergenConnectionPublished_at {
-  key: DateTime
-  connection: AllergenConnection
-}
-
-input AllergenInput {
-  allergen: String
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editAllergenInput {
-  allergen: String
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createAllergenInput {
-  data: AllergenInput
-}
-
-type createAllergenPayload {
-  allergen: Allergen
-}
-
-input updateAllergenInput {
-  where: InputID
-  data: editAllergenInput
-}
-
-type updateAllergenPayload {
-  allergen: Allergen
-}
-
-input deleteAllergenInput {
-  where: InputID
-}
-
-type deleteAllergenPayload {
-  allergen: Allergen
 }
 
 type City {
@@ -1035,106 +926,6 @@ type deleteDeliveryDayPayload {
   deliveryDay: DeliveryDays
 }
 
-type Des {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  bar: String
-  isactive: Boolean
-  published_at: DateTime
-}
-
-type DesConnection {
-  values: [Des]
-  groupBy: DesGroupBy
-  aggregate: DesAggregator
-}
-
-type DesAggregator {
-  count: Int
-  totalCount: Int
-}
-
-type DesGroupBy {
-  id: [DesConnectionId]
-  created_at: [DesConnectionCreated_at]
-  updated_at: [DesConnectionUpdated_at]
-  bar: [DesConnectionBar]
-  isactive: [DesConnectionIsactive]
-  published_at: [DesConnectionPublished_at]
-}
-
-type DesConnectionId {
-  key: ID
-  connection: DesConnection
-}
-
-type DesConnectionCreated_at {
-  key: DateTime
-  connection: DesConnection
-}
-
-type DesConnectionUpdated_at {
-  key: DateTime
-  connection: DesConnection
-}
-
-type DesConnectionBar {
-  key: String
-  connection: DesConnection
-}
-
-type DesConnectionIsactive {
-  key: Boolean
-  connection: DesConnection
-}
-
-type DesConnectionPublished_at {
-  key: DateTime
-  connection: DesConnection
-}
-
-input DeInput {
-  bar: String
-  isactive: Boolean
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editDeInput {
-  bar: String
-  isactive: Boolean
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createDeInput {
-  data: DeInput
-}
-
-type createDePayload {
-  de: Des
-}
-
-input updateDeInput {
-  where: InputID
-  data: editDeInput
-}
-
-type updateDePayload {
-  de: Des
-}
-
-input deleteDeInput {
-  where: InputID
-}
-
-type deleteDePayload {
-  de: Des
-}
-
 type MenuCategory {
   id: ID!
   created_at: DateTime!
@@ -1307,313 +1098,6 @@ type deleteMenuCategoryPayload {
   menuCategory: MenuCategory
 }
 
-type OfferDetail {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  Price: Float
-  Discount: Float
-  published_at: DateTime
-  offers(sort: String, limit: Int, start: Int, where: JSON): [Offer]
-  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
-}
-
-type OfferDetailConnection {
-  values: [OfferDetail]
-  groupBy: OfferDetailGroupBy
-  aggregate: OfferDetailAggregator
-}
-
-type OfferDetailAggregator {
-  count: Int
-  totalCount: Int
-  sum: OfferDetailAggregatorSum
-  avg: OfferDetailAggregatorAvg
-  min: OfferDetailAggregatorMin
-  max: OfferDetailAggregatorMax
-}
-
-type OfferDetailAggregatorSum {
-  Price: Float
-  Discount: Float
-}
-
-type OfferDetailAggregatorAvg {
-  Price: Float
-  Discount: Float
-}
-
-type OfferDetailAggregatorMin {
-  Price: Float
-  Discount: Float
-}
-
-type OfferDetailAggregatorMax {
-  Price: Float
-  Discount: Float
-}
-
-type OfferDetailGroupBy {
-  id: [OfferDetailConnectionId]
-  created_at: [OfferDetailConnectionCreated_at]
-  updated_at: [OfferDetailConnectionUpdated_at]
-  Price: [OfferDetailConnectionPrice]
-  Discount: [OfferDetailConnectionDiscount]
-  published_at: [OfferDetailConnectionPublished_at]
-}
-
-type OfferDetailConnectionId {
-  key: ID
-  connection: OfferDetailConnection
-}
-
-type OfferDetailConnectionCreated_at {
-  key: DateTime
-  connection: OfferDetailConnection
-}
-
-type OfferDetailConnectionUpdated_at {
-  key: DateTime
-  connection: OfferDetailConnection
-}
-
-type OfferDetailConnectionPrice {
-  key: Float
-  connection: OfferDetailConnection
-}
-
-type OfferDetailConnectionDiscount {
-  key: Float
-  connection: OfferDetailConnection
-}
-
-type OfferDetailConnectionPublished_at {
-  key: DateTime
-  connection: OfferDetailConnection
-}
-
-input OfferDetailInput {
-  offers: [ID]
-  Price: Float
-  Discount: Float
-  products: [ID]
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editOfferDetailInput {
-  offers: [ID]
-  Price: Float
-  Discount: Float
-  products: [ID]
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createOfferDetailInput {
-  data: OfferDetailInput
-}
-
-type createOfferDetailPayload {
-  offerDetail: OfferDetail
-}
-
-input updateOfferDetailInput {
-  where: InputID
-  data: editOfferDetailInput
-}
-
-type updateOfferDetailPayload {
-  offerDetail: OfferDetail
-}
-
-input deleteOfferDetailInput {
-  where: InputID
-}
-
-type deleteOfferDetailPayload {
-  offerDetail: OfferDetail
-}
-
-type Offer {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  OfferName: String
-  Description: String
-  store: Store
-  Price: Float
-  OfferImage: UploadFile
-  OfferImage1: UploadFile
-  IsActive: Boolean
-  order_detail: OrderDetail
-  published_at: DateTime
-  offer_details(sort: String, limit: Int, start: Int, where: JSON): [OfferDetail]
-}
-
-type OfferConnection {
-  values: [Offer]
-  groupBy: OfferGroupBy
-  aggregate: OfferAggregator
-}
-
-type OfferAggregator {
-  count: Int
-  totalCount: Int
-  sum: OfferAggregatorSum
-  avg: OfferAggregatorAvg
-  min: OfferAggregatorMin
-  max: OfferAggregatorMax
-}
-
-type OfferAggregatorSum {
-  Price: Float
-}
-
-type OfferAggregatorAvg {
-  Price: Float
-}
-
-type OfferAggregatorMin {
-  Price: Float
-}
-
-type OfferAggregatorMax {
-  Price: Float
-}
-
-type OfferGroupBy {
-  id: [OfferConnectionId]
-  created_at: [OfferConnectionCreated_at]
-  updated_at: [OfferConnectionUpdated_at]
-  OfferName: [OfferConnectionOfferName]
-  Description: [OfferConnectionDescription]
-  store: [OfferConnectionStore]
-  Price: [OfferConnectionPrice]
-  OfferImage: [OfferConnectionOfferImage]
-  OfferImage1: [OfferConnectionOfferImage1]
-  IsActive: [OfferConnectionIsActive]
-  order_detail: [OfferConnectionOrder_detail]
-  published_at: [OfferConnectionPublished_at]
-}
-
-type OfferConnectionId {
-  key: ID
-  connection: OfferConnection
-}
-
-type OfferConnectionCreated_at {
-  key: DateTime
-  connection: OfferConnection
-}
-
-type OfferConnectionUpdated_at {
-  key: DateTime
-  connection: OfferConnection
-}
-
-type OfferConnectionOfferName {
-  key: String
-  connection: OfferConnection
-}
-
-type OfferConnectionDescription {
-  key: String
-  connection: OfferConnection
-}
-
-type OfferConnectionStore {
-  key: ID
-  connection: OfferConnection
-}
-
-type OfferConnectionPrice {
-  key: Float
-  connection: OfferConnection
-}
-
-type OfferConnectionOfferImage {
-  key: ID
-  connection: OfferConnection
-}
-
-type OfferConnectionOfferImage1 {
-  key: ID
-  connection: OfferConnection
-}
-
-type OfferConnectionIsActive {
-  key: Boolean
-  connection: OfferConnection
-}
-
-type OfferConnectionOrder_detail {
-  key: ID
-  connection: OfferConnection
-}
-
-type OfferConnectionPublished_at {
-  key: DateTime
-  connection: OfferConnection
-}
-
-input OfferInput {
-  OfferName: String
-  Description: String
-  store: ID
-  Price: Float
-  OfferImage: ID
-  OfferImage1: ID
-  IsActive: Boolean
-  offer_details: [ID]
-  order_detail: ID
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editOfferInput {
-  OfferName: String
-  Description: String
-  store: ID
-  Price: Float
-  OfferImage: ID
-  OfferImage1: ID
-  IsActive: Boolean
-  offer_details: [ID]
-  order_detail: ID
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createOfferInput {
-  data: OfferInput
-}
-
-type createOfferPayload {
-  offer: Offer
-}
-
-input updateOfferInput {
-  where: InputID
-  data: editOfferInput
-}
-
-type updateOfferPayload {
-  offer: Offer
-}
-
-input deleteOfferInput {
-  where: InputID
-}
-
-type deleteOfferPayload {
-  offer: Offer
-}
-
 type OrderDetail {
   id: ID!
   created_at: DateTime!
@@ -1622,7 +1106,6 @@ type OrderDetail {
   isOffer: Boolean
   Amount: String!
   published_at: DateTime
-  offers(sort: String, limit: Int, start: Int, where: JSON): [Offer]
   orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
   products(sort: String, limit: Int, start: Int, where: JSON): [Product]
 }
@@ -1685,7 +1168,6 @@ type OrderDetailConnectionPublished_at {
 
 input OrderDetailInput {
   isActive: Boolean
-  offers: [ID]
   isOffer: Boolean
   Amount: String!
   orders: [ID]
@@ -1697,7 +1179,6 @@ input OrderDetailInput {
 
 input editOrderDetailInput {
   isActive: Boolean
-  offers: [ID]
   isOffer: Boolean
   Amount: String
   orders: [ID]
@@ -2231,132 +1712,6 @@ type deletePreferredCategoryPayload {
   preferredCategory: PreferredCategory
 }
 
-type ProductDetail {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  Name: String
-  Price: Float
-  published_at: DateTime
-  product_sizes(sort: String, limit: Int, start: Int, where: JSON): [ProductSize]
-  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
-}
-
-type ProductDetailConnection {
-  values: [ProductDetail]
-  groupBy: ProductDetailGroupBy
-  aggregate: ProductDetailAggregator
-}
-
-type ProductDetailAggregator {
-  count: Int
-  totalCount: Int
-  sum: ProductDetailAggregatorSum
-  avg: ProductDetailAggregatorAvg
-  min: ProductDetailAggregatorMin
-  max: ProductDetailAggregatorMax
-}
-
-type ProductDetailAggregatorSum {
-  Price: Float
-}
-
-type ProductDetailAggregatorAvg {
-  Price: Float
-}
-
-type ProductDetailAggregatorMin {
-  Price: Float
-}
-
-type ProductDetailAggregatorMax {
-  Price: Float
-}
-
-type ProductDetailGroupBy {
-  id: [ProductDetailConnectionId]
-  created_at: [ProductDetailConnectionCreated_at]
-  updated_at: [ProductDetailConnectionUpdated_at]
-  Name: [ProductDetailConnectionName]
-  Price: [ProductDetailConnectionPrice]
-  published_at: [ProductDetailConnectionPublished_at]
-}
-
-type ProductDetailConnectionId {
-  key: ID
-  connection: ProductDetailConnection
-}
-
-type ProductDetailConnectionCreated_at {
-  key: DateTime
-  connection: ProductDetailConnection
-}
-
-type ProductDetailConnectionUpdated_at {
-  key: DateTime
-  connection: ProductDetailConnection
-}
-
-type ProductDetailConnectionName {
-  key: String
-  connection: ProductDetailConnection
-}
-
-type ProductDetailConnectionPrice {
-  key: Float
-  connection: ProductDetailConnection
-}
-
-type ProductDetailConnectionPublished_at {
-  key: DateTime
-  connection: ProductDetailConnection
-}
-
-input ProductDetailInput {
-  Name: String
-  Price: Float
-  product_sizes: [ID]
-  products: [ID]
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editProductDetailInput {
-  Name: String
-  Price: Float
-  product_sizes: [ID]
-  products: [ID]
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createProductDetailInput {
-  data: ProductDetailInput
-}
-
-type createProductDetailPayload {
-  productDetail: ProductDetail
-}
-
-input updateProductDetailInput {
-  where: InputID
-  data: editProductDetailInput
-}
-
-type updateProductDetailPayload {
-  productDetail: ProductDetail
-}
-
-input deleteProductDetailInput {
-  where: InputID
-}
-
-type deleteProductDetailPayload {
-  productDetail: ProductDetail
-}
-
 type ProductImage {
   id: ID!
   created_at: DateTime!
@@ -2584,8 +1939,11 @@ type ProductSize {
   updated_at: DateTime!
   name: String
   isActive: Boolean
-  Price: Float
+  price: Float
+  discount_type: String
+  discount: Float
   published_at: DateTime
+  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
 }
 
 type ProductSizeConnection {
@@ -2604,19 +1962,23 @@ type ProductSizeAggregator {
 }
 
 type ProductSizeAggregatorSum {
-  Price: Float
+  price: Float
+  discount: Float
 }
 
 type ProductSizeAggregatorAvg {
-  Price: Float
+  price: Float
+  discount: Float
 }
 
 type ProductSizeAggregatorMin {
-  Price: Float
+  price: Float
+  discount: Float
 }
 
 type ProductSizeAggregatorMax {
-  Price: Float
+  price: Float
+  discount: Float
 }
 
 type ProductSizeGroupBy {
@@ -2625,7 +1987,9 @@ type ProductSizeGroupBy {
   updated_at: [ProductSizeConnectionUpdated_at]
   name: [ProductSizeConnectionName]
   isActive: [ProductSizeConnectionIsActive]
-  Price: [ProductSizeConnectionPrice]
+  price: [ProductSizeConnectionPrice]
+  discount_type: [ProductSizeConnectionDiscount_type]
+  discount: [ProductSizeConnectionDiscount]
   published_at: [ProductSizeConnectionPublished_at]
 }
 
@@ -2659,6 +2023,16 @@ type ProductSizeConnectionPrice {
   connection: ProductSizeConnection
 }
 
+type ProductSizeConnectionDiscount_type {
+  key: String
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionDiscount {
+  key: Float
+  connection: ProductSizeConnection
+}
+
 type ProductSizeConnectionPublished_at {
   key: DateTime
   connection: ProductSizeConnection
@@ -2667,7 +2041,10 @@ type ProductSizeConnectionPublished_at {
 input ProductSizeInput {
   name: String
   isActive: Boolean
-  Price: Float
+  price: Float
+  discount_type: String
+  discount: Float
+  promotions: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -2676,7 +2053,10 @@ input ProductSizeInput {
 input editProductSizeInput {
   name: String
   isActive: Boolean
-  Price: Float
+  price: Float
+  discount_type: String
+  discount: Float
+  promotions: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -2833,14 +2213,12 @@ type Product {
   stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
   productCategories(sort: String, limit: Int, start: Int, where: JSON): [MenuCategory]
   preferredCategories(sort: String, limit: Int, start: Int, where: JSON): [PreferredCategory]
-  offerDetails(sort: String, limit: Int, start: Int, where: JSON): [OfferDetail]
   productProperty1(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
   productProperty2(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
   productProperty4(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
   productProperty5(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
   productImages(sort: String, limit: Int, start: Int, where: JSON): [ProductImage]
   delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
-  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
 }
 
 type ProductConnection {
@@ -2965,7 +2343,6 @@ input ProductInput {
   preferredCategories: [ID]
   createdDate: DateTime
   createdBy: String
-  offerDetails: [ID]
   orderDetail: ID
   itemCode: String
   productProperty1: [ID]
@@ -2975,7 +2352,6 @@ input ProductInput {
   productProperty5: [ID]
   productImages: [ID]
   delivery_days: [ID]
-  promotions: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -2991,7 +2367,6 @@ input editProductInput {
   preferredCategories: [ID]
   createdDate: DateTime
   createdBy: String
-  offerDetails: [ID]
   orderDetail: ID
   itemCode: String
   productProperty1: [ID]
@@ -3001,7 +2376,6 @@ input editProductInput {
   productProperty5: [ID]
   productImages: [ID]
   delivery_days: [ID]
-  promotions: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -3032,28 +2406,132 @@ type deleteProductPayload {
   product: Product
 }
 
+type PromotionDetail {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  free_product: Boolean
+  product_name: String
+  published_at: DateTime
+  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+}
+
+type PromotionDetailConnection {
+  values: [PromotionDetail]
+  groupBy: PromotionDetailGroupBy
+  aggregate: PromotionDetailAggregator
+}
+
+type PromotionDetailAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type PromotionDetailGroupBy {
+  id: [PromotionDetailConnectionId]
+  created_at: [PromotionDetailConnectionCreated_at]
+  updated_at: [PromotionDetailConnectionUpdated_at]
+  free_product: [PromotionDetailConnectionFree_product]
+  product_name: [PromotionDetailConnectionProduct_name]
+  published_at: [PromotionDetailConnectionPublished_at]
+}
+
+type PromotionDetailConnectionId {
+  key: ID
+  connection: PromotionDetailConnection
+}
+
+type PromotionDetailConnectionCreated_at {
+  key: DateTime
+  connection: PromotionDetailConnection
+}
+
+type PromotionDetailConnectionUpdated_at {
+  key: DateTime
+  connection: PromotionDetailConnection
+}
+
+type PromotionDetailConnectionFree_product {
+  key: Boolean
+  connection: PromotionDetailConnection
+}
+
+type PromotionDetailConnectionProduct_name {
+  key: String
+  connection: PromotionDetailConnection
+}
+
+type PromotionDetailConnectionPublished_at {
+  key: DateTime
+  connection: PromotionDetailConnection
+}
+
+input PromotionDetailInput {
+  free_product: Boolean
+  promotions: [ID]
+  products: [ID]
+  product_name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPromotionDetailInput {
+  free_product: Boolean
+  promotions: [ID]
+  products: [ID]
+  product_name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPromotionDetailInput {
+  data: PromotionDetailInput
+}
+
+type createPromotionDetailPayload {
+  promotionDetail: PromotionDetail
+}
+
+input updatePromotionDetailInput {
+  where: InputID
+  data: editPromotionDetailInput
+}
+
+type updatePromotionDetailPayload {
+  promotionDetail: PromotionDetail
+}
+
+input deletePromotionDetailInput {
+  where: InputID
+}
+
+type deletePromotionDetailPayload {
+  promotionDetail: PromotionDetail
+}
+
 type Promotions {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Name: String
+  name: String
   offerimage: UploadFile
   isActive: Boolean
   product_category: MenuCategory
-  store: Store
-  Price: Int
-  DIscount: Float
-  Description: String
+  description: String
+  discount_type: String
   published_at: DateTime
   stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
   delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
-  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
   promotion_types(sort: String, limit: Int, start: Int, where: JSON): [ProductType]
-  product_sizes(sort: String, limit: Int, start: Int, where: JSON): [ProductSize]
   packingings(sort: String, limit: Int, start: Int, where: JSON): [Packinging]
   product_properties(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
   OfferImage(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   OfferVIdeo(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  product_size_price(sort: String, limit: Int, start: Int, where: JSON): [ProductSize]
+  promotion_details(sort: String, limit: Int, start: Int, where: JSON): [PromotionDetail]
 }
 
 type PromotionsConnection {
@@ -3065,44 +2543,18 @@ type PromotionsConnection {
 type PromotionsAggregator {
   count: Int
   totalCount: Int
-  sum: PromotionsAggregatorSum
-  avg: PromotionsAggregatorAvg
-  min: PromotionsAggregatorMin
-  max: PromotionsAggregatorMax
-}
-
-type PromotionsAggregatorSum {
-  Price: Float
-  DIscount: Float
-}
-
-type PromotionsAggregatorAvg {
-  Price: Float
-  DIscount: Float
-}
-
-type PromotionsAggregatorMin {
-  Price: Float
-  DIscount: Float
-}
-
-type PromotionsAggregatorMax {
-  Price: Float
-  DIscount: Float
 }
 
 type PromotionsGroupBy {
   id: [PromotionsConnectionId]
   created_at: [PromotionsConnectionCreated_at]
   updated_at: [PromotionsConnectionUpdated_at]
-  Name: [PromotionsConnectionName]
+  name: [PromotionsConnectionName]
   offerimage: [PromotionsConnectionOfferimage]
   isActive: [PromotionsConnectionIsActive]
   product_category: [PromotionsConnectionProduct_category]
-  store: [PromotionsConnectionStore]
-  Price: [PromotionsConnectionPrice]
-  DIscount: [PromotionsConnectionDIscount]
-  Description: [PromotionsConnectionDescription]
+  description: [PromotionsConnectionDescription]
+  discount_type: [PromotionsConnectionDiscount_type]
   published_at: [PromotionsConnectionPublished_at]
 }
 
@@ -3141,22 +2593,12 @@ type PromotionsConnectionProduct_category {
   connection: PromotionsConnection
 }
 
-type PromotionsConnectionStore {
-  key: ID
-  connection: PromotionsConnection
-}
-
-type PromotionsConnectionPrice {
-  key: Int
-  connection: PromotionsConnection
-}
-
-type PromotionsConnectionDIscount {
-  key: Float
-  connection: PromotionsConnection
-}
-
 type PromotionsConnectionDescription {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionDiscount_type {
   key: String
   connection: PromotionsConnection
 }
@@ -3167,46 +2609,42 @@ type PromotionsConnectionPublished_at {
 }
 
 input PromotionInput {
-  Name: String
+  name: String
   offerimage: ID
   isActive: Boolean
   stores: [ID]
   delivery_days: [ID]
   product_category: ID
-  store: ID
-  Price: Int
-  products: [ID]
   promotion_types: [ID]
-  product_sizes: [ID]
   packingings: [ID]
   product_properties: [ID]
   OfferImage: [ID]
   OfferVIdeo: [ID]
-  DIscount: Float
-  Description: String
+  description: String
+  discount_type: String
+  product_size_price: [ID]
+  promotion_details: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editPromotionInput {
-  Name: String
+  name: String
   offerimage: ID
   isActive: Boolean
   stores: [ID]
   delivery_days: [ID]
   product_category: ID
-  store: ID
-  Price: Int
-  products: [ID]
   promotion_types: [ID]
-  product_sizes: [ID]
   packingings: [ID]
   product_properties: [ID]
   OfferImage: [ID]
   OfferVIdeo: [ID]
-  DIscount: Float
-  Description: String
+  description: String
+  discount_type: String
+  product_size_price: [ID]
+  promotion_details: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -3594,16 +3032,14 @@ type Store {
   Latitude: Float
   Storeopen: Time
   StoreClose: Time
-  promotion: Promotions
   allergen: String
   published_at: DateTime
-  delivers(sort: String, limit: Int, start: Int, where: JSON): [Delivers]
+  delivers_area(sort: String, limit: Int, start: Int, where: JSON): [Delivers]
   preferred_categories(sort: String, limit: Int, start: Int, where: JSON): [PreferredCategory]
   menu_categories(sort: String, limit: Int, start: Int, where: JSON): [MenuCategory]
   reviews(sort: String, limit: Int, start: Int, where: JSON): [Reviews]
   products(sort: String, limit: Int, start: Int, where: JSON): [Product]
   deliver_types(sort: String, limit: Int, start: Int, where: JSON): [DeliverType]
-  offers(sort: String, limit: Int, start: Int, where: JSON): [Offer]
   orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
   delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
   promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
@@ -3658,7 +3094,6 @@ type StoreGroupBy {
   Latitude: [StoreConnectionLatitude]
   Storeopen: [StoreConnectionStoreopen]
   StoreClose: [StoreConnectionStoreClose]
-  promotion: [StoreConnectionPromotion]
   allergen: [StoreConnectionAllergen]
   published_at: [StoreConnectionPublished_at]
 }
@@ -3718,11 +3153,6 @@ type StoreConnectionStoreClose {
   connection: StoreConnection
 }
 
-type StoreConnectionPromotion {
-  key: ID
-  connection: StoreConnection
-}
-
 type StoreConnectionAllergen {
   key: String
   connection: StoreConnection
@@ -3736,14 +3166,13 @@ type StoreConnectionPublished_at {
 input StoreInput {
   StoreName: String
   users_permissions_user: ID
-  delivers: [ID]
+  delivers_area: [ID]
   preferred_categories: [ID]
   menu_categories: [ID]
   reviews: [ID]
   Image: ID
   products: [ID]
   deliver_types: [ID]
-  offers: [ID]
   orders: [ID]
   self_delivery: Boolean
   delivery_days: [ID]
@@ -3751,7 +3180,6 @@ input StoreInput {
   Latitude: Float
   Storeopen: Time
   StoreClose: Time
-  promotion: ID
   promotions: [ID]
   allergen: String
   promotion_types: [ID]
@@ -3764,14 +3192,13 @@ input StoreInput {
 input editStoreInput {
   StoreName: String
   users_permissions_user: ID
-  delivers: [ID]
+  delivers_area: [ID]
   preferred_categories: [ID]
   menu_categories: [ID]
   reviews: [ID]
   Image: ID
   products: [ID]
   deliver_types: [ID]
-  offers: [ID]
   orders: [ID]
   self_delivery: Boolean
   delivery_days: [ID]
@@ -3779,7 +3206,6 @@ input editStoreInput {
   Latitude: Float
   Storeopen: Time
   StoreClose: Time
-  promotion: ID
   promotions: [ID]
   allergen: String
   promotion_types: [ID]
@@ -3812,115 +3238,6 @@ input deleteStoreInput {
 
 type deleteStorePayload {
   store: Store
-}
-
-type SubType {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  Name: String
-  Type: String
-  isActive: Boolean
-  published_at: DateTime
-}
-
-type SubTypeConnection {
-  values: [SubType]
-  groupBy: SubTypeGroupBy
-  aggregate: SubTypeAggregator
-}
-
-type SubTypeAggregator {
-  count: Int
-  totalCount: Int
-}
-
-type SubTypeGroupBy {
-  id: [SubTypeConnectionId]
-  created_at: [SubTypeConnectionCreated_at]
-  updated_at: [SubTypeConnectionUpdated_at]
-  Name: [SubTypeConnectionName]
-  Type: [SubTypeConnectionType]
-  isActive: [SubTypeConnectionIsActive]
-  published_at: [SubTypeConnectionPublished_at]
-}
-
-type SubTypeConnectionId {
-  key: ID
-  connection: SubTypeConnection
-}
-
-type SubTypeConnectionCreated_at {
-  key: DateTime
-  connection: SubTypeConnection
-}
-
-type SubTypeConnectionUpdated_at {
-  key: DateTime
-  connection: SubTypeConnection
-}
-
-type SubTypeConnectionName {
-  key: String
-  connection: SubTypeConnection
-}
-
-type SubTypeConnectionType {
-  key: String
-  connection: SubTypeConnection
-}
-
-type SubTypeConnectionIsActive {
-  key: Boolean
-  connection: SubTypeConnection
-}
-
-type SubTypeConnectionPublished_at {
-  key: DateTime
-  connection: SubTypeConnection
-}
-
-input SubTypeInput {
-  Name: String
-  Type: String
-  isActive: Boolean
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editSubTypeInput {
-  Name: String
-  Type: String
-  isActive: Boolean
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createSubTypeInput {
-  data: SubTypeInput
-}
-
-type createSubTypePayload {
-  subType: SubType
-}
-
-input updateSubTypeInput {
-  where: InputID
-  data: editSubTypeInput
-}
-
-type updateSubTypePayload {
-  subType: SubType
-}
-
-input deleteSubTypeInput {
-  where: InputID
-}
-
-type deleteSubTypePayload {
-  subType: SubType
 }
 
 type UserType {
@@ -4374,18 +3691,13 @@ type UsersPermissionsUser {
   lastName: String!
   DOB: String!
   ineracEmail: String
-  deliveryRadius: String
-  secondaryContactsName: String
-  secondaryContactsPhone: String
-  secondaryContactsEmail: String
   vendorCode: String!
   userImage: UploadFile
   documentsRequired: Boolean
   store: Store
-  address: Address
   user_types(sort: String, limit: Int, start: Int, where: JSON): [UserType]
   orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
-  addressTypes(sort: String, limit: Int, start: Int, where: JSON): [AddressType]
+  addresses(sort: String, limit: Int, start: Int, where: JSON): [Address]
 }
 
 type UsersPermissionsUserConnection {
@@ -4413,15 +3725,10 @@ type UsersPermissionsUserGroupBy {
   lastName: [UsersPermissionsUserConnectionLastName]
   DOB: [UsersPermissionsUserConnectionDOB]
   ineracEmail: [UsersPermissionsUserConnectionIneracEmail]
-  deliveryRadius: [UsersPermissionsUserConnectionDeliveryRadius]
-  secondaryContactsName: [UsersPermissionsUserConnectionSecondaryContactsName]
-  secondaryContactsPhone: [UsersPermissionsUserConnectionSecondaryContactsPhone]
-  secondaryContactsEmail: [UsersPermissionsUserConnectionSecondaryContactsEmail]
   vendorCode: [UsersPermissionsUserConnectionVendorCode]
   userImage: [UsersPermissionsUserConnectionUserImage]
   documentsRequired: [UsersPermissionsUserConnectionDocumentsRequired]
   store: [UsersPermissionsUserConnectionStore]
-  address: [UsersPermissionsUserConnectionAddress]
 }
 
 type UsersPermissionsUserConnectionId {
@@ -4489,26 +3796,6 @@ type UsersPermissionsUserConnectionIneracEmail {
   connection: UsersPermissionsUserConnection
 }
 
-type UsersPermissionsUserConnectionDeliveryRadius {
-  key: String
-  connection: UsersPermissionsUserConnection
-}
-
-type UsersPermissionsUserConnectionSecondaryContactsName {
-  key: String
-  connection: UsersPermissionsUserConnection
-}
-
-type UsersPermissionsUserConnectionSecondaryContactsPhone {
-  key: String
-  connection: UsersPermissionsUserConnection
-}
-
-type UsersPermissionsUserConnectionSecondaryContactsEmail {
-  key: String
-  connection: UsersPermissionsUserConnection
-}
-
 type UsersPermissionsUserConnectionVendorCode {
   key: String
   connection: UsersPermissionsUserConnection
@@ -4529,11 +3816,6 @@ type UsersPermissionsUserConnectionStore {
   connection: UsersPermissionsUserConnection
 }
 
-type UsersPermissionsUserConnectionAddress {
-  key: ID
-  connection: UsersPermissionsUserConnection
-}
-
 input UserInput {
   username: String!
   email: String!
@@ -4548,18 +3830,13 @@ input UserInput {
   lastName: String!
   DOB: String!
   ineracEmail: String
-  deliveryRadius: String
-  secondaryContactsName: String
-  secondaryContactsPhone: String
-  secondaryContactsEmail: String
   vendorCode: String!
   userImage: ID
   documentsRequired: Boolean
   user_types: [ID]
   store: ID
   orders: [ID]
-  addressTypes: [ID]
-  address: ID
+  addresses: [ID]
   created_by: ID
   updated_by: ID
 }
@@ -4578,18 +3855,13 @@ input editUserInput {
   lastName: String
   DOB: String
   ineracEmail: String
-  deliveryRadius: String
-  secondaryContactsName: String
-  secondaryContactsPhone: String
-  secondaryContactsEmail: String
   vendorCode: String
   userImage: ID
   documentsRequired: Boolean
   user_types: [ID]
   store: ID
   orders: [ID]
-  addressTypes: [ID]
-  address: ID
+  addresses: [ID]
   created_by: ID
   updated_by: ID
 }
@@ -4619,7 +3891,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | AddressType | AddressTypeConnection | AddressTypeAggregator | AddressTypeGroupBy | AddressTypeConnectionId | AddressTypeConnectionCreated_at | AddressTypeConnectionUpdated_at | AddressTypeConnectionName | AddressTypeConnectionIsActive | AddressTypeConnectionPublished_at | createAddressTypePayload | updateAddressTypePayload | deleteAddressTypePayload | Address | AddressConnection | AddressAggregator | AddressGroupBy | AddressConnectionId | AddressConnectionCreated_at | AddressConnectionUpdated_at | AddressConnectionCity | AddressConnectionState | AddressConnectionCountry | AddressConnectionUserName | AddressConnectionUser | AddressConnectionUserAddress | AddressConnectionPublished_at | createAddressPayload | updateAddressPayload | deleteAddressPayload | Allergen | AllergenConnection | AllergenAggregator | AllergenGroupBy | AllergenConnectionId | AllergenConnectionCreated_at | AllergenConnectionUpdated_at | AllergenConnectionAllergen | AllergenConnectionPublished_at | createAllergenPayload | updateAllergenPayload | deleteAllergenPayload | City | CityConnection | CityAggregator | CityGroupBy | CityConnectionId | CityConnectionCreated_at | CityConnectionUpdated_at | CityConnectionCityName | CityConnectionIsActive | CityConnectionPublished_at | createCityPayload | updateCityPayload | deleteCityPayload | Country | CountryConnection | CountryAggregator | CountryGroupBy | CountryConnectionId | CountryConnectionCreated_at | CountryConnectionUpdated_at | CountryConnectionCountryName | CountryConnectionIsActive | CountryConnectionPublished_at | createCountryPayload | updateCountryPayload | deleteCountryPayload | DeleveiryCharges | DeleveiryChargesConnection | DeleveiryChargesAggregator | DeleveiryChargesAggregatorSum | DeleveiryChargesAggregatorAvg | DeleveiryChargesAggregatorMin | DeleveiryChargesAggregatorMax | DeleveiryChargesGroupBy | DeleveiryChargesConnectionId | DeleveiryChargesConnectionCreated_at | DeleveiryChargesConnectionUpdated_at | DeleveiryChargesConnectionDistanceFrom | DeleveiryChargesConnectionDistanceTo | DeleveiryChargesConnectionRate | DeleveiryChargesConnectionPublished_at | createDeleveiryChargePayload | updateDeleveiryChargePayload | deleteDeleveiryChargePayload | DeliverType | DeliverTypeConnection | DeliverTypeAggregator | DeliverTypeGroupBy | DeliverTypeConnectionId | DeliverTypeConnectionCreated_at | DeliverTypeConnectionUpdated_at | DeliverTypeConnectionName | DeliverTypeConnectionIsActive | DeliverTypeConnectionPublished_at | createDeliverTypePayload | updateDeliverTypePayload | deleteDeliverTypePayload | Delivers | DeliversConnection | DeliversAggregator | DeliversGroupBy | DeliversConnectionId | DeliversConnectionCreated_at | DeliversConnectionUpdated_at | DeliversConnectionName | DeliversConnectionIsActive | DeliversConnectionPublished_at | createDeliverPayload | updateDeliverPayload | deleteDeliverPayload | DeliveryDays | DeliveryDaysConnection | DeliveryDaysAggregator | DeliveryDaysGroupBy | DeliveryDaysConnectionId | DeliveryDaysConnectionCreated_at | DeliveryDaysConnectionUpdated_at | DeliveryDaysConnectionDaysName | DeliveryDaysConnectionDaysId | DeliveryDaysConnectionIsActive | DeliveryDaysConnectionPublished_at | createDeliveryDayPayload | updateDeliveryDayPayload | deleteDeliveryDayPayload | Des | DesConnection | DesAggregator | DesGroupBy | DesConnectionId | DesConnectionCreated_at | DesConnectionUpdated_at | DesConnectionBar | DesConnectionIsactive | DesConnectionPublished_at | createDePayload | updateDePayload | deleteDePayload | MenuCategory | MenuCategoryConnection | MenuCategoryAggregator | MenuCategoryAggregatorSum | MenuCategoryAggregatorAvg | MenuCategoryAggregatorMin | MenuCategoryAggregatorMax | MenuCategoryGroupBy | MenuCategoryConnectionId | MenuCategoryConnectionCreated_at | MenuCategoryConnectionUpdated_at | MenuCategoryConnectionName | MenuCategoryConnectionIsActive | MenuCategoryConnectionIsDisplayable | MenuCategoryConnectionImage | MenuCategoryConnectionPrice | MenuCategoryConnectionPricey | MenuCategoryConnectionPublished_at | createMenuCategoryPayload | updateMenuCategoryPayload | deleteMenuCategoryPayload | OfferDetail | OfferDetailConnection | OfferDetailAggregator | OfferDetailAggregatorSum | OfferDetailAggregatorAvg | OfferDetailAggregatorMin | OfferDetailAggregatorMax | OfferDetailGroupBy | OfferDetailConnectionId | OfferDetailConnectionCreated_at | OfferDetailConnectionUpdated_at | OfferDetailConnectionPrice | OfferDetailConnectionDiscount | OfferDetailConnectionPublished_at | createOfferDetailPayload | updateOfferDetailPayload | deleteOfferDetailPayload | Offer | OfferConnection | OfferAggregator | OfferAggregatorSum | OfferAggregatorAvg | OfferAggregatorMin | OfferAggregatorMax | OfferGroupBy | OfferConnectionId | OfferConnectionCreated_at | OfferConnectionUpdated_at | OfferConnectionOfferName | OfferConnectionDescription | OfferConnectionStore | OfferConnectionPrice | OfferConnectionOfferImage | OfferConnectionOfferImage1 | OfferConnectionIsActive | OfferConnectionOrder_detail | OfferConnectionPublished_at | createOfferPayload | updateOfferPayload | deleteOfferPayload | OrderDetail | OrderDetailConnection | OrderDetailAggregator | OrderDetailGroupBy | OrderDetailConnectionId | OrderDetailConnectionCreated_at | OrderDetailConnectionUpdated_at | OrderDetailConnectionIsActive | OrderDetailConnectionIsOffer | OrderDetailConnectionAmount | OrderDetailConnectionPublished_at | createOrderDetailPayload | updateOrderDetailPayload | deleteOrderDetailPayload | OrderStatus | OrderStatusConnection | OrderStatusAggregator | OrderStatusGroupBy | OrderStatusConnectionId | OrderStatusConnectionCreated_at | OrderStatusConnectionUpdated_at | OrderStatusConnectionName | OrderStatusConnectionIsActive | OrderStatusConnectionPublished_at | createOrderStatusPayload | updateOrderStatusPayload | deleteOrderStatusPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnectionCreated_at | OrderConnectionUpdated_at | OrderConnectionStore | OrderConnectionDelivery_date | OrderConnectionOrder_status | OrderConnectionName | OrderConnectionDeliver_type | OrderConnectionWeekly_needed | OrderConnectionTotal_amount | OrderConnectionDisocunt | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | Packinging | PackingingConnection | PackingingAggregator | PackingingGroupBy | PackingingConnectionId | PackingingConnectionCreated_at | PackingingConnectionUpdated_at | PackingingConnectionName | PackingingConnectionIsActive | PackingingConnectionPublished_at | createPackingingPayload | updatePackingingPayload | deletePackingingPayload | PreferredCategory | PreferredCategoryConnection | PreferredCategoryAggregator | PreferredCategoryGroupBy | PreferredCategoryConnectionId | PreferredCategoryConnectionCreated_at | PreferredCategoryConnectionUpdated_at | PreferredCategoryConnectionName | PreferredCategoryConnectionIsActive | PreferredCategoryConnectionStore | PreferredCategoryConnectionPublished_at | createPreferredCategoryPayload | updatePreferredCategoryPayload | deletePreferredCategoryPayload | ProductDetail | ProductDetailConnection | ProductDetailAggregator | ProductDetailAggregatorSum | ProductDetailAggregatorAvg | ProductDetailAggregatorMin | ProductDetailAggregatorMax | ProductDetailGroupBy | ProductDetailConnectionId | ProductDetailConnectionCreated_at | ProductDetailConnectionUpdated_at | ProductDetailConnectionName | ProductDetailConnectionPrice | ProductDetailConnectionPublished_at | createProductDetailPayload | updateProductDetailPayload | deleteProductDetailPayload | ProductImage | ProductImageConnection | ProductImageAggregator | ProductImageGroupBy | ProductImageConnectionId | ProductImageConnectionCreated_at | ProductImageConnectionUpdated_at | ProductImageConnectionImage | ProductImageConnectionPublished_at | createProductImagePayload | updateProductImagePayload | deleteProductImagePayload | ProductProperties | ProductPropertiesConnection | ProductPropertiesAggregator | ProductPropertiesGroupBy | ProductPropertiesConnectionId | ProductPropertiesConnectionCreated_at | ProductPropertiesConnectionUpdated_at | ProductPropertiesConnectionName | ProductPropertiesConnectionCategory | ProductPropertiesConnectionIsActive | ProductPropertiesConnectionStore | ProductPropertiesConnectionPublished_at | createProductPropertyPayload | updateProductPropertyPayload | deleteProductPropertyPayload | ProductSize | ProductSizeConnection | ProductSizeAggregator | ProductSizeAggregatorSum | ProductSizeAggregatorAvg | ProductSizeAggregatorMin | ProductSizeAggregatorMax | ProductSizeGroupBy | ProductSizeConnectionId | ProductSizeConnectionCreated_at | ProductSizeConnectionUpdated_at | ProductSizeConnectionName | ProductSizeConnectionIsActive | ProductSizeConnectionPrice | ProductSizeConnectionPublished_at | createProductSizePayload | updateProductSizePayload | deleteProductSizePayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnectionCreated_at | ProductTypeConnectionUpdated_at | ProductTypeConnectionName | ProductTypeConnectionIsActive | ProductTypeConnectionStore | ProductTypeConnectionPublished_at | createProductTypePayload | updateProductTypePayload | deleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionProductName | ProductConnectionDescription | ProductConnectionIsActive | ProductConnectionPrice | ProductConnectionCreatedDate | ProductConnectionCreatedBy | ProductConnectionOrderDetail | ProductConnectionItemCode | ProductConnectionProductProperty3 | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | Promotions | PromotionsConnection | PromotionsAggregator | PromotionsAggregatorSum | PromotionsAggregatorAvg | PromotionsAggregatorMin | PromotionsAggregatorMax | PromotionsGroupBy | PromotionsConnectionId | PromotionsConnectionCreated_at | PromotionsConnectionUpdated_at | PromotionsConnectionName | PromotionsConnectionOfferimage | PromotionsConnectionIsActive | PromotionsConnectionProduct_category | PromotionsConnectionStore | PromotionsConnectionPrice | PromotionsConnectionDIscount | PromotionsConnectionDescription | PromotionsConnectionPublished_at | createPromotionPayload | updatePromotionPayload | deletePromotionPayload | Reviews | ReviewsConnection | ReviewsAggregator | ReviewsGroupBy | ReviewsConnectionId | ReviewsConnectionCreated_at | ReviewsConnectionUpdated_at | ReviewsConnectionCustomerReviews | ReviewsConnectionRating | ReviewsConnectionIsActive | ReviewsConnectionVendorAnswer | ReviewsConnectionUsersPermissionsUser | ReviewsConnectionStore | ReviewsConnectionPublished_at | createReviewPayload | updateReviewPayload | deleteReviewPayload | Settings | SettingsConnection | SettingsAggregator | SettingsGroupBy | SettingsConnectionId | SettingsConnectionCreated_at | SettingsConnectionUpdated_at | SettingsConnectionSettingName | SettingsConnectionSettingValue | SettingsConnectionIsActive | SettingsConnectionPublished_at | createSettingPayload | updateSettingPayload | deleteSettingPayload | State | StateConnection | StateAggregator | StateGroupBy | StateConnectionId | StateConnectionCreated_at | StateConnectionUpdated_at | StateConnectionStateName | StateConnectionIsActive | StateConnectionPublished_at | createStatePayload | updateStatePayload | deleteStatePayload | Store | StoreConnection | StoreAggregator | StoreAggregatorSum | StoreAggregatorAvg | StoreAggregatorMin | StoreAggregatorMax | StoreGroupBy | StoreConnectionId | StoreConnectionCreated_at | StoreConnectionUpdated_at | StoreConnectionStoreName | StoreConnectionUsers_permissions_user | StoreConnectionImage | StoreConnectionSelf_delivery | StoreConnectionLongitude | StoreConnectionLatitude | StoreConnectionStoreopen | StoreConnectionStoreClose | StoreConnectionPromotion | StoreConnectionAllergen | StoreConnectionPublished_at | createStorePayload | updateStorePayload | deleteStorePayload | SubType | SubTypeConnection | SubTypeAggregator | SubTypeGroupBy | SubTypeConnectionId | SubTypeConnectionCreated_at | SubTypeConnectionUpdated_at | SubTypeConnectionName | SubTypeConnectionType | SubTypeConnectionIsActive | SubTypeConnectionPublished_at | createSubTypePayload | updateSubTypePayload | deleteSubTypePayload | UserType | UserTypeConnection | UserTypeAggregator | UserTypeGroupBy | UserTypeConnectionId | UserTypeConnectionCreated_at | UserTypeConnectionUpdated_at | UserTypeConnectionName | UserTypeConnectionIsActive | UserTypeConnectionPublished_at | createUserTypePayload | updateUserTypePayload | deleteUserTypePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionFirstName | UsersPermissionsUserConnectionLastName | UsersPermissionsUserConnectionDOB | UsersPermissionsUserConnectionIneracEmail | UsersPermissionsUserConnectionDeliveryRadius | UsersPermissionsUserConnectionSecondaryContactsName | UsersPermissionsUserConnectionSecondaryContactsPhone | UsersPermissionsUserConnectionSecondaryContactsEmail | UsersPermissionsUserConnectionVendorCode | UsersPermissionsUserConnectionUserImage | UsersPermissionsUserConnectionDocumentsRequired | UsersPermissionsUserConnectionStore | UsersPermissionsUserConnectionAddress | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | AddressType | AddressTypeConnection | AddressTypeAggregator | AddressTypeGroupBy | AddressTypeConnectionId | AddressTypeConnectionCreated_at | AddressTypeConnectionUpdated_at | AddressTypeConnectionName | AddressTypeConnectionIsActive | AddressTypeConnectionPublished_at | createAddressTypePayload | updateAddressTypePayload | deleteAddressTypePayload | Address | AddressConnection | AddressAggregator | AddressGroupBy | AddressConnectionId | AddressConnectionCreated_at | AddressConnectionUpdated_at | AddressConnectionCity | AddressConnectionState | AddressConnectionCountry | AddressConnectionStreetaddress | AddressConnectionPublished_at | createAddressPayload | updateAddressPayload | deleteAddressPayload | City | CityConnection | CityAggregator | CityGroupBy | CityConnectionId | CityConnectionCreated_at | CityConnectionUpdated_at | CityConnectionCityName | CityConnectionIsActive | CityConnectionPublished_at | createCityPayload | updateCityPayload | deleteCityPayload | Country | CountryConnection | CountryAggregator | CountryGroupBy | CountryConnectionId | CountryConnectionCreated_at | CountryConnectionUpdated_at | CountryConnectionCountryName | CountryConnectionIsActive | CountryConnectionPublished_at | createCountryPayload | updateCountryPayload | deleteCountryPayload | DeleveiryCharges | DeleveiryChargesConnection | DeleveiryChargesAggregator | DeleveiryChargesAggregatorSum | DeleveiryChargesAggregatorAvg | DeleveiryChargesAggregatorMin | DeleveiryChargesAggregatorMax | DeleveiryChargesGroupBy | DeleveiryChargesConnectionId | DeleveiryChargesConnectionCreated_at | DeleveiryChargesConnectionUpdated_at | DeleveiryChargesConnectionDistanceFrom | DeleveiryChargesConnectionDistanceTo | DeleveiryChargesConnectionRate | DeleveiryChargesConnectionPublished_at | createDeleveiryChargePayload | updateDeleveiryChargePayload | deleteDeleveiryChargePayload | DeliverType | DeliverTypeConnection | DeliverTypeAggregator | DeliverTypeGroupBy | DeliverTypeConnectionId | DeliverTypeConnectionCreated_at | DeliverTypeConnectionUpdated_at | DeliverTypeConnectionName | DeliverTypeConnectionIsActive | DeliverTypeConnectionPublished_at | createDeliverTypePayload | updateDeliverTypePayload | deleteDeliverTypePayload | Delivers | DeliversConnection | DeliversAggregator | DeliversGroupBy | DeliversConnectionId | DeliversConnectionCreated_at | DeliversConnectionUpdated_at | DeliversConnectionName | DeliversConnectionIsActive | DeliversConnectionPublished_at | createDeliverPayload | updateDeliverPayload | deleteDeliverPayload | DeliveryDays | DeliveryDaysConnection | DeliveryDaysAggregator | DeliveryDaysGroupBy | DeliveryDaysConnectionId | DeliveryDaysConnectionCreated_at | DeliveryDaysConnectionUpdated_at | DeliveryDaysConnectionDaysName | DeliveryDaysConnectionDaysId | DeliveryDaysConnectionIsActive | DeliveryDaysConnectionPublished_at | createDeliveryDayPayload | updateDeliveryDayPayload | deleteDeliveryDayPayload | MenuCategory | MenuCategoryConnection | MenuCategoryAggregator | MenuCategoryAggregatorSum | MenuCategoryAggregatorAvg | MenuCategoryAggregatorMin | MenuCategoryAggregatorMax | MenuCategoryGroupBy | MenuCategoryConnectionId | MenuCategoryConnectionCreated_at | MenuCategoryConnectionUpdated_at | MenuCategoryConnectionName | MenuCategoryConnectionIsActive | MenuCategoryConnectionIsDisplayable | MenuCategoryConnectionImage | MenuCategoryConnectionPrice | MenuCategoryConnectionPricey | MenuCategoryConnectionPublished_at | createMenuCategoryPayload | updateMenuCategoryPayload | deleteMenuCategoryPayload | OrderDetail | OrderDetailConnection | OrderDetailAggregator | OrderDetailGroupBy | OrderDetailConnectionId | OrderDetailConnectionCreated_at | OrderDetailConnectionUpdated_at | OrderDetailConnectionIsActive | OrderDetailConnectionIsOffer | OrderDetailConnectionAmount | OrderDetailConnectionPublished_at | createOrderDetailPayload | updateOrderDetailPayload | deleteOrderDetailPayload | OrderStatus | OrderStatusConnection | OrderStatusAggregator | OrderStatusGroupBy | OrderStatusConnectionId | OrderStatusConnectionCreated_at | OrderStatusConnectionUpdated_at | OrderStatusConnectionName | OrderStatusConnectionIsActive | OrderStatusConnectionPublished_at | createOrderStatusPayload | updateOrderStatusPayload | deleteOrderStatusPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnectionCreated_at | OrderConnectionUpdated_at | OrderConnectionStore | OrderConnectionDelivery_date | OrderConnectionOrder_status | OrderConnectionName | OrderConnectionDeliver_type | OrderConnectionWeekly_needed | OrderConnectionTotal_amount | OrderConnectionDisocunt | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | Packinging | PackingingConnection | PackingingAggregator | PackingingGroupBy | PackingingConnectionId | PackingingConnectionCreated_at | PackingingConnectionUpdated_at | PackingingConnectionName | PackingingConnectionIsActive | PackingingConnectionPublished_at | createPackingingPayload | updatePackingingPayload | deletePackingingPayload | PreferredCategory | PreferredCategoryConnection | PreferredCategoryAggregator | PreferredCategoryGroupBy | PreferredCategoryConnectionId | PreferredCategoryConnectionCreated_at | PreferredCategoryConnectionUpdated_at | PreferredCategoryConnectionName | PreferredCategoryConnectionIsActive | PreferredCategoryConnectionStore | PreferredCategoryConnectionPublished_at | createPreferredCategoryPayload | updatePreferredCategoryPayload | deletePreferredCategoryPayload | ProductImage | ProductImageConnection | ProductImageAggregator | ProductImageGroupBy | ProductImageConnectionId | ProductImageConnectionCreated_at | ProductImageConnectionUpdated_at | ProductImageConnectionImage | ProductImageConnectionPublished_at | createProductImagePayload | updateProductImagePayload | deleteProductImagePayload | ProductProperties | ProductPropertiesConnection | ProductPropertiesAggregator | ProductPropertiesGroupBy | ProductPropertiesConnectionId | ProductPropertiesConnectionCreated_at | ProductPropertiesConnectionUpdated_at | ProductPropertiesConnectionName | ProductPropertiesConnectionCategory | ProductPropertiesConnectionIsActive | ProductPropertiesConnectionStore | ProductPropertiesConnectionPublished_at | createProductPropertyPayload | updateProductPropertyPayload | deleteProductPropertyPayload | ProductSize | ProductSizeConnection | ProductSizeAggregator | ProductSizeAggregatorSum | ProductSizeAggregatorAvg | ProductSizeAggregatorMin | ProductSizeAggregatorMax | ProductSizeGroupBy | ProductSizeConnectionId | ProductSizeConnectionCreated_at | ProductSizeConnectionUpdated_at | ProductSizeConnectionName | ProductSizeConnectionIsActive | ProductSizeConnectionPrice | ProductSizeConnectionDiscount_type | ProductSizeConnectionDiscount | ProductSizeConnectionPublished_at | createProductSizePayload | updateProductSizePayload | deleteProductSizePayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnectionCreated_at | ProductTypeConnectionUpdated_at | ProductTypeConnectionName | ProductTypeConnectionIsActive | ProductTypeConnectionStore | ProductTypeConnectionPublished_at | createProductTypePayload | updateProductTypePayload | deleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionProductName | ProductConnectionDescription | ProductConnectionIsActive | ProductConnectionPrice | ProductConnectionCreatedDate | ProductConnectionCreatedBy | ProductConnectionOrderDetail | ProductConnectionItemCode | ProductConnectionProductProperty3 | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | PromotionDetail | PromotionDetailConnection | PromotionDetailAggregator | PromotionDetailGroupBy | PromotionDetailConnectionId | PromotionDetailConnectionCreated_at | PromotionDetailConnectionUpdated_at | PromotionDetailConnectionFree_product | PromotionDetailConnectionProduct_name | PromotionDetailConnectionPublished_at | createPromotionDetailPayload | updatePromotionDetailPayload | deletePromotionDetailPayload | Promotions | PromotionsConnection | PromotionsAggregator | PromotionsGroupBy | PromotionsConnectionId | PromotionsConnectionCreated_at | PromotionsConnectionUpdated_at | PromotionsConnectionName | PromotionsConnectionOfferimage | PromotionsConnectionIsActive | PromotionsConnectionProduct_category | PromotionsConnectionDescription | PromotionsConnectionDiscount_type | PromotionsConnectionPublished_at | createPromotionPayload | updatePromotionPayload | deletePromotionPayload | Reviews | ReviewsConnection | ReviewsAggregator | ReviewsGroupBy | ReviewsConnectionId | ReviewsConnectionCreated_at | ReviewsConnectionUpdated_at | ReviewsConnectionCustomerReviews | ReviewsConnectionRating | ReviewsConnectionIsActive | ReviewsConnectionVendorAnswer | ReviewsConnectionUsersPermissionsUser | ReviewsConnectionStore | ReviewsConnectionPublished_at | createReviewPayload | updateReviewPayload | deleteReviewPayload | Settings | SettingsConnection | SettingsAggregator | SettingsGroupBy | SettingsConnectionId | SettingsConnectionCreated_at | SettingsConnectionUpdated_at | SettingsConnectionSettingName | SettingsConnectionSettingValue | SettingsConnectionIsActive | SettingsConnectionPublished_at | createSettingPayload | updateSettingPayload | deleteSettingPayload | State | StateConnection | StateAggregator | StateGroupBy | StateConnectionId | StateConnectionCreated_at | StateConnectionUpdated_at | StateConnectionStateName | StateConnectionIsActive | StateConnectionPublished_at | createStatePayload | updateStatePayload | deleteStatePayload | Store | StoreConnection | StoreAggregator | StoreAggregatorSum | StoreAggregatorAvg | StoreAggregatorMin | StoreAggregatorMax | StoreGroupBy | StoreConnectionId | StoreConnectionCreated_at | StoreConnectionUpdated_at | StoreConnectionStoreName | StoreConnectionUsers_permissions_user | StoreConnectionImage | StoreConnectionSelf_delivery | StoreConnectionLongitude | StoreConnectionLatitude | StoreConnectionStoreopen | StoreConnectionStoreClose | StoreConnectionAllergen | StoreConnectionPublished_at | createStorePayload | updateStorePayload | deleteStorePayload | UserType | UserTypeConnection | UserTypeAggregator | UserTypeGroupBy | UserTypeConnectionId | UserTypeConnectionCreated_at | UserTypeConnectionUpdated_at | UserTypeConnectionName | UserTypeConnectionIsActive | UserTypeConnectionPublished_at | createUserTypePayload | updateUserTypePayload | deleteUserTypePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionFirstName | UsersPermissionsUserConnectionLastName | UsersPermissionsUserConnectionDOB | UsersPermissionsUserConnectionIneracEmail | UsersPermissionsUserConnectionVendorCode | UsersPermissionsUserConnectionUserImage | UsersPermissionsUserConnectionDocumentsRequired | UsersPermissionsUserConnectionStore | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -4644,9 +3916,6 @@ type Query {
   address(id: ID!, publicationState: PublicationState): Address
   addresses(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Address]
   addressesConnection(sort: String, limit: Int, start: Int, where: JSON): AddressConnection
-  allergen(id: ID!, publicationState: PublicationState): Allergen
-  allergens(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Allergen]
-  allergensConnection(sort: String, limit: Int, start: Int, where: JSON): AllergenConnection
   city(id: ID!, publicationState: PublicationState): City
   cities(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [City]
   citiesConnection(sort: String, limit: Int, start: Int, where: JSON): CityConnection
@@ -4665,18 +3934,9 @@ type Query {
   deliveryDay(id: ID!, publicationState: PublicationState): DeliveryDays
   deliveryDays(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DeliveryDays]
   deliveryDaysConnection(sort: String, limit: Int, start: Int, where: JSON): DeliveryDaysConnection
-  de(id: ID!, publicationState: PublicationState): Des
-  des(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Des]
-  desConnection(sort: String, limit: Int, start: Int, where: JSON): DesConnection
   menuCategory(id: ID!, publicationState: PublicationState): MenuCategory
   menuCategories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [MenuCategory]
   menuCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): MenuCategoryConnection
-  offerDetail(id: ID!, publicationState: PublicationState): OfferDetail
-  offerDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [OfferDetail]
-  offerDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): OfferDetailConnection
-  offer(id: ID!, publicationState: PublicationState): Offer
-  offers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Offer]
-  offersConnection(sort: String, limit: Int, start: Int, where: JSON): OfferConnection
   orderDetail(id: ID!, publicationState: PublicationState): OrderDetail
   orderDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [OrderDetail]
   orderDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): OrderDetailConnection
@@ -4692,9 +3952,6 @@ type Query {
   preferredCategory(id: ID!, publicationState: PublicationState): PreferredCategory
   preferredCategories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [PreferredCategory]
   preferredCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): PreferredCategoryConnection
-  productDetail(id: ID!, publicationState: PublicationState): ProductDetail
-  productDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductDetail]
-  productDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): ProductDetailConnection
   productImage(id: ID!, publicationState: PublicationState): ProductImage
   productImages(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductImage]
   productImagesConnection(sort: String, limit: Int, start: Int, where: JSON): ProductImageConnection
@@ -4710,6 +3967,9 @@ type Query {
   product(id: ID!, publicationState: PublicationState): Product
   products(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Product]
   productsConnection(sort: String, limit: Int, start: Int, where: JSON): ProductConnection
+  promotionDetail(id: ID!, publicationState: PublicationState): PromotionDetail
+  promotionDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [PromotionDetail]
+  promotionDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): PromotionDetailConnection
   promotion(id: ID!, publicationState: PublicationState): Promotions
   promotions(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Promotions]
   promotionsConnection(sort: String, limit: Int, start: Int, where: JSON): PromotionsConnection
@@ -4725,9 +3985,6 @@ type Query {
   store(id: ID!, publicationState: PublicationState): Store
   stores(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Store]
   storesConnection(sort: String, limit: Int, start: Int, where: JSON): StoreConnection
-  subType(id: ID!, publicationState: PublicationState): SubType
-  subTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SubType]
-  subTypesConnection(sort: String, limit: Int, start: Int, where: JSON): SubTypeConnection
   userType(id: ID!, publicationState: PublicationState): UserType
   userTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UserType]
   userTypesConnection(sort: String, limit: Int, start: Int, where: JSON): UserTypeConnection
@@ -4753,9 +4010,6 @@ type Mutation {
   createAddress(input: createAddressInput): createAddressPayload
   updateAddress(input: updateAddressInput): updateAddressPayload
   deleteAddress(input: deleteAddressInput): deleteAddressPayload
-  createAllergen(input: createAllergenInput): createAllergenPayload
-  updateAllergen(input: updateAllergenInput): updateAllergenPayload
-  deleteAllergen(input: deleteAllergenInput): deleteAllergenPayload
   createCity(input: createCityInput): createCityPayload
   updateCity(input: updateCityInput): updateCityPayload
   deleteCity(input: deleteCityInput): deleteCityPayload
@@ -4774,18 +4028,9 @@ type Mutation {
   createDeliveryDay(input: createDeliveryDayInput): createDeliveryDayPayload
   updateDeliveryDay(input: updateDeliveryDayInput): updateDeliveryDayPayload
   deleteDeliveryDay(input: deleteDeliveryDayInput): deleteDeliveryDayPayload
-  createDe(input: createDeInput): createDePayload
-  updateDe(input: updateDeInput): updateDePayload
-  deleteDe(input: deleteDeInput): deleteDePayload
   createMenuCategory(input: createMenuCategoryInput): createMenuCategoryPayload
   updateMenuCategory(input: updateMenuCategoryInput): updateMenuCategoryPayload
   deleteMenuCategory(input: deleteMenuCategoryInput): deleteMenuCategoryPayload
-  createOfferDetail(input: createOfferDetailInput): createOfferDetailPayload
-  updateOfferDetail(input: updateOfferDetailInput): updateOfferDetailPayload
-  deleteOfferDetail(input: deleteOfferDetailInput): deleteOfferDetailPayload
-  createOffer(input: createOfferInput): createOfferPayload
-  updateOffer(input: updateOfferInput): updateOfferPayload
-  deleteOffer(input: deleteOfferInput): deleteOfferPayload
   createOrderDetail(input: createOrderDetailInput): createOrderDetailPayload
   updateOrderDetail(input: updateOrderDetailInput): updateOrderDetailPayload
   deleteOrderDetail(input: deleteOrderDetailInput): deleteOrderDetailPayload
@@ -4801,9 +4046,6 @@ type Mutation {
   createPreferredCategory(input: createPreferredCategoryInput): createPreferredCategoryPayload
   updatePreferredCategory(input: updatePreferredCategoryInput): updatePreferredCategoryPayload
   deletePreferredCategory(input: deletePreferredCategoryInput): deletePreferredCategoryPayload
-  createProductDetail(input: createProductDetailInput): createProductDetailPayload
-  updateProductDetail(input: updateProductDetailInput): updateProductDetailPayload
-  deleteProductDetail(input: deleteProductDetailInput): deleteProductDetailPayload
   createProductImage(input: createProductImageInput): createProductImagePayload
   updateProductImage(input: updateProductImageInput): updateProductImagePayload
   deleteProductImage(input: deleteProductImageInput): deleteProductImagePayload
@@ -4819,6 +4061,9 @@ type Mutation {
   createProduct(input: createProductInput): createProductPayload
   updateProduct(input: updateProductInput): updateProductPayload
   deleteProduct(input: deleteProductInput): deleteProductPayload
+  createPromotionDetail(input: createPromotionDetailInput): createPromotionDetailPayload
+  updatePromotionDetail(input: updatePromotionDetailInput): updatePromotionDetailPayload
+  deletePromotionDetail(input: deletePromotionDetailInput): deletePromotionDetailPayload
   createPromotion(input: createPromotionInput): createPromotionPayload
   updatePromotion(input: updatePromotionInput): updatePromotionPayload
   deletePromotion(input: deletePromotionInput): deletePromotionPayload
@@ -4834,9 +4079,6 @@ type Mutation {
   createStore(input: createStoreInput): createStorePayload
   updateStore(input: updateStoreInput): updateStorePayload
   deleteStore(input: deleteStoreInput): deleteStorePayload
-  createSubType(input: createSubTypeInput): createSubTypePayload
-  updateSubType(input: updateSubTypeInput): updateSubTypePayload
-  deleteSubType(input: deleteSubTypeInput): deleteSubTypePayload
   createUserType(input: createUserTypeInput): createUserTypePayload
   updateUserType(input: updateUserTypeInput): updateUserTypePayload
   deleteUserType(input: deleteUserTypeInput): deleteUserTypePayload

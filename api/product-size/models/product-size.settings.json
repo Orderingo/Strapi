@@ -19,8 +19,19 @@
       "type": "boolean",
       "default": true
     },
-    "Price": {
+    "price": {
       "type": "decimal"
+    },
+    "discount_type": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "float"
+    },
+    "promotions": {
+      "via": "product_size_price",
+      "collection": "promotions",
+      "dominant": true
     }
   }
 }
