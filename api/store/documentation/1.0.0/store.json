@@ -1395,6 +1395,74 @@
               }
             }
           },
+          "allergen": {
+            "type": "string"
+          },
+          "promotion_types": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "store": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "product_properties": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "store": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1483,6 +1551,21 @@
             "type": "string"
           },
           "promotions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allergen": {
+            "type": "string"
+          },
+          "promotion_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "product_properties": {
             "type": "array",
             "items": {
               "type": "string"

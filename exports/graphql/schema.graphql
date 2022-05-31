@@ -1,0 +1,4896 @@
+input FileInfoInput {
+  name: String
+  alternativeText: String
+  caption: String
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type AddressType {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type AddressTypeConnection {
+  values: [AddressType]
+  groupBy: AddressTypeGroupBy
+  aggregate: AddressTypeAggregator
+}
+
+type AddressTypeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type AddressTypeGroupBy {
+  id: [AddressTypeConnectionId]
+  created_at: [AddressTypeConnectionCreated_at]
+  updated_at: [AddressTypeConnectionUpdated_at]
+  name: [AddressTypeConnectionName]
+  isActive: [AddressTypeConnectionIsActive]
+  published_at: [AddressTypeConnectionPublished_at]
+}
+
+type AddressTypeConnectionId {
+  key: ID
+  connection: AddressTypeConnection
+}
+
+type AddressTypeConnectionCreated_at {
+  key: DateTime
+  connection: AddressTypeConnection
+}
+
+type AddressTypeConnectionUpdated_at {
+  key: DateTime
+  connection: AddressTypeConnection
+}
+
+type AddressTypeConnectionName {
+  key: String
+  connection: AddressTypeConnection
+}
+
+type AddressTypeConnectionIsActive {
+  key: Boolean
+  connection: AddressTypeConnection
+}
+
+type AddressTypeConnectionPublished_at {
+  key: DateTime
+  connection: AddressTypeConnection
+}
+
+input AddressTypeInput {
+  name: String
+  isActive: Boolean
+  users: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editAddressTypeInput {
+  name: String
+  isActive: Boolean
+  users: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createAddressTypeInput {
+  data: AddressTypeInput
+}
+
+type createAddressTypePayload {
+  addressType: AddressType
+}
+
+input updateAddressTypeInput {
+  where: InputID
+  data: editAddressTypeInput
+}
+
+type updateAddressTypePayload {
+  addressType: AddressType
+}
+
+input deleteAddressTypeInput {
+  where: InputID
+}
+
+type deleteAddressTypePayload {
+  addressType: AddressType
+}
+
+type Address {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  city: City
+  state: State
+  country: Country
+  userName: String
+  user: UsersPermissionsUser
+  userAddress: UsersPermissionsUser
+  published_at: DateTime
+  address_types(sort: String, limit: Int, start: Int, where: JSON): [AddressType]
+}
+
+type AddressConnection {
+  values: [Address]
+  groupBy: AddressGroupBy
+  aggregate: AddressAggregator
+}
+
+type AddressAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type AddressGroupBy {
+  id: [AddressConnectionId]
+  created_at: [AddressConnectionCreated_at]
+  updated_at: [AddressConnectionUpdated_at]
+  city: [AddressConnectionCity]
+  state: [AddressConnectionState]
+  country: [AddressConnectionCountry]
+  userName: [AddressConnectionUserName]
+  user: [AddressConnectionUser]
+  userAddress: [AddressConnectionUserAddress]
+  published_at: [AddressConnectionPublished_at]
+}
+
+type AddressConnectionId {
+  key: ID
+  connection: AddressConnection
+}
+
+type AddressConnectionCreated_at {
+  key: DateTime
+  connection: AddressConnection
+}
+
+type AddressConnectionUpdated_at {
+  key: DateTime
+  connection: AddressConnection
+}
+
+type AddressConnectionCity {
+  key: ID
+  connection: AddressConnection
+}
+
+type AddressConnectionState {
+  key: ID
+  connection: AddressConnection
+}
+
+type AddressConnectionCountry {
+  key: ID
+  connection: AddressConnection
+}
+
+type AddressConnectionUserName {
+  key: String
+  connection: AddressConnection
+}
+
+type AddressConnectionUser {
+  key: ID
+  connection: AddressConnection
+}
+
+type AddressConnectionUserAddress {
+  key: ID
+  connection: AddressConnection
+}
+
+type AddressConnectionPublished_at {
+  key: DateTime
+  connection: AddressConnection
+}
+
+input AddressInput {
+  city: ID
+  state: ID
+  country: ID
+  address_types: [ID]
+  userName: String
+  user: ID
+  userAddress: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editAddressInput {
+  city: ID
+  state: ID
+  country: ID
+  address_types: [ID]
+  userName: String
+  user: ID
+  userAddress: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createAddressInput {
+  data: AddressInput
+}
+
+type createAddressPayload {
+  address: Address
+}
+
+input updateAddressInput {
+  where: InputID
+  data: editAddressInput
+}
+
+type updateAddressPayload {
+  address: Address
+}
+
+input deleteAddressInput {
+  where: InputID
+}
+
+type deleteAddressPayload {
+  address: Address
+}
+
+type Allergen {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  allergen: String
+  published_at: DateTime
+}
+
+type AllergenConnection {
+  values: [Allergen]
+  groupBy: AllergenGroupBy
+  aggregate: AllergenAggregator
+}
+
+type AllergenAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type AllergenGroupBy {
+  id: [AllergenConnectionId]
+  created_at: [AllergenConnectionCreated_at]
+  updated_at: [AllergenConnectionUpdated_at]
+  allergen: [AllergenConnectionAllergen]
+  published_at: [AllergenConnectionPublished_at]
+}
+
+type AllergenConnectionId {
+  key: ID
+  connection: AllergenConnection
+}
+
+type AllergenConnectionCreated_at {
+  key: DateTime
+  connection: AllergenConnection
+}
+
+type AllergenConnectionUpdated_at {
+  key: DateTime
+  connection: AllergenConnection
+}
+
+type AllergenConnectionAllergen {
+  key: String
+  connection: AllergenConnection
+}
+
+type AllergenConnectionPublished_at {
+  key: DateTime
+  connection: AllergenConnection
+}
+
+input AllergenInput {
+  allergen: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editAllergenInput {
+  allergen: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createAllergenInput {
+  data: AllergenInput
+}
+
+type createAllergenPayload {
+  allergen: Allergen
+}
+
+input updateAllergenInput {
+  where: InputID
+  data: editAllergenInput
+}
+
+type updateAllergenPayload {
+  allergen: Allergen
+}
+
+input deleteAllergenInput {
+  where: InputID
+}
+
+type deleteAllergenPayload {
+  allergen: Allergen
+}
+
+type City {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  cityName: String!
+  isActive: Boolean!
+  published_at: DateTime
+}
+
+type CityConnection {
+  values: [City]
+  groupBy: CityGroupBy
+  aggregate: CityAggregator
+}
+
+type CityAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CityGroupBy {
+  id: [CityConnectionId]
+  created_at: [CityConnectionCreated_at]
+  updated_at: [CityConnectionUpdated_at]
+  cityName: [CityConnectionCityName]
+  isActive: [CityConnectionIsActive]
+  published_at: [CityConnectionPublished_at]
+}
+
+type CityConnectionId {
+  key: ID
+  connection: CityConnection
+}
+
+type CityConnectionCreated_at {
+  key: DateTime
+  connection: CityConnection
+}
+
+type CityConnectionUpdated_at {
+  key: DateTime
+  connection: CityConnection
+}
+
+type CityConnectionCityName {
+  key: String
+  connection: CityConnection
+}
+
+type CityConnectionIsActive {
+  key: Boolean
+  connection: CityConnection
+}
+
+type CityConnectionPublished_at {
+  key: DateTime
+  connection: CityConnection
+}
+
+input CityInput {
+  cityName: String!
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editCityInput {
+  cityName: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createCityInput {
+  data: CityInput
+}
+
+type createCityPayload {
+  city: City
+}
+
+input updateCityInput {
+  where: InputID
+  data: editCityInput
+}
+
+type updateCityPayload {
+  city: City
+}
+
+input deleteCityInput {
+  where: InputID
+}
+
+type deleteCityPayload {
+  city: City
+}
+
+type Country {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  countryName: String!
+  isActive: Boolean!
+  published_at: DateTime
+}
+
+type CountryConnection {
+  values: [Country]
+  groupBy: CountryGroupBy
+  aggregate: CountryAggregator
+}
+
+type CountryAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CountryGroupBy {
+  id: [CountryConnectionId]
+  created_at: [CountryConnectionCreated_at]
+  updated_at: [CountryConnectionUpdated_at]
+  countryName: [CountryConnectionCountryName]
+  isActive: [CountryConnectionIsActive]
+  published_at: [CountryConnectionPublished_at]
+}
+
+type CountryConnectionId {
+  key: ID
+  connection: CountryConnection
+}
+
+type CountryConnectionCreated_at {
+  key: DateTime
+  connection: CountryConnection
+}
+
+type CountryConnectionUpdated_at {
+  key: DateTime
+  connection: CountryConnection
+}
+
+type CountryConnectionCountryName {
+  key: String
+  connection: CountryConnection
+}
+
+type CountryConnectionIsActive {
+  key: Boolean
+  connection: CountryConnection
+}
+
+type CountryConnectionPublished_at {
+  key: DateTime
+  connection: CountryConnection
+}
+
+input CountryInput {
+  countryName: String!
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editCountryInput {
+  countryName: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createCountryInput {
+  data: CountryInput
+}
+
+type createCountryPayload {
+  country: Country
+}
+
+input updateCountryInput {
+  where: InputID
+  data: editCountryInput
+}
+
+type updateCountryPayload {
+  country: Country
+}
+
+input deleteCountryInput {
+  where: InputID
+}
+
+type deleteCountryPayload {
+  country: Country
+}
+
+type DeleveiryCharges {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  DistanceFrom: Int
+  DistanceTo: Int
+  Rate: Float
+  published_at: DateTime
+}
+
+type DeleveiryChargesConnection {
+  values: [DeleveiryCharges]
+  groupBy: DeleveiryChargesGroupBy
+  aggregate: DeleveiryChargesAggregator
+}
+
+type DeleveiryChargesAggregator {
+  count: Int
+  totalCount: Int
+  sum: DeleveiryChargesAggregatorSum
+  avg: DeleveiryChargesAggregatorAvg
+  min: DeleveiryChargesAggregatorMin
+  max: DeleveiryChargesAggregatorMax
+}
+
+type DeleveiryChargesAggregatorSum {
+  DistanceFrom: Float
+  DistanceTo: Float
+  Rate: Float
+}
+
+type DeleveiryChargesAggregatorAvg {
+  DistanceFrom: Float
+  DistanceTo: Float
+  Rate: Float
+}
+
+type DeleveiryChargesAggregatorMin {
+  DistanceFrom: Float
+  DistanceTo: Float
+  Rate: Float
+}
+
+type DeleveiryChargesAggregatorMax {
+  DistanceFrom: Float
+  DistanceTo: Float
+  Rate: Float
+}
+
+type DeleveiryChargesGroupBy {
+  id: [DeleveiryChargesConnectionId]
+  created_at: [DeleveiryChargesConnectionCreated_at]
+  updated_at: [DeleveiryChargesConnectionUpdated_at]
+  DistanceFrom: [DeleveiryChargesConnectionDistanceFrom]
+  DistanceTo: [DeleveiryChargesConnectionDistanceTo]
+  Rate: [DeleveiryChargesConnectionRate]
+  published_at: [DeleveiryChargesConnectionPublished_at]
+}
+
+type DeleveiryChargesConnectionId {
+  key: ID
+  connection: DeleveiryChargesConnection
+}
+
+type DeleveiryChargesConnectionCreated_at {
+  key: DateTime
+  connection: DeleveiryChargesConnection
+}
+
+type DeleveiryChargesConnectionUpdated_at {
+  key: DateTime
+  connection: DeleveiryChargesConnection
+}
+
+type DeleveiryChargesConnectionDistanceFrom {
+  key: Int
+  connection: DeleveiryChargesConnection
+}
+
+type DeleveiryChargesConnectionDistanceTo {
+  key: Int
+  connection: DeleveiryChargesConnection
+}
+
+type DeleveiryChargesConnectionRate {
+  key: Float
+  connection: DeleveiryChargesConnection
+}
+
+type DeleveiryChargesConnectionPublished_at {
+  key: DateTime
+  connection: DeleveiryChargesConnection
+}
+
+input DeleveiryChargeInput {
+  DistanceFrom: Int
+  DistanceTo: Int
+  Rate: Float
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editDeleveiryChargeInput {
+  DistanceFrom: Int
+  DistanceTo: Int
+  Rate: Float
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createDeleveiryChargeInput {
+  data: DeleveiryChargeInput
+}
+
+type createDeleveiryChargePayload {
+  deleveiryCharge: DeleveiryCharges
+}
+
+input updateDeleveiryChargeInput {
+  where: InputID
+  data: editDeleveiryChargeInput
+}
+
+type updateDeleveiryChargePayload {
+  deleveiryCharge: DeleveiryCharges
+}
+
+input deleteDeleveiryChargeInput {
+  where: InputID
+}
+
+type deleteDeleveiryChargePayload {
+  deleveiryCharge: DeleveiryCharges
+}
+
+type DeliverType {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  IsActive: Boolean
+  published_at: DateTime
+  stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
+}
+
+type DeliverTypeConnection {
+  values: [DeliverType]
+  groupBy: DeliverTypeGroupBy
+  aggregate: DeliverTypeAggregator
+}
+
+type DeliverTypeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DeliverTypeGroupBy {
+  id: [DeliverTypeConnectionId]
+  created_at: [DeliverTypeConnectionCreated_at]
+  updated_at: [DeliverTypeConnectionUpdated_at]
+  Name: [DeliverTypeConnectionName]
+  IsActive: [DeliverTypeConnectionIsActive]
+  published_at: [DeliverTypeConnectionPublished_at]
+}
+
+type DeliverTypeConnectionId {
+  key: ID
+  connection: DeliverTypeConnection
+}
+
+type DeliverTypeConnectionCreated_at {
+  key: DateTime
+  connection: DeliverTypeConnection
+}
+
+type DeliverTypeConnectionUpdated_at {
+  key: DateTime
+  connection: DeliverTypeConnection
+}
+
+type DeliverTypeConnectionName {
+  key: String
+  connection: DeliverTypeConnection
+}
+
+type DeliverTypeConnectionIsActive {
+  key: Boolean
+  connection: DeliverTypeConnection
+}
+
+type DeliverTypeConnectionPublished_at {
+  key: DateTime
+  connection: DeliverTypeConnection
+}
+
+input DeliverTypeInput {
+  Name: String
+  IsActive: Boolean
+  stores: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editDeliverTypeInput {
+  Name: String
+  IsActive: Boolean
+  stores: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createDeliverTypeInput {
+  data: DeliverTypeInput
+}
+
+type createDeliverTypePayload {
+  deliverType: DeliverType
+}
+
+input updateDeliverTypeInput {
+  where: InputID
+  data: editDeliverTypeInput
+}
+
+type updateDeliverTypePayload {
+  deliverType: DeliverType
+}
+
+input deleteDeliverTypeInput {
+  where: InputID
+}
+
+type deleteDeliverTypePayload {
+  deliverType: DeliverType
+}
+
+type Delivers {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  IsActive: Boolean
+  published_at: DateTime
+  stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
+}
+
+type DeliversConnection {
+  values: [Delivers]
+  groupBy: DeliversGroupBy
+  aggregate: DeliversAggregator
+}
+
+type DeliversAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DeliversGroupBy {
+  id: [DeliversConnectionId]
+  created_at: [DeliversConnectionCreated_at]
+  updated_at: [DeliversConnectionUpdated_at]
+  Name: [DeliversConnectionName]
+  IsActive: [DeliversConnectionIsActive]
+  published_at: [DeliversConnectionPublished_at]
+}
+
+type DeliversConnectionId {
+  key: ID
+  connection: DeliversConnection
+}
+
+type DeliversConnectionCreated_at {
+  key: DateTime
+  connection: DeliversConnection
+}
+
+type DeliversConnectionUpdated_at {
+  key: DateTime
+  connection: DeliversConnection
+}
+
+type DeliversConnectionName {
+  key: String
+  connection: DeliversConnection
+}
+
+type DeliversConnectionIsActive {
+  key: Boolean
+  connection: DeliversConnection
+}
+
+type DeliversConnectionPublished_at {
+  key: DateTime
+  connection: DeliversConnection
+}
+
+input DeliverInput {
+  Name: String
+  IsActive: Boolean
+  stores: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editDeliverInput {
+  Name: String
+  IsActive: Boolean
+  stores: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createDeliverInput {
+  data: DeliverInput
+}
+
+type createDeliverPayload {
+  deliver: Delivers
+}
+
+input updateDeliverInput {
+  where: InputID
+  data: editDeliverInput
+}
+
+type updateDeliverPayload {
+  deliver: Delivers
+}
+
+input deleteDeliverInput {
+  where: InputID
+}
+
+type deleteDeliverPayload {
+  deliver: Delivers
+}
+
+type DeliveryDays {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  DaysName: String
+  DaysId: String
+  IsActive: Boolean
+  published_at: DateTime
+  stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
+  product_categories(sort: String, limit: Int, start: Int, where: JSON): [MenuCategory]
+  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
+}
+
+type DeliveryDaysConnection {
+  values: [DeliveryDays]
+  groupBy: DeliveryDaysGroupBy
+  aggregate: DeliveryDaysAggregator
+}
+
+type DeliveryDaysAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DeliveryDaysGroupBy {
+  id: [DeliveryDaysConnectionId]
+  created_at: [DeliveryDaysConnectionCreated_at]
+  updated_at: [DeliveryDaysConnectionUpdated_at]
+  DaysName: [DeliveryDaysConnectionDaysName]
+  DaysId: [DeliveryDaysConnectionDaysId]
+  IsActive: [DeliveryDaysConnectionIsActive]
+  published_at: [DeliveryDaysConnectionPublished_at]
+}
+
+type DeliveryDaysConnectionId {
+  key: ID
+  connection: DeliveryDaysConnection
+}
+
+type DeliveryDaysConnectionCreated_at {
+  key: DateTime
+  connection: DeliveryDaysConnection
+}
+
+type DeliveryDaysConnectionUpdated_at {
+  key: DateTime
+  connection: DeliveryDaysConnection
+}
+
+type DeliveryDaysConnectionDaysName {
+  key: String
+  connection: DeliveryDaysConnection
+}
+
+type DeliveryDaysConnectionDaysId {
+  key: String
+  connection: DeliveryDaysConnection
+}
+
+type DeliveryDaysConnectionIsActive {
+  key: Boolean
+  connection: DeliveryDaysConnection
+}
+
+type DeliveryDaysConnectionPublished_at {
+  key: DateTime
+  connection: DeliveryDaysConnection
+}
+
+input DeliveryDayInput {
+  DaysName: String
+  DaysId: String
+  IsActive: Boolean
+  stores: [ID]
+  product_categories: [ID]
+  promotions: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editDeliveryDayInput {
+  DaysName: String
+  DaysId: String
+  IsActive: Boolean
+  stores: [ID]
+  product_categories: [ID]
+  promotions: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createDeliveryDayInput {
+  data: DeliveryDayInput
+}
+
+type createDeliveryDayPayload {
+  deliveryDay: DeliveryDays
+}
+
+input updateDeliveryDayInput {
+  where: InputID
+  data: editDeliveryDayInput
+}
+
+type updateDeliveryDayPayload {
+  deliveryDay: DeliveryDays
+}
+
+input deleteDeliveryDayInput {
+  where: InputID
+}
+
+type deleteDeliveryDayPayload {
+  deliveryDay: DeliveryDays
+}
+
+type Des {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  bar: String
+  isactive: Boolean
+  published_at: DateTime
+}
+
+type DesConnection {
+  values: [Des]
+  groupBy: DesGroupBy
+  aggregate: DesAggregator
+}
+
+type DesAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DesGroupBy {
+  id: [DesConnectionId]
+  created_at: [DesConnectionCreated_at]
+  updated_at: [DesConnectionUpdated_at]
+  bar: [DesConnectionBar]
+  isactive: [DesConnectionIsactive]
+  published_at: [DesConnectionPublished_at]
+}
+
+type DesConnectionId {
+  key: ID
+  connection: DesConnection
+}
+
+type DesConnectionCreated_at {
+  key: DateTime
+  connection: DesConnection
+}
+
+type DesConnectionUpdated_at {
+  key: DateTime
+  connection: DesConnection
+}
+
+type DesConnectionBar {
+  key: String
+  connection: DesConnection
+}
+
+type DesConnectionIsactive {
+  key: Boolean
+  connection: DesConnection
+}
+
+type DesConnectionPublished_at {
+  key: DateTime
+  connection: DesConnection
+}
+
+input DeInput {
+  bar: String
+  isactive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editDeInput {
+  bar: String
+  isactive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createDeInput {
+  data: DeInput
+}
+
+type createDePayload {
+  de: Des
+}
+
+input updateDeInput {
+  where: InputID
+  data: editDeInput
+}
+
+type updateDePayload {
+  de: Des
+}
+
+input deleteDeInput {
+  where: InputID
+}
+
+type deleteDePayload {
+  de: Des
+}
+
+type MenuCategory {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  IsActive: Boolean
+  IsDisplayable: Boolean
+  Image: UploadFile
+  price: Float
+  pricey: Float
+  published_at: DateTime
+  stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+  delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
+  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
+}
+
+type MenuCategoryConnection {
+  values: [MenuCategory]
+  groupBy: MenuCategoryGroupBy
+  aggregate: MenuCategoryAggregator
+}
+
+type MenuCategoryAggregator {
+  count: Int
+  totalCount: Int
+  sum: MenuCategoryAggregatorSum
+  avg: MenuCategoryAggregatorAvg
+  min: MenuCategoryAggregatorMin
+  max: MenuCategoryAggregatorMax
+}
+
+type MenuCategoryAggregatorSum {
+  price: Float
+  pricey: Float
+}
+
+type MenuCategoryAggregatorAvg {
+  price: Float
+  pricey: Float
+}
+
+type MenuCategoryAggregatorMin {
+  price: Float
+  pricey: Float
+}
+
+type MenuCategoryAggregatorMax {
+  price: Float
+  pricey: Float
+}
+
+type MenuCategoryGroupBy {
+  id: [MenuCategoryConnectionId]
+  created_at: [MenuCategoryConnectionCreated_at]
+  updated_at: [MenuCategoryConnectionUpdated_at]
+  Name: [MenuCategoryConnectionName]
+  IsActive: [MenuCategoryConnectionIsActive]
+  IsDisplayable: [MenuCategoryConnectionIsDisplayable]
+  Image: [MenuCategoryConnectionImage]
+  price: [MenuCategoryConnectionPrice]
+  pricey: [MenuCategoryConnectionPricey]
+  published_at: [MenuCategoryConnectionPublished_at]
+}
+
+type MenuCategoryConnectionId {
+  key: ID
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionCreated_at {
+  key: DateTime
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionUpdated_at {
+  key: DateTime
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionName {
+  key: String
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionIsActive {
+  key: Boolean
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionIsDisplayable {
+  key: Boolean
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionImage {
+  key: ID
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionPrice {
+  key: Float
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionPricey {
+  key: Float
+  connection: MenuCategoryConnection
+}
+
+type MenuCategoryConnectionPublished_at {
+  key: DateTime
+  connection: MenuCategoryConnection
+}
+
+input MenuCategoryInput {
+  Name: String
+  IsActive: Boolean
+  stores: [ID]
+  products: [ID]
+  IsDisplayable: Boolean
+  Image: ID
+  delivery_days: [ID]
+  price: Float
+  pricey: Float
+  promotions: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editMenuCategoryInput {
+  Name: String
+  IsActive: Boolean
+  stores: [ID]
+  products: [ID]
+  IsDisplayable: Boolean
+  Image: ID
+  delivery_days: [ID]
+  price: Float
+  pricey: Float
+  promotions: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createMenuCategoryInput {
+  data: MenuCategoryInput
+}
+
+type createMenuCategoryPayload {
+  menuCategory: MenuCategory
+}
+
+input updateMenuCategoryInput {
+  where: InputID
+  data: editMenuCategoryInput
+}
+
+type updateMenuCategoryPayload {
+  menuCategory: MenuCategory
+}
+
+input deleteMenuCategoryInput {
+  where: InputID
+}
+
+type deleteMenuCategoryPayload {
+  menuCategory: MenuCategory
+}
+
+type OfferDetail {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Price: Float
+  Discount: Float
+  published_at: DateTime
+  offers(sort: String, limit: Int, start: Int, where: JSON): [Offer]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+}
+
+type OfferDetailConnection {
+  values: [OfferDetail]
+  groupBy: OfferDetailGroupBy
+  aggregate: OfferDetailAggregator
+}
+
+type OfferDetailAggregator {
+  count: Int
+  totalCount: Int
+  sum: OfferDetailAggregatorSum
+  avg: OfferDetailAggregatorAvg
+  min: OfferDetailAggregatorMin
+  max: OfferDetailAggregatorMax
+}
+
+type OfferDetailAggregatorSum {
+  Price: Float
+  Discount: Float
+}
+
+type OfferDetailAggregatorAvg {
+  Price: Float
+  Discount: Float
+}
+
+type OfferDetailAggregatorMin {
+  Price: Float
+  Discount: Float
+}
+
+type OfferDetailAggregatorMax {
+  Price: Float
+  Discount: Float
+}
+
+type OfferDetailGroupBy {
+  id: [OfferDetailConnectionId]
+  created_at: [OfferDetailConnectionCreated_at]
+  updated_at: [OfferDetailConnectionUpdated_at]
+  Price: [OfferDetailConnectionPrice]
+  Discount: [OfferDetailConnectionDiscount]
+  published_at: [OfferDetailConnectionPublished_at]
+}
+
+type OfferDetailConnectionId {
+  key: ID
+  connection: OfferDetailConnection
+}
+
+type OfferDetailConnectionCreated_at {
+  key: DateTime
+  connection: OfferDetailConnection
+}
+
+type OfferDetailConnectionUpdated_at {
+  key: DateTime
+  connection: OfferDetailConnection
+}
+
+type OfferDetailConnectionPrice {
+  key: Float
+  connection: OfferDetailConnection
+}
+
+type OfferDetailConnectionDiscount {
+  key: Float
+  connection: OfferDetailConnection
+}
+
+type OfferDetailConnectionPublished_at {
+  key: DateTime
+  connection: OfferDetailConnection
+}
+
+input OfferDetailInput {
+  offers: [ID]
+  Price: Float
+  Discount: Float
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editOfferDetailInput {
+  offers: [ID]
+  Price: Float
+  Discount: Float
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createOfferDetailInput {
+  data: OfferDetailInput
+}
+
+type createOfferDetailPayload {
+  offerDetail: OfferDetail
+}
+
+input updateOfferDetailInput {
+  where: InputID
+  data: editOfferDetailInput
+}
+
+type updateOfferDetailPayload {
+  offerDetail: OfferDetail
+}
+
+input deleteOfferDetailInput {
+  where: InputID
+}
+
+type deleteOfferDetailPayload {
+  offerDetail: OfferDetail
+}
+
+type Offer {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  OfferName: String
+  Description: String
+  store: Store
+  Price: Float
+  OfferImage: UploadFile
+  OfferImage1: UploadFile
+  IsActive: Boolean
+  order_detail: OrderDetail
+  published_at: DateTime
+  offer_details(sort: String, limit: Int, start: Int, where: JSON): [OfferDetail]
+}
+
+type OfferConnection {
+  values: [Offer]
+  groupBy: OfferGroupBy
+  aggregate: OfferAggregator
+}
+
+type OfferAggregator {
+  count: Int
+  totalCount: Int
+  sum: OfferAggregatorSum
+  avg: OfferAggregatorAvg
+  min: OfferAggregatorMin
+  max: OfferAggregatorMax
+}
+
+type OfferAggregatorSum {
+  Price: Float
+}
+
+type OfferAggregatorAvg {
+  Price: Float
+}
+
+type OfferAggregatorMin {
+  Price: Float
+}
+
+type OfferAggregatorMax {
+  Price: Float
+}
+
+type OfferGroupBy {
+  id: [OfferConnectionId]
+  created_at: [OfferConnectionCreated_at]
+  updated_at: [OfferConnectionUpdated_at]
+  OfferName: [OfferConnectionOfferName]
+  Description: [OfferConnectionDescription]
+  store: [OfferConnectionStore]
+  Price: [OfferConnectionPrice]
+  OfferImage: [OfferConnectionOfferImage]
+  OfferImage1: [OfferConnectionOfferImage1]
+  IsActive: [OfferConnectionIsActive]
+  order_detail: [OfferConnectionOrder_detail]
+  published_at: [OfferConnectionPublished_at]
+}
+
+type OfferConnectionId {
+  key: ID
+  connection: OfferConnection
+}
+
+type OfferConnectionCreated_at {
+  key: DateTime
+  connection: OfferConnection
+}
+
+type OfferConnectionUpdated_at {
+  key: DateTime
+  connection: OfferConnection
+}
+
+type OfferConnectionOfferName {
+  key: String
+  connection: OfferConnection
+}
+
+type OfferConnectionDescription {
+  key: String
+  connection: OfferConnection
+}
+
+type OfferConnectionStore {
+  key: ID
+  connection: OfferConnection
+}
+
+type OfferConnectionPrice {
+  key: Float
+  connection: OfferConnection
+}
+
+type OfferConnectionOfferImage {
+  key: ID
+  connection: OfferConnection
+}
+
+type OfferConnectionOfferImage1 {
+  key: ID
+  connection: OfferConnection
+}
+
+type OfferConnectionIsActive {
+  key: Boolean
+  connection: OfferConnection
+}
+
+type OfferConnectionOrder_detail {
+  key: ID
+  connection: OfferConnection
+}
+
+type OfferConnectionPublished_at {
+  key: DateTime
+  connection: OfferConnection
+}
+
+input OfferInput {
+  OfferName: String
+  Description: String
+  store: ID
+  Price: Float
+  OfferImage: ID
+  OfferImage1: ID
+  IsActive: Boolean
+  offer_details: [ID]
+  order_detail: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editOfferInput {
+  OfferName: String
+  Description: String
+  store: ID
+  Price: Float
+  OfferImage: ID
+  OfferImage1: ID
+  IsActive: Boolean
+  offer_details: [ID]
+  order_detail: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createOfferInput {
+  data: OfferInput
+}
+
+type createOfferPayload {
+  offer: Offer
+}
+
+input updateOfferInput {
+  where: InputID
+  data: editOfferInput
+}
+
+type updateOfferPayload {
+  offer: Offer
+}
+
+input deleteOfferInput {
+  where: InputID
+}
+
+type deleteOfferPayload {
+  offer: Offer
+}
+
+type OrderDetail {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  isActive: Boolean
+  isOffer: Boolean
+  Amount: String!
+  published_at: DateTime
+  offers(sort: String, limit: Int, start: Int, where: JSON): [Offer]
+  orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+}
+
+type OrderDetailConnection {
+  values: [OrderDetail]
+  groupBy: OrderDetailGroupBy
+  aggregate: OrderDetailAggregator
+}
+
+type OrderDetailAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type OrderDetailGroupBy {
+  id: [OrderDetailConnectionId]
+  created_at: [OrderDetailConnectionCreated_at]
+  updated_at: [OrderDetailConnectionUpdated_at]
+  isActive: [OrderDetailConnectionIsActive]
+  isOffer: [OrderDetailConnectionIsOffer]
+  Amount: [OrderDetailConnectionAmount]
+  published_at: [OrderDetailConnectionPublished_at]
+}
+
+type OrderDetailConnectionId {
+  key: ID
+  connection: OrderDetailConnection
+}
+
+type OrderDetailConnectionCreated_at {
+  key: DateTime
+  connection: OrderDetailConnection
+}
+
+type OrderDetailConnectionUpdated_at {
+  key: DateTime
+  connection: OrderDetailConnection
+}
+
+type OrderDetailConnectionIsActive {
+  key: Boolean
+  connection: OrderDetailConnection
+}
+
+type OrderDetailConnectionIsOffer {
+  key: Boolean
+  connection: OrderDetailConnection
+}
+
+type OrderDetailConnectionAmount {
+  key: String
+  connection: OrderDetailConnection
+}
+
+type OrderDetailConnectionPublished_at {
+  key: DateTime
+  connection: OrderDetailConnection
+}
+
+input OrderDetailInput {
+  isActive: Boolean
+  offers: [ID]
+  isOffer: Boolean
+  Amount: String!
+  orders: [ID]
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editOrderDetailInput {
+  isActive: Boolean
+  offers: [ID]
+  isOffer: Boolean
+  Amount: String
+  orders: [ID]
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createOrderDetailInput {
+  data: OrderDetailInput
+}
+
+type createOrderDetailPayload {
+  orderDetail: OrderDetail
+}
+
+input updateOrderDetailInput {
+  where: InputID
+  data: editOrderDetailInput
+}
+
+type updateOrderDetailPayload {
+  orderDetail: OrderDetail
+}
+
+input deleteOrderDetailInput {
+  where: InputID
+}
+
+type deleteOrderDetailPayload {
+  orderDetail: OrderDetail
+}
+
+type OrderStatus {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  IsActive: Boolean
+  published_at: DateTime
+  orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
+}
+
+type OrderStatusConnection {
+  values: [OrderStatus]
+  groupBy: OrderStatusGroupBy
+  aggregate: OrderStatusAggregator
+}
+
+type OrderStatusAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type OrderStatusGroupBy {
+  id: [OrderStatusConnectionId]
+  created_at: [OrderStatusConnectionCreated_at]
+  updated_at: [OrderStatusConnectionUpdated_at]
+  Name: [OrderStatusConnectionName]
+  IsActive: [OrderStatusConnectionIsActive]
+  published_at: [OrderStatusConnectionPublished_at]
+}
+
+type OrderStatusConnectionId {
+  key: ID
+  connection: OrderStatusConnection
+}
+
+type OrderStatusConnectionCreated_at {
+  key: DateTime
+  connection: OrderStatusConnection
+}
+
+type OrderStatusConnectionUpdated_at {
+  key: DateTime
+  connection: OrderStatusConnection
+}
+
+type OrderStatusConnectionName {
+  key: String
+  connection: OrderStatusConnection
+}
+
+type OrderStatusConnectionIsActive {
+  key: Boolean
+  connection: OrderStatusConnection
+}
+
+type OrderStatusConnectionPublished_at {
+  key: DateTime
+  connection: OrderStatusConnection
+}
+
+input OrderStatusInput {
+  Name: String
+  IsActive: Boolean
+  orders: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editOrderStatusInput {
+  Name: String
+  IsActive: Boolean
+  orders: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createOrderStatusInput {
+  data: OrderStatusInput
+}
+
+type createOrderStatusPayload {
+  orderStatus: OrderStatus
+}
+
+input updateOrderStatusInput {
+  where: InputID
+  data: editOrderStatusInput
+}
+
+type updateOrderStatusPayload {
+  orderStatus: OrderStatus
+}
+
+input deleteOrderStatusInput {
+  where: InputID
+}
+
+type deleteOrderStatusPayload {
+  orderStatus: OrderStatus
+}
+
+type Order {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  store: Store
+  delivery_date: DateTime
+  order_status: OrderStatus
+  name: String
+  Deliver_type: DeliverType
+  Weekly_needed: Boolean
+  Total_amount: Float
+  Disocunt: Float
+  published_at: DateTime
+  users_permissions_users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  order_details(sort: String, limit: Int, start: Int, where: JSON): [OrderDetail]
+}
+
+type OrderConnection {
+  values: [Order]
+  groupBy: OrderGroupBy
+  aggregate: OrderAggregator
+}
+
+type OrderAggregator {
+  count: Int
+  totalCount: Int
+  sum: OrderAggregatorSum
+  avg: OrderAggregatorAvg
+  min: OrderAggregatorMin
+  max: OrderAggregatorMax
+}
+
+type OrderAggregatorSum {
+  Total_amount: Float
+  Disocunt: Float
+}
+
+type OrderAggregatorAvg {
+  Total_amount: Float
+  Disocunt: Float
+}
+
+type OrderAggregatorMin {
+  Total_amount: Float
+  Disocunt: Float
+}
+
+type OrderAggregatorMax {
+  Total_amount: Float
+  Disocunt: Float
+}
+
+type OrderGroupBy {
+  id: [OrderConnectionId]
+  created_at: [OrderConnectionCreated_at]
+  updated_at: [OrderConnectionUpdated_at]
+  store: [OrderConnectionStore]
+  delivery_date: [OrderConnectionDelivery_date]
+  order_status: [OrderConnectionOrder_status]
+  name: [OrderConnectionName]
+  Deliver_type: [OrderConnectionDeliver_type]
+  Weekly_needed: [OrderConnectionWeekly_needed]
+  Total_amount: [OrderConnectionTotal_amount]
+  Disocunt: [OrderConnectionDisocunt]
+  published_at: [OrderConnectionPublished_at]
+}
+
+type OrderConnectionId {
+  key: ID
+  connection: OrderConnection
+}
+
+type OrderConnectionCreated_at {
+  key: DateTime
+  connection: OrderConnection
+}
+
+type OrderConnectionUpdated_at {
+  key: DateTime
+  connection: OrderConnection
+}
+
+type OrderConnectionStore {
+  key: ID
+  connection: OrderConnection
+}
+
+type OrderConnectionDelivery_date {
+  key: DateTime
+  connection: OrderConnection
+}
+
+type OrderConnectionOrder_status {
+  key: ID
+  connection: OrderConnection
+}
+
+type OrderConnectionName {
+  key: String
+  connection: OrderConnection
+}
+
+type OrderConnectionDeliver_type {
+  key: ID
+  connection: OrderConnection
+}
+
+type OrderConnectionWeekly_needed {
+  key: Boolean
+  connection: OrderConnection
+}
+
+type OrderConnectionTotal_amount {
+  key: Float
+  connection: OrderConnection
+}
+
+type OrderConnectionDisocunt {
+  key: Float
+  connection: OrderConnection
+}
+
+type OrderConnectionPublished_at {
+  key: DateTime
+  connection: OrderConnection
+}
+
+input OrderInput {
+  store: ID
+  users_permissions_users: [ID]
+  delivery_date: DateTime
+  order_status: ID
+  name: String
+  Deliver_type: ID
+  Weekly_needed: Boolean
+  Total_amount: Float
+  Disocunt: Float
+  order_details: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editOrderInput {
+  store: ID
+  users_permissions_users: [ID]
+  delivery_date: DateTime
+  order_status: ID
+  name: String
+  Deliver_type: ID
+  Weekly_needed: Boolean
+  Total_amount: Float
+  Disocunt: Float
+  order_details: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createOrderInput {
+  data: OrderInput
+}
+
+type createOrderPayload {
+  order: Order
+}
+
+input updateOrderInput {
+  where: InputID
+  data: editOrderInput
+}
+
+type updateOrderPayload {
+  order: Order
+}
+
+input deleteOrderInput {
+  where: InputID
+}
+
+type deleteOrderPayload {
+  order: Order
+}
+
+type Packinging {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+}
+
+type PackingingConnection {
+  values: [Packinging]
+  groupBy: PackingingGroupBy
+  aggregate: PackingingAggregator
+}
+
+type PackingingAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type PackingingGroupBy {
+  id: [PackingingConnectionId]
+  created_at: [PackingingConnectionCreated_at]
+  updated_at: [PackingingConnectionUpdated_at]
+  name: [PackingingConnectionName]
+  isActive: [PackingingConnectionIsActive]
+  published_at: [PackingingConnectionPublished_at]
+}
+
+type PackingingConnectionId {
+  key: ID
+  connection: PackingingConnection
+}
+
+type PackingingConnectionCreated_at {
+  key: DateTime
+  connection: PackingingConnection
+}
+
+type PackingingConnectionUpdated_at {
+  key: DateTime
+  connection: PackingingConnection
+}
+
+type PackingingConnectionName {
+  key: String
+  connection: PackingingConnection
+}
+
+type PackingingConnectionIsActive {
+  key: Boolean
+  connection: PackingingConnection
+}
+
+type PackingingConnectionPublished_at {
+  key: DateTime
+  connection: PackingingConnection
+}
+
+input PackingingInput {
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPackingingInput {
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPackingingInput {
+  data: PackingingInput
+}
+
+type createPackingingPayload {
+  packinging: Packinging
+}
+
+input updatePackingingInput {
+  where: InputID
+  data: editPackingingInput
+}
+
+type updatePackingingPayload {
+  packinging: Packinging
+}
+
+input deletePackingingInput {
+  where: InputID
+}
+
+type deletePackingingPayload {
+  packinging: Packinging
+}
+
+type PreferredCategory {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  IsActive: Boolean
+  store: Store
+  published_at: DateTime
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+}
+
+type PreferredCategoryConnection {
+  values: [PreferredCategory]
+  groupBy: PreferredCategoryGroupBy
+  aggregate: PreferredCategoryAggregator
+}
+
+type PreferredCategoryAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type PreferredCategoryGroupBy {
+  id: [PreferredCategoryConnectionId]
+  created_at: [PreferredCategoryConnectionCreated_at]
+  updated_at: [PreferredCategoryConnectionUpdated_at]
+  Name: [PreferredCategoryConnectionName]
+  IsActive: [PreferredCategoryConnectionIsActive]
+  store: [PreferredCategoryConnectionStore]
+  published_at: [PreferredCategoryConnectionPublished_at]
+}
+
+type PreferredCategoryConnectionId {
+  key: ID
+  connection: PreferredCategoryConnection
+}
+
+type PreferredCategoryConnectionCreated_at {
+  key: DateTime
+  connection: PreferredCategoryConnection
+}
+
+type PreferredCategoryConnectionUpdated_at {
+  key: DateTime
+  connection: PreferredCategoryConnection
+}
+
+type PreferredCategoryConnectionName {
+  key: String
+  connection: PreferredCategoryConnection
+}
+
+type PreferredCategoryConnectionIsActive {
+  key: Boolean
+  connection: PreferredCategoryConnection
+}
+
+type PreferredCategoryConnectionStore {
+  key: ID
+  connection: PreferredCategoryConnection
+}
+
+type PreferredCategoryConnectionPublished_at {
+  key: DateTime
+  connection: PreferredCategoryConnection
+}
+
+input PreferredCategoryInput {
+  Name: String
+  IsActive: Boolean
+  store: ID
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPreferredCategoryInput {
+  Name: String
+  IsActive: Boolean
+  store: ID
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPreferredCategoryInput {
+  data: PreferredCategoryInput
+}
+
+type createPreferredCategoryPayload {
+  preferredCategory: PreferredCategory
+}
+
+input updatePreferredCategoryInput {
+  where: InputID
+  data: editPreferredCategoryInput
+}
+
+type updatePreferredCategoryPayload {
+  preferredCategory: PreferredCategory
+}
+
+input deletePreferredCategoryInput {
+  where: InputID
+}
+
+type deletePreferredCategoryPayload {
+  preferredCategory: PreferredCategory
+}
+
+type ProductDetail {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  Price: Float
+  published_at: DateTime
+  product_sizes(sort: String, limit: Int, start: Int, where: JSON): [ProductSize]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+}
+
+type ProductDetailConnection {
+  values: [ProductDetail]
+  groupBy: ProductDetailGroupBy
+  aggregate: ProductDetailAggregator
+}
+
+type ProductDetailAggregator {
+  count: Int
+  totalCount: Int
+  sum: ProductDetailAggregatorSum
+  avg: ProductDetailAggregatorAvg
+  min: ProductDetailAggregatorMin
+  max: ProductDetailAggregatorMax
+}
+
+type ProductDetailAggregatorSum {
+  Price: Float
+}
+
+type ProductDetailAggregatorAvg {
+  Price: Float
+}
+
+type ProductDetailAggregatorMin {
+  Price: Float
+}
+
+type ProductDetailAggregatorMax {
+  Price: Float
+}
+
+type ProductDetailGroupBy {
+  id: [ProductDetailConnectionId]
+  created_at: [ProductDetailConnectionCreated_at]
+  updated_at: [ProductDetailConnectionUpdated_at]
+  Name: [ProductDetailConnectionName]
+  Price: [ProductDetailConnectionPrice]
+  published_at: [ProductDetailConnectionPublished_at]
+}
+
+type ProductDetailConnectionId {
+  key: ID
+  connection: ProductDetailConnection
+}
+
+type ProductDetailConnectionCreated_at {
+  key: DateTime
+  connection: ProductDetailConnection
+}
+
+type ProductDetailConnectionUpdated_at {
+  key: DateTime
+  connection: ProductDetailConnection
+}
+
+type ProductDetailConnectionName {
+  key: String
+  connection: ProductDetailConnection
+}
+
+type ProductDetailConnectionPrice {
+  key: Float
+  connection: ProductDetailConnection
+}
+
+type ProductDetailConnectionPublished_at {
+  key: DateTime
+  connection: ProductDetailConnection
+}
+
+input ProductDetailInput {
+  Name: String
+  Price: Float
+  product_sizes: [ID]
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductDetailInput {
+  Name: String
+  Price: Float
+  product_sizes: [ID]
+  products: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductDetailInput {
+  data: ProductDetailInput
+}
+
+type createProductDetailPayload {
+  productDetail: ProductDetail
+}
+
+input updateProductDetailInput {
+  where: InputID
+  data: editProductDetailInput
+}
+
+type updateProductDetailPayload {
+  productDetail: ProductDetail
+}
+
+input deleteProductDetailInput {
+  where: InputID
+}
+
+type deleteProductDetailPayload {
+  productDetail: ProductDetail
+}
+
+type ProductImage {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Image: UploadFile
+  published_at: DateTime
+  image2(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  image3(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  video1(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  video2(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type ProductImageConnection {
+  values: [ProductImage]
+  groupBy: ProductImageGroupBy
+  aggregate: ProductImageAggregator
+}
+
+type ProductImageAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ProductImageGroupBy {
+  id: [ProductImageConnectionId]
+  created_at: [ProductImageConnectionCreated_at]
+  updated_at: [ProductImageConnectionUpdated_at]
+  Image: [ProductImageConnectionImage]
+  published_at: [ProductImageConnectionPublished_at]
+}
+
+type ProductImageConnectionId {
+  key: ID
+  connection: ProductImageConnection
+}
+
+type ProductImageConnectionCreated_at {
+  key: DateTime
+  connection: ProductImageConnection
+}
+
+type ProductImageConnectionUpdated_at {
+  key: DateTime
+  connection: ProductImageConnection
+}
+
+type ProductImageConnectionImage {
+  key: ID
+  connection: ProductImageConnection
+}
+
+type ProductImageConnectionPublished_at {
+  key: DateTime
+  connection: ProductImageConnection
+}
+
+input ProductImageInput {
+  Image: ID
+  image2: [ID]
+  image3: [ID]
+  video1: [ID]
+  video2: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductImageInput {
+  Image: ID
+  image2: [ID]
+  image3: [ID]
+  video1: [ID]
+  video2: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductImageInput {
+  data: ProductImageInput
+}
+
+type createProductImagePayload {
+  productImage: ProductImage
+}
+
+input updateProductImageInput {
+  where: InputID
+  data: editProductImageInput
+}
+
+type updateProductImagePayload {
+  productImage: ProductImage
+}
+
+input deleteProductImageInput {
+  where: InputID
+}
+
+type deleteProductImagePayload {
+  productImage: ProductImage
+}
+
+type ProductProperties {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  category: String
+  isActive: Boolean
+  store: Store
+  published_at: DateTime
+}
+
+type ProductPropertiesConnection {
+  values: [ProductProperties]
+  groupBy: ProductPropertiesGroupBy
+  aggregate: ProductPropertiesAggregator
+}
+
+type ProductPropertiesAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ProductPropertiesGroupBy {
+  id: [ProductPropertiesConnectionId]
+  created_at: [ProductPropertiesConnectionCreated_at]
+  updated_at: [ProductPropertiesConnectionUpdated_at]
+  name: [ProductPropertiesConnectionName]
+  category: [ProductPropertiesConnectionCategory]
+  isActive: [ProductPropertiesConnectionIsActive]
+  store: [ProductPropertiesConnectionStore]
+  published_at: [ProductPropertiesConnectionPublished_at]
+}
+
+type ProductPropertiesConnectionId {
+  key: ID
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionCreated_at {
+  key: DateTime
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionUpdated_at {
+  key: DateTime
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionName {
+  key: String
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionCategory {
+  key: String
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionIsActive {
+  key: Boolean
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionStore {
+  key: ID
+  connection: ProductPropertiesConnection
+}
+
+type ProductPropertiesConnectionPublished_at {
+  key: DateTime
+  connection: ProductPropertiesConnection
+}
+
+input ProductPropertyInput {
+  name: String
+  category: String
+  isActive: Boolean
+  store: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductPropertyInput {
+  name: String
+  category: String
+  isActive: Boolean
+  store: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductPropertyInput {
+  data: ProductPropertyInput
+}
+
+type createProductPropertyPayload {
+  productProperty: ProductProperties
+}
+
+input updateProductPropertyInput {
+  where: InputID
+  data: editProductPropertyInput
+}
+
+type updateProductPropertyPayload {
+  productProperty: ProductProperties
+}
+
+input deleteProductPropertyInput {
+  where: InputID
+}
+
+type deleteProductPropertyPayload {
+  productProperty: ProductProperties
+}
+
+type ProductSize {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  isActive: Boolean
+  Price: Float
+  published_at: DateTime
+}
+
+type ProductSizeConnection {
+  values: [ProductSize]
+  groupBy: ProductSizeGroupBy
+  aggregate: ProductSizeAggregator
+}
+
+type ProductSizeAggregator {
+  count: Int
+  totalCount: Int
+  sum: ProductSizeAggregatorSum
+  avg: ProductSizeAggregatorAvg
+  min: ProductSizeAggregatorMin
+  max: ProductSizeAggregatorMax
+}
+
+type ProductSizeAggregatorSum {
+  Price: Float
+}
+
+type ProductSizeAggregatorAvg {
+  Price: Float
+}
+
+type ProductSizeAggregatorMin {
+  Price: Float
+}
+
+type ProductSizeAggregatorMax {
+  Price: Float
+}
+
+type ProductSizeGroupBy {
+  id: [ProductSizeConnectionId]
+  created_at: [ProductSizeConnectionCreated_at]
+  updated_at: [ProductSizeConnectionUpdated_at]
+  name: [ProductSizeConnectionName]
+  isActive: [ProductSizeConnectionIsActive]
+  Price: [ProductSizeConnectionPrice]
+  published_at: [ProductSizeConnectionPublished_at]
+}
+
+type ProductSizeConnectionId {
+  key: ID
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionCreated_at {
+  key: DateTime
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionUpdated_at {
+  key: DateTime
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionName {
+  key: String
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionIsActive {
+  key: Boolean
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionPrice {
+  key: Float
+  connection: ProductSizeConnection
+}
+
+type ProductSizeConnectionPublished_at {
+  key: DateTime
+  connection: ProductSizeConnection
+}
+
+input ProductSizeInput {
+  name: String
+  isActive: Boolean
+  Price: Float
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductSizeInput {
+  name: String
+  isActive: Boolean
+  Price: Float
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductSizeInput {
+  data: ProductSizeInput
+}
+
+type createProductSizePayload {
+  productSize: ProductSize
+}
+
+input updateProductSizeInput {
+  where: InputID
+  data: editProductSizeInput
+}
+
+type updateProductSizePayload {
+  productSize: ProductSize
+}
+
+input deleteProductSizeInput {
+  where: InputID
+}
+
+type deleteProductSizePayload {
+  productSize: ProductSize
+}
+
+type ProductType {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  isActive: Boolean
+  store: Store
+  published_at: DateTime
+}
+
+type ProductTypeConnection {
+  values: [ProductType]
+  groupBy: ProductTypeGroupBy
+  aggregate: ProductTypeAggregator
+}
+
+type ProductTypeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ProductTypeGroupBy {
+  id: [ProductTypeConnectionId]
+  created_at: [ProductTypeConnectionCreated_at]
+  updated_at: [ProductTypeConnectionUpdated_at]
+  name: [ProductTypeConnectionName]
+  isActive: [ProductTypeConnectionIsActive]
+  store: [ProductTypeConnectionStore]
+  published_at: [ProductTypeConnectionPublished_at]
+}
+
+type ProductTypeConnectionId {
+  key: ID
+  connection: ProductTypeConnection
+}
+
+type ProductTypeConnectionCreated_at {
+  key: DateTime
+  connection: ProductTypeConnection
+}
+
+type ProductTypeConnectionUpdated_at {
+  key: DateTime
+  connection: ProductTypeConnection
+}
+
+type ProductTypeConnectionName {
+  key: String
+  connection: ProductTypeConnection
+}
+
+type ProductTypeConnectionIsActive {
+  key: Boolean
+  connection: ProductTypeConnection
+}
+
+type ProductTypeConnectionStore {
+  key: ID
+  connection: ProductTypeConnection
+}
+
+type ProductTypeConnectionPublished_at {
+  key: DateTime
+  connection: ProductTypeConnection
+}
+
+input ProductTypeInput {
+  name: String
+  isActive: Boolean
+  store: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductTypeInput {
+  name: String
+  isActive: Boolean
+  store: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductTypeInput {
+  data: ProductTypeInput
+}
+
+type createProductTypePayload {
+  productType: ProductType
+}
+
+input updateProductTypeInput {
+  where: InputID
+  data: editProductTypeInput
+}
+
+type updateProductTypePayload {
+  productType: ProductType
+}
+
+input deleteProductTypeInput {
+  where: InputID
+}
+
+type deleteProductTypePayload {
+  productType: ProductType
+}
+
+type Product {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  productName: String
+  description: String
+  isActive: Boolean
+  Price: Float!
+  createdDate: DateTime
+  createdBy: String
+  orderDetail: OrderDetail
+  itemCode: String
+  productProperty3: ProductProperties
+  published_at: DateTime
+  stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
+  productCategories(sort: String, limit: Int, start: Int, where: JSON): [MenuCategory]
+  preferredCategories(sort: String, limit: Int, start: Int, where: JSON): [PreferredCategory]
+  offerDetails(sort: String, limit: Int, start: Int, where: JSON): [OfferDetail]
+  productProperty1(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
+  productProperty2(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
+  productProperty4(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
+  productProperty5(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
+  productImages(sort: String, limit: Int, start: Int, where: JSON): [ProductImage]
+  delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
+  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
+}
+
+type ProductConnection {
+  values: [Product]
+  groupBy: ProductGroupBy
+  aggregate: ProductAggregator
+}
+
+type ProductAggregator {
+  count: Int
+  totalCount: Int
+  sum: ProductAggregatorSum
+  avg: ProductAggregatorAvg
+  min: ProductAggregatorMin
+  max: ProductAggregatorMax
+}
+
+type ProductAggregatorSum {
+  Price: Float
+}
+
+type ProductAggregatorAvg {
+  Price: Float
+}
+
+type ProductAggregatorMin {
+  Price: Float
+}
+
+type ProductAggregatorMax {
+  Price: Float
+}
+
+type ProductGroupBy {
+  id: [ProductConnectionId]
+  created_at: [ProductConnectionCreated_at]
+  updated_at: [ProductConnectionUpdated_at]
+  productName: [ProductConnectionProductName]
+  description: [ProductConnectionDescription]
+  isActive: [ProductConnectionIsActive]
+  Price: [ProductConnectionPrice]
+  createdDate: [ProductConnectionCreatedDate]
+  createdBy: [ProductConnectionCreatedBy]
+  orderDetail: [ProductConnectionOrderDetail]
+  itemCode: [ProductConnectionItemCode]
+  productProperty3: [ProductConnectionProductProperty3]
+  published_at: [ProductConnectionPublished_at]
+}
+
+type ProductConnectionId {
+  key: ID
+  connection: ProductConnection
+}
+
+type ProductConnectionCreated_at {
+  key: DateTime
+  connection: ProductConnection
+}
+
+type ProductConnectionUpdated_at {
+  key: DateTime
+  connection: ProductConnection
+}
+
+type ProductConnectionProductName {
+  key: String
+  connection: ProductConnection
+}
+
+type ProductConnectionDescription {
+  key: String
+  connection: ProductConnection
+}
+
+type ProductConnectionIsActive {
+  key: Boolean
+  connection: ProductConnection
+}
+
+type ProductConnectionPrice {
+  key: Float
+  connection: ProductConnection
+}
+
+type ProductConnectionCreatedDate {
+  key: DateTime
+  connection: ProductConnection
+}
+
+type ProductConnectionCreatedBy {
+  key: String
+  connection: ProductConnection
+}
+
+type ProductConnectionOrderDetail {
+  key: ID
+  connection: ProductConnection
+}
+
+type ProductConnectionItemCode {
+  key: String
+  connection: ProductConnection
+}
+
+type ProductConnectionProductProperty3 {
+  key: ID
+  connection: ProductConnection
+}
+
+type ProductConnectionPublished_at {
+  key: DateTime
+  connection: ProductConnection
+}
+
+input ProductInput {
+  productName: String
+  stores: [ID]
+  description: String
+  isActive: Boolean
+  productCategories: [ID]
+  Price: Float!
+  preferredCategories: [ID]
+  createdDate: DateTime
+  createdBy: String
+  offerDetails: [ID]
+  orderDetail: ID
+  itemCode: String
+  productProperty1: [ID]
+  productProperty2: [ID]
+  productProperty3: ID
+  productProperty4: [ID]
+  productProperty5: [ID]
+  productImages: [ID]
+  delivery_days: [ID]
+  promotions: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductInput {
+  productName: String
+  stores: [ID]
+  description: String
+  isActive: Boolean
+  productCategories: [ID]
+  Price: Float
+  preferredCategories: [ID]
+  createdDate: DateTime
+  createdBy: String
+  offerDetails: [ID]
+  orderDetail: ID
+  itemCode: String
+  productProperty1: [ID]
+  productProperty2: [ID]
+  productProperty3: ID
+  productProperty4: [ID]
+  productProperty5: [ID]
+  productImages: [ID]
+  delivery_days: [ID]
+  promotions: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductInput {
+  data: ProductInput
+}
+
+type createProductPayload {
+  product: Product
+}
+
+input updateProductInput {
+  where: InputID
+  data: editProductInput
+}
+
+type updateProductPayload {
+  product: Product
+}
+
+input deleteProductInput {
+  where: InputID
+}
+
+type deleteProductPayload {
+  product: Product
+}
+
+type Promotions {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  offerimage: UploadFile
+  isActive: Boolean
+  product_category: MenuCategory
+  store: Store
+  Price: Int
+  DIscount: Float
+  Description: String
+  published_at: DateTime
+  stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
+  delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+  promotion_types(sort: String, limit: Int, start: Int, where: JSON): [ProductType]
+  product_sizes(sort: String, limit: Int, start: Int, where: JSON): [ProductSize]
+  packingings(sort: String, limit: Int, start: Int, where: JSON): [Packinging]
+  product_properties(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
+  OfferImage(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  OfferVIdeo(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type PromotionsConnection {
+  values: [Promotions]
+  groupBy: PromotionsGroupBy
+  aggregate: PromotionsAggregator
+}
+
+type PromotionsAggregator {
+  count: Int
+  totalCount: Int
+  sum: PromotionsAggregatorSum
+  avg: PromotionsAggregatorAvg
+  min: PromotionsAggregatorMin
+  max: PromotionsAggregatorMax
+}
+
+type PromotionsAggregatorSum {
+  Price: Float
+  DIscount: Float
+}
+
+type PromotionsAggregatorAvg {
+  Price: Float
+  DIscount: Float
+}
+
+type PromotionsAggregatorMin {
+  Price: Float
+  DIscount: Float
+}
+
+type PromotionsAggregatorMax {
+  Price: Float
+  DIscount: Float
+}
+
+type PromotionsGroupBy {
+  id: [PromotionsConnectionId]
+  created_at: [PromotionsConnectionCreated_at]
+  updated_at: [PromotionsConnectionUpdated_at]
+  Name: [PromotionsConnectionName]
+  offerimage: [PromotionsConnectionOfferimage]
+  isActive: [PromotionsConnectionIsActive]
+  product_category: [PromotionsConnectionProduct_category]
+  store: [PromotionsConnectionStore]
+  Price: [PromotionsConnectionPrice]
+  DIscount: [PromotionsConnectionDIscount]
+  Description: [PromotionsConnectionDescription]
+  published_at: [PromotionsConnectionPublished_at]
+}
+
+type PromotionsConnectionId {
+  key: ID
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionCreated_at {
+  key: DateTime
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionUpdated_at {
+  key: DateTime
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionName {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionOfferimage {
+  key: ID
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionIsActive {
+  key: Boolean
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionProduct_category {
+  key: ID
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionStore {
+  key: ID
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionPrice {
+  key: Int
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionDIscount {
+  key: Float
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionDescription {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionPublished_at {
+  key: DateTime
+  connection: PromotionsConnection
+}
+
+input PromotionInput {
+  Name: String
+  offerimage: ID
+  isActive: Boolean
+  stores: [ID]
+  delivery_days: [ID]
+  product_category: ID
+  store: ID
+  Price: Int
+  products: [ID]
+  promotion_types: [ID]
+  product_sizes: [ID]
+  packingings: [ID]
+  product_properties: [ID]
+  OfferImage: [ID]
+  OfferVIdeo: [ID]
+  DIscount: Float
+  Description: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPromotionInput {
+  Name: String
+  offerimage: ID
+  isActive: Boolean
+  stores: [ID]
+  delivery_days: [ID]
+  product_category: ID
+  store: ID
+  Price: Int
+  products: [ID]
+  promotion_types: [ID]
+  product_sizes: [ID]
+  packingings: [ID]
+  product_properties: [ID]
+  OfferImage: [ID]
+  OfferVIdeo: [ID]
+  DIscount: Float
+  Description: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPromotionInput {
+  data: PromotionInput
+}
+
+type createPromotionPayload {
+  promotion: Promotions
+}
+
+input updatePromotionInput {
+  where: InputID
+  data: editPromotionInput
+}
+
+type updatePromotionPayload {
+  promotion: Promotions
+}
+
+input deletePromotionInput {
+  where: InputID
+}
+
+type deletePromotionPayload {
+  promotion: Promotions
+}
+
+type Reviews {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  customerReviews: String
+  rating: String
+  isActive: Boolean
+  vendorAnswer: String
+  usersPermissionsUser: UsersPermissionsUser
+  store: Store
+  published_at: DateTime
+}
+
+type ReviewsConnection {
+  values: [Reviews]
+  groupBy: ReviewsGroupBy
+  aggregate: ReviewsAggregator
+}
+
+type ReviewsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ReviewsGroupBy {
+  id: [ReviewsConnectionId]
+  created_at: [ReviewsConnectionCreated_at]
+  updated_at: [ReviewsConnectionUpdated_at]
+  customerReviews: [ReviewsConnectionCustomerReviews]
+  rating: [ReviewsConnectionRating]
+  isActive: [ReviewsConnectionIsActive]
+  vendorAnswer: [ReviewsConnectionVendorAnswer]
+  usersPermissionsUser: [ReviewsConnectionUsersPermissionsUser]
+  store: [ReviewsConnectionStore]
+  published_at: [ReviewsConnectionPublished_at]
+}
+
+type ReviewsConnectionId {
+  key: ID
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionCreated_at {
+  key: DateTime
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionUpdated_at {
+  key: DateTime
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionCustomerReviews {
+  key: String
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionRating {
+  key: String
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionIsActive {
+  key: Boolean
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionVendorAnswer {
+  key: String
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionUsersPermissionsUser {
+  key: ID
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionStore {
+  key: ID
+  connection: ReviewsConnection
+}
+
+type ReviewsConnectionPublished_at {
+  key: DateTime
+  connection: ReviewsConnection
+}
+
+input ReviewInput {
+  customerReviews: String
+  rating: String
+  isActive: Boolean
+  vendorAnswer: String
+  usersPermissionsUser: ID
+  store: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editReviewInput {
+  customerReviews: String
+  rating: String
+  isActive: Boolean
+  vendorAnswer: String
+  usersPermissionsUser: ID
+  store: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createReviewInput {
+  data: ReviewInput
+}
+
+type createReviewPayload {
+  review: Reviews
+}
+
+input updateReviewInput {
+  where: InputID
+  data: editReviewInput
+}
+
+type updateReviewPayload {
+  review: Reviews
+}
+
+input deleteReviewInput {
+  where: InputID
+}
+
+type deleteReviewPayload {
+  review: Reviews
+}
+
+type Settings {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  settingName: String
+  settingValue: String
+  isActive: Boolean
+  published_at: DateTime
+}
+
+type SettingsConnection {
+  values: [Settings]
+  groupBy: SettingsGroupBy
+  aggregate: SettingsAggregator
+}
+
+type SettingsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SettingsGroupBy {
+  id: [SettingsConnectionId]
+  created_at: [SettingsConnectionCreated_at]
+  updated_at: [SettingsConnectionUpdated_at]
+  settingName: [SettingsConnectionSettingName]
+  settingValue: [SettingsConnectionSettingValue]
+  isActive: [SettingsConnectionIsActive]
+  published_at: [SettingsConnectionPublished_at]
+}
+
+type SettingsConnectionId {
+  key: ID
+  connection: SettingsConnection
+}
+
+type SettingsConnectionCreated_at {
+  key: DateTime
+  connection: SettingsConnection
+}
+
+type SettingsConnectionUpdated_at {
+  key: DateTime
+  connection: SettingsConnection
+}
+
+type SettingsConnectionSettingName {
+  key: String
+  connection: SettingsConnection
+}
+
+type SettingsConnectionSettingValue {
+  key: String
+  connection: SettingsConnection
+}
+
+type SettingsConnectionIsActive {
+  key: Boolean
+  connection: SettingsConnection
+}
+
+type SettingsConnectionPublished_at {
+  key: DateTime
+  connection: SettingsConnection
+}
+
+input SettingInput {
+  settingName: String
+  settingValue: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editSettingInput {
+  settingName: String
+  settingValue: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createSettingInput {
+  data: SettingInput
+}
+
+type createSettingPayload {
+  setting: Settings
+}
+
+input updateSettingInput {
+  where: InputID
+  data: editSettingInput
+}
+
+type updateSettingPayload {
+  setting: Settings
+}
+
+input deleteSettingInput {
+  where: InputID
+}
+
+type deleteSettingPayload {
+  setting: Settings
+}
+
+type State {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  stateName: String!
+  isActive: Boolean!
+  published_at: DateTime
+}
+
+type StateConnection {
+  values: [State]
+  groupBy: StateGroupBy
+  aggregate: StateAggregator
+}
+
+type StateAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type StateGroupBy {
+  id: [StateConnectionId]
+  created_at: [StateConnectionCreated_at]
+  updated_at: [StateConnectionUpdated_at]
+  stateName: [StateConnectionStateName]
+  isActive: [StateConnectionIsActive]
+  published_at: [StateConnectionPublished_at]
+}
+
+type StateConnectionId {
+  key: ID
+  connection: StateConnection
+}
+
+type StateConnectionCreated_at {
+  key: DateTime
+  connection: StateConnection
+}
+
+type StateConnectionUpdated_at {
+  key: DateTime
+  connection: StateConnection
+}
+
+type StateConnectionStateName {
+  key: String
+  connection: StateConnection
+}
+
+type StateConnectionIsActive {
+  key: Boolean
+  connection: StateConnection
+}
+
+type StateConnectionPublished_at {
+  key: DateTime
+  connection: StateConnection
+}
+
+input StateInput {
+  stateName: String!
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editStateInput {
+  stateName: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createStateInput {
+  data: StateInput
+}
+
+type createStatePayload {
+  state: State
+}
+
+input updateStateInput {
+  where: InputID
+  data: editStateInput
+}
+
+type updateStatePayload {
+  state: State
+}
+
+input deleteStateInput {
+  where: InputID
+}
+
+type deleteStatePayload {
+  state: State
+}
+
+type Store {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  StoreName: String
+  users_permissions_user: UsersPermissionsUser
+  Image: UploadFile
+  self_delivery: Boolean
+  longitude: Float
+  Latitude: Float
+  Storeopen: Time
+  StoreClose: Time
+  promotion: Promotions
+  allergen: String
+  published_at: DateTime
+  delivers(sort: String, limit: Int, start: Int, where: JSON): [Delivers]
+  preferred_categories(sort: String, limit: Int, start: Int, where: JSON): [PreferredCategory]
+  menu_categories(sort: String, limit: Int, start: Int, where: JSON): [MenuCategory]
+  reviews(sort: String, limit: Int, start: Int, where: JSON): [Reviews]
+  products(sort: String, limit: Int, start: Int, where: JSON): [Product]
+  deliver_types(sort: String, limit: Int, start: Int, where: JSON): [DeliverType]
+  offers(sort: String, limit: Int, start: Int, where: JSON): [Offer]
+  orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
+  delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
+  promotions(sort: String, limit: Int, start: Int, where: JSON): [Promotions]
+  promotion_types(sort: String, limit: Int, start: Int, where: JSON): [ProductType]
+  product_properties(sort: String, limit: Int, start: Int, where: JSON): [ProductProperties]
+}
+
+type StoreConnection {
+  values: [Store]
+  groupBy: StoreGroupBy
+  aggregate: StoreAggregator
+}
+
+type StoreAggregator {
+  count: Int
+  totalCount: Int
+  sum: StoreAggregatorSum
+  avg: StoreAggregatorAvg
+  min: StoreAggregatorMin
+  max: StoreAggregatorMax
+}
+
+type StoreAggregatorSum {
+  longitude: Float
+  Latitude: Float
+}
+
+type StoreAggregatorAvg {
+  longitude: Float
+  Latitude: Float
+}
+
+type StoreAggregatorMin {
+  longitude: Float
+  Latitude: Float
+}
+
+type StoreAggregatorMax {
+  longitude: Float
+  Latitude: Float
+}
+
+type StoreGroupBy {
+  id: [StoreConnectionId]
+  created_at: [StoreConnectionCreated_at]
+  updated_at: [StoreConnectionUpdated_at]
+  StoreName: [StoreConnectionStoreName]
+  users_permissions_user: [StoreConnectionUsers_permissions_user]
+  Image: [StoreConnectionImage]
+  self_delivery: [StoreConnectionSelf_delivery]
+  longitude: [StoreConnectionLongitude]
+  Latitude: [StoreConnectionLatitude]
+  Storeopen: [StoreConnectionStoreopen]
+  StoreClose: [StoreConnectionStoreClose]
+  promotion: [StoreConnectionPromotion]
+  allergen: [StoreConnectionAllergen]
+  published_at: [StoreConnectionPublished_at]
+}
+
+type StoreConnectionId {
+  key: ID
+  connection: StoreConnection
+}
+
+type StoreConnectionCreated_at {
+  key: DateTime
+  connection: StoreConnection
+}
+
+type StoreConnectionUpdated_at {
+  key: DateTime
+  connection: StoreConnection
+}
+
+type StoreConnectionStoreName {
+  key: String
+  connection: StoreConnection
+}
+
+type StoreConnectionUsers_permissions_user {
+  key: ID
+  connection: StoreConnection
+}
+
+type StoreConnectionImage {
+  key: ID
+  connection: StoreConnection
+}
+
+type StoreConnectionSelf_delivery {
+  key: Boolean
+  connection: StoreConnection
+}
+
+type StoreConnectionLongitude {
+  key: Float
+  connection: StoreConnection
+}
+
+type StoreConnectionLatitude {
+  key: Float
+  connection: StoreConnection
+}
+
+type StoreConnectionStoreopen {
+  key: ID
+  connection: StoreConnection
+}
+
+type StoreConnectionStoreClose {
+  key: ID
+  connection: StoreConnection
+}
+
+type StoreConnectionPromotion {
+  key: ID
+  connection: StoreConnection
+}
+
+type StoreConnectionAllergen {
+  key: String
+  connection: StoreConnection
+}
+
+type StoreConnectionPublished_at {
+  key: DateTime
+  connection: StoreConnection
+}
+
+input StoreInput {
+  StoreName: String
+  users_permissions_user: ID
+  delivers: [ID]
+  preferred_categories: [ID]
+  menu_categories: [ID]
+  reviews: [ID]
+  Image: ID
+  products: [ID]
+  deliver_types: [ID]
+  offers: [ID]
+  orders: [ID]
+  self_delivery: Boolean
+  delivery_days: [ID]
+  longitude: Float
+  Latitude: Float
+  Storeopen: Time
+  StoreClose: Time
+  promotion: ID
+  promotions: [ID]
+  allergen: String
+  promotion_types: [ID]
+  product_properties: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editStoreInput {
+  StoreName: String
+  users_permissions_user: ID
+  delivers: [ID]
+  preferred_categories: [ID]
+  menu_categories: [ID]
+  reviews: [ID]
+  Image: ID
+  products: [ID]
+  deliver_types: [ID]
+  offers: [ID]
+  orders: [ID]
+  self_delivery: Boolean
+  delivery_days: [ID]
+  longitude: Float
+  Latitude: Float
+  Storeopen: Time
+  StoreClose: Time
+  promotion: ID
+  promotions: [ID]
+  allergen: String
+  promotion_types: [ID]
+  product_properties: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createStoreInput {
+  data: StoreInput
+}
+
+type createStorePayload {
+  store: Store
+}
+
+input updateStoreInput {
+  where: InputID
+  data: editStoreInput
+}
+
+type updateStorePayload {
+  store: Store
+}
+
+input deleteStoreInput {
+  where: InputID
+}
+
+type deleteStorePayload {
+  store: Store
+}
+
+type SubType {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  Type: String
+  isActive: Boolean
+  published_at: DateTime
+}
+
+type SubTypeConnection {
+  values: [SubType]
+  groupBy: SubTypeGroupBy
+  aggregate: SubTypeAggregator
+}
+
+type SubTypeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SubTypeGroupBy {
+  id: [SubTypeConnectionId]
+  created_at: [SubTypeConnectionCreated_at]
+  updated_at: [SubTypeConnectionUpdated_at]
+  Name: [SubTypeConnectionName]
+  Type: [SubTypeConnectionType]
+  isActive: [SubTypeConnectionIsActive]
+  published_at: [SubTypeConnectionPublished_at]
+}
+
+type SubTypeConnectionId {
+  key: ID
+  connection: SubTypeConnection
+}
+
+type SubTypeConnectionCreated_at {
+  key: DateTime
+  connection: SubTypeConnection
+}
+
+type SubTypeConnectionUpdated_at {
+  key: DateTime
+  connection: SubTypeConnection
+}
+
+type SubTypeConnectionName {
+  key: String
+  connection: SubTypeConnection
+}
+
+type SubTypeConnectionType {
+  key: String
+  connection: SubTypeConnection
+}
+
+type SubTypeConnectionIsActive {
+  key: Boolean
+  connection: SubTypeConnection
+}
+
+type SubTypeConnectionPublished_at {
+  key: DateTime
+  connection: SubTypeConnection
+}
+
+input SubTypeInput {
+  Name: String
+  Type: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editSubTypeInput {
+  Name: String
+  Type: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createSubTypeInput {
+  data: SubTypeInput
+}
+
+type createSubTypePayload {
+  subType: SubType
+}
+
+input updateSubTypeInput {
+  where: InputID
+  data: editSubTypeInput
+}
+
+type updateSubTypePayload {
+  subType: SubType
+}
+
+input deleteSubTypeInput {
+  where: InputID
+}
+
+type deleteSubTypePayload {
+  subType: SubType
+}
+
+type UserType {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+}
+
+type UserTypeConnection {
+  values: [UserType]
+  groupBy: UserTypeGroupBy
+  aggregate: UserTypeAggregator
+}
+
+type UserTypeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UserTypeGroupBy {
+  id: [UserTypeConnectionId]
+  created_at: [UserTypeConnectionCreated_at]
+  updated_at: [UserTypeConnectionUpdated_at]
+  name: [UserTypeConnectionName]
+  isActive: [UserTypeConnectionIsActive]
+  published_at: [UserTypeConnectionPublished_at]
+}
+
+type UserTypeConnectionId {
+  key: ID
+  connection: UserTypeConnection
+}
+
+type UserTypeConnectionCreated_at {
+  key: DateTime
+  connection: UserTypeConnection
+}
+
+type UserTypeConnectionUpdated_at {
+  key: DateTime
+  connection: UserTypeConnection
+}
+
+type UserTypeConnectionName {
+  key: String
+  connection: UserTypeConnection
+}
+
+type UserTypeConnectionIsActive {
+  key: Boolean
+  connection: UserTypeConnection
+}
+
+type UserTypeConnectionPublished_at {
+  key: DateTime
+  connection: UserTypeConnection
+}
+
+input UserTypeInput {
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserTypeInput {
+  name: String
+  isActive: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserTypeInput {
+  data: UserTypeInput
+}
+
+type createUserTypePayload {
+  userType: UserType
+}
+
+input updateUserTypeInput {
+  where: InputID
+  data: editUserTypeInput
+}
+
+type updateUserTypePayload {
+  userType: UserType
+}
+
+input deleteUserTypeInput {
+  where: InputID
+}
+
+type deleteUserTypePayload {
+  userType: UserType
+}
+
+type I18NLocale {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  code: String
+}
+
+input LocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editLocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+type UploadFile {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  created_at: [UploadFileConnectionCreated_at]
+  updated_at: [UploadFileConnectionUpdated_at]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input deleteFileInput {
+  where: InputID
+}
+
+type deleteFilePayload {
+  file: UploadFile
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+  FirstName: String!
+  lastName: String!
+  DOB: String!
+  ineracEmail: String
+  deliveryRadius: String
+  secondaryContactsName: String
+  secondaryContactsPhone: String
+  secondaryContactsEmail: String
+  vendorCode: String!
+  userImage: UploadFile
+  documentsRequired: Boolean
+  store: Store
+  address: Address
+  user_types(sort: String, limit: Int, start: Int, where: JSON): [UserType]
+  orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
+  addressTypes(sort: String, limit: Int, start: Int, where: JSON): [AddressType]
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  created_at: [UsersPermissionsUserConnectionCreated_at]
+  updated_at: [UsersPermissionsUserConnectionUpdated_at]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+  FirstName: [UsersPermissionsUserConnectionFirstName]
+  lastName: [UsersPermissionsUserConnectionLastName]
+  DOB: [UsersPermissionsUserConnectionDOB]
+  ineracEmail: [UsersPermissionsUserConnectionIneracEmail]
+  deliveryRadius: [UsersPermissionsUserConnectionDeliveryRadius]
+  secondaryContactsName: [UsersPermissionsUserConnectionSecondaryContactsName]
+  secondaryContactsPhone: [UsersPermissionsUserConnectionSecondaryContactsPhone]
+  secondaryContactsEmail: [UsersPermissionsUserConnectionSecondaryContactsEmail]
+  vendorCode: [UsersPermissionsUserConnectionVendorCode]
+  userImage: [UsersPermissionsUserConnectionUserImage]
+  documentsRequired: [UsersPermissionsUserConnectionDocumentsRequired]
+  store: [UsersPermissionsUserConnectionStore]
+  address: [UsersPermissionsUserConnectionAddress]
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionFirstName {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionLastName {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionDOB {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionIneracEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionDeliveryRadius {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionSecondaryContactsName {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionSecondaryContactsPhone {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionSecondaryContactsEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionVendorCode {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUserImage {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionDocumentsRequired {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionStore {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionAddress {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  FirstName: String!
+  lastName: String!
+  DOB: String!
+  ineracEmail: String
+  deliveryRadius: String
+  secondaryContactsName: String
+  secondaryContactsPhone: String
+  secondaryContactsEmail: String
+  vendorCode: String!
+  userImage: ID
+  documentsRequired: Boolean
+  user_types: [ID]
+  store: ID
+  orders: [ID]
+  addressTypes: [ID]
+  address: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  FirstName: String
+  lastName: String
+  DOB: String
+  ineracEmail: String
+  deliveryRadius: String
+  secondaryContactsName: String
+  secondaryContactsPhone: String
+  secondaryContactsEmail: String
+  vendorCode: String
+  userImage: ID
+  documentsRequired: Boolean
+  user_types: [ID]
+  store: ID
+  orders: [ID]
+  addressTypes: [ID]
+  address: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | AddressType | AddressTypeConnection | AddressTypeAggregator | AddressTypeGroupBy | AddressTypeConnectionId | AddressTypeConnectionCreated_at | AddressTypeConnectionUpdated_at | AddressTypeConnectionName | AddressTypeConnectionIsActive | AddressTypeConnectionPublished_at | createAddressTypePayload | updateAddressTypePayload | deleteAddressTypePayload | Address | AddressConnection | AddressAggregator | AddressGroupBy | AddressConnectionId | AddressConnectionCreated_at | AddressConnectionUpdated_at | AddressConnectionCity | AddressConnectionState | AddressConnectionCountry | AddressConnectionUserName | AddressConnectionUser | AddressConnectionUserAddress | AddressConnectionPublished_at | createAddressPayload | updateAddressPayload | deleteAddressPayload | Allergen | AllergenConnection | AllergenAggregator | AllergenGroupBy | AllergenConnectionId | AllergenConnectionCreated_at | AllergenConnectionUpdated_at | AllergenConnectionAllergen | AllergenConnectionPublished_at | createAllergenPayload | updateAllergenPayload | deleteAllergenPayload | City | CityConnection | CityAggregator | CityGroupBy | CityConnectionId | CityConnectionCreated_at | CityConnectionUpdated_at | CityConnectionCityName | CityConnectionIsActive | CityConnectionPublished_at | createCityPayload | updateCityPayload | deleteCityPayload | Country | CountryConnection | CountryAggregator | CountryGroupBy | CountryConnectionId | CountryConnectionCreated_at | CountryConnectionUpdated_at | CountryConnectionCountryName | CountryConnectionIsActive | CountryConnectionPublished_at | createCountryPayload | updateCountryPayload | deleteCountryPayload | DeleveiryCharges | DeleveiryChargesConnection | DeleveiryChargesAggregator | DeleveiryChargesAggregatorSum | DeleveiryChargesAggregatorAvg | DeleveiryChargesAggregatorMin | DeleveiryChargesAggregatorMax | DeleveiryChargesGroupBy | DeleveiryChargesConnectionId | DeleveiryChargesConnectionCreated_at | DeleveiryChargesConnectionUpdated_at | DeleveiryChargesConnectionDistanceFrom | DeleveiryChargesConnectionDistanceTo | DeleveiryChargesConnectionRate | DeleveiryChargesConnectionPublished_at | createDeleveiryChargePayload | updateDeleveiryChargePayload | deleteDeleveiryChargePayload | DeliverType | DeliverTypeConnection | DeliverTypeAggregator | DeliverTypeGroupBy | DeliverTypeConnectionId | DeliverTypeConnectionCreated_at | DeliverTypeConnectionUpdated_at | DeliverTypeConnectionName | DeliverTypeConnectionIsActive | DeliverTypeConnectionPublished_at | createDeliverTypePayload | updateDeliverTypePayload | deleteDeliverTypePayload | Delivers | DeliversConnection | DeliversAggregator | DeliversGroupBy | DeliversConnectionId | DeliversConnectionCreated_at | DeliversConnectionUpdated_at | DeliversConnectionName | DeliversConnectionIsActive | DeliversConnectionPublished_at | createDeliverPayload | updateDeliverPayload | deleteDeliverPayload | DeliveryDays | DeliveryDaysConnection | DeliveryDaysAggregator | DeliveryDaysGroupBy | DeliveryDaysConnectionId | DeliveryDaysConnectionCreated_at | DeliveryDaysConnectionUpdated_at | DeliveryDaysConnectionDaysName | DeliveryDaysConnectionDaysId | DeliveryDaysConnectionIsActive | DeliveryDaysConnectionPublished_at | createDeliveryDayPayload | updateDeliveryDayPayload | deleteDeliveryDayPayload | Des | DesConnection | DesAggregator | DesGroupBy | DesConnectionId | DesConnectionCreated_at | DesConnectionUpdated_at | DesConnectionBar | DesConnectionIsactive | DesConnectionPublished_at | createDePayload | updateDePayload | deleteDePayload | MenuCategory | MenuCategoryConnection | MenuCategoryAggregator | MenuCategoryAggregatorSum | MenuCategoryAggregatorAvg | MenuCategoryAggregatorMin | MenuCategoryAggregatorMax | MenuCategoryGroupBy | MenuCategoryConnectionId | MenuCategoryConnectionCreated_at | MenuCategoryConnectionUpdated_at | MenuCategoryConnectionName | MenuCategoryConnectionIsActive | MenuCategoryConnectionIsDisplayable | MenuCategoryConnectionImage | MenuCategoryConnectionPrice | MenuCategoryConnectionPricey | MenuCategoryConnectionPublished_at | createMenuCategoryPayload | updateMenuCategoryPayload | deleteMenuCategoryPayload | OfferDetail | OfferDetailConnection | OfferDetailAggregator | OfferDetailAggregatorSum | OfferDetailAggregatorAvg | OfferDetailAggregatorMin | OfferDetailAggregatorMax | OfferDetailGroupBy | OfferDetailConnectionId | OfferDetailConnectionCreated_at | OfferDetailConnectionUpdated_at | OfferDetailConnectionPrice | OfferDetailConnectionDiscount | OfferDetailConnectionPublished_at | createOfferDetailPayload | updateOfferDetailPayload | deleteOfferDetailPayload | Offer | OfferConnection | OfferAggregator | OfferAggregatorSum | OfferAggregatorAvg | OfferAggregatorMin | OfferAggregatorMax | OfferGroupBy | OfferConnectionId | OfferConnectionCreated_at | OfferConnectionUpdated_at | OfferConnectionOfferName | OfferConnectionDescription | OfferConnectionStore | OfferConnectionPrice | OfferConnectionOfferImage | OfferConnectionOfferImage1 | OfferConnectionIsActive | OfferConnectionOrder_detail | OfferConnectionPublished_at | createOfferPayload | updateOfferPayload | deleteOfferPayload | OrderDetail | OrderDetailConnection | OrderDetailAggregator | OrderDetailGroupBy | OrderDetailConnectionId | OrderDetailConnectionCreated_at | OrderDetailConnectionUpdated_at | OrderDetailConnectionIsActive | OrderDetailConnectionIsOffer | OrderDetailConnectionAmount | OrderDetailConnectionPublished_at | createOrderDetailPayload | updateOrderDetailPayload | deleteOrderDetailPayload | OrderStatus | OrderStatusConnection | OrderStatusAggregator | OrderStatusGroupBy | OrderStatusConnectionId | OrderStatusConnectionCreated_at | OrderStatusConnectionUpdated_at | OrderStatusConnectionName | OrderStatusConnectionIsActive | OrderStatusConnectionPublished_at | createOrderStatusPayload | updateOrderStatusPayload | deleteOrderStatusPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnectionCreated_at | OrderConnectionUpdated_at | OrderConnectionStore | OrderConnectionDelivery_date | OrderConnectionOrder_status | OrderConnectionName | OrderConnectionDeliver_type | OrderConnectionWeekly_needed | OrderConnectionTotal_amount | OrderConnectionDisocunt | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | Packinging | PackingingConnection | PackingingAggregator | PackingingGroupBy | PackingingConnectionId | PackingingConnectionCreated_at | PackingingConnectionUpdated_at | PackingingConnectionName | PackingingConnectionIsActive | PackingingConnectionPublished_at | createPackingingPayload | updatePackingingPayload | deletePackingingPayload | PreferredCategory | PreferredCategoryConnection | PreferredCategoryAggregator | PreferredCategoryGroupBy | PreferredCategoryConnectionId | PreferredCategoryConnectionCreated_at | PreferredCategoryConnectionUpdated_at | PreferredCategoryConnectionName | PreferredCategoryConnectionIsActive | PreferredCategoryConnectionStore | PreferredCategoryConnectionPublished_at | createPreferredCategoryPayload | updatePreferredCategoryPayload | deletePreferredCategoryPayload | ProductDetail | ProductDetailConnection | ProductDetailAggregator | ProductDetailAggregatorSum | ProductDetailAggregatorAvg | ProductDetailAggregatorMin | ProductDetailAggregatorMax | ProductDetailGroupBy | ProductDetailConnectionId | ProductDetailConnectionCreated_at | ProductDetailConnectionUpdated_at | ProductDetailConnectionName | ProductDetailConnectionPrice | ProductDetailConnectionPublished_at | createProductDetailPayload | updateProductDetailPayload | deleteProductDetailPayload | ProductImage | ProductImageConnection | ProductImageAggregator | ProductImageGroupBy | ProductImageConnectionId | ProductImageConnectionCreated_at | ProductImageConnectionUpdated_at | ProductImageConnectionImage | ProductImageConnectionPublished_at | createProductImagePayload | updateProductImagePayload | deleteProductImagePayload | ProductProperties | ProductPropertiesConnection | ProductPropertiesAggregator | ProductPropertiesGroupBy | ProductPropertiesConnectionId | ProductPropertiesConnectionCreated_at | ProductPropertiesConnectionUpdated_at | ProductPropertiesConnectionName | ProductPropertiesConnectionCategory | ProductPropertiesConnectionIsActive | ProductPropertiesConnectionStore | ProductPropertiesConnectionPublished_at | createProductPropertyPayload | updateProductPropertyPayload | deleteProductPropertyPayload | ProductSize | ProductSizeConnection | ProductSizeAggregator | ProductSizeAggregatorSum | ProductSizeAggregatorAvg | ProductSizeAggregatorMin | ProductSizeAggregatorMax | ProductSizeGroupBy | ProductSizeConnectionId | ProductSizeConnectionCreated_at | ProductSizeConnectionUpdated_at | ProductSizeConnectionName | ProductSizeConnectionIsActive | ProductSizeConnectionPrice | ProductSizeConnectionPublished_at | createProductSizePayload | updateProductSizePayload | deleteProductSizePayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnectionCreated_at | ProductTypeConnectionUpdated_at | ProductTypeConnectionName | ProductTypeConnectionIsActive | ProductTypeConnectionStore | ProductTypeConnectionPublished_at | createProductTypePayload | updateProductTypePayload | deleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionProductName | ProductConnectionDescription | ProductConnectionIsActive | ProductConnectionPrice | ProductConnectionCreatedDate | ProductConnectionCreatedBy | ProductConnectionOrderDetail | ProductConnectionItemCode | ProductConnectionProductProperty3 | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | Promotions | PromotionsConnection | PromotionsAggregator | PromotionsAggregatorSum | PromotionsAggregatorAvg | PromotionsAggregatorMin | PromotionsAggregatorMax | PromotionsGroupBy | PromotionsConnectionId | PromotionsConnectionCreated_at | PromotionsConnectionUpdated_at | PromotionsConnectionName | PromotionsConnectionOfferimage | PromotionsConnectionIsActive | PromotionsConnectionProduct_category | PromotionsConnectionStore | PromotionsConnectionPrice | PromotionsConnectionDIscount | PromotionsConnectionDescription | PromotionsConnectionPublished_at | createPromotionPayload | updatePromotionPayload | deletePromotionPayload | Reviews | ReviewsConnection | ReviewsAggregator | ReviewsGroupBy | ReviewsConnectionId | ReviewsConnectionCreated_at | ReviewsConnectionUpdated_at | ReviewsConnectionCustomerReviews | ReviewsConnectionRating | ReviewsConnectionIsActive | ReviewsConnectionVendorAnswer | ReviewsConnectionUsersPermissionsUser | ReviewsConnectionStore | ReviewsConnectionPublished_at | createReviewPayload | updateReviewPayload | deleteReviewPayload | Settings | SettingsConnection | SettingsAggregator | SettingsGroupBy | SettingsConnectionId | SettingsConnectionCreated_at | SettingsConnectionUpdated_at | SettingsConnectionSettingName | SettingsConnectionSettingValue | SettingsConnectionIsActive | SettingsConnectionPublished_at | createSettingPayload | updateSettingPayload | deleteSettingPayload | State | StateConnection | StateAggregator | StateGroupBy | StateConnectionId | StateConnectionCreated_at | StateConnectionUpdated_at | StateConnectionStateName | StateConnectionIsActive | StateConnectionPublished_at | createStatePayload | updateStatePayload | deleteStatePayload | Store | StoreConnection | StoreAggregator | StoreAggregatorSum | StoreAggregatorAvg | StoreAggregatorMin | StoreAggregatorMax | StoreGroupBy | StoreConnectionId | StoreConnectionCreated_at | StoreConnectionUpdated_at | StoreConnectionStoreName | StoreConnectionUsers_permissions_user | StoreConnectionImage | StoreConnectionSelf_delivery | StoreConnectionLongitude | StoreConnectionLatitude | StoreConnectionStoreopen | StoreConnectionStoreClose | StoreConnectionPromotion | StoreConnectionAllergen | StoreConnectionPublished_at | createStorePayload | updateStorePayload | deleteStorePayload | SubType | SubTypeConnection | SubTypeAggregator | SubTypeGroupBy | SubTypeConnectionId | SubTypeConnectionCreated_at | SubTypeConnectionUpdated_at | SubTypeConnectionName | SubTypeConnectionType | SubTypeConnectionIsActive | SubTypeConnectionPublished_at | createSubTypePayload | updateSubTypePayload | deleteSubTypePayload | UserType | UserTypeConnection | UserTypeAggregator | UserTypeGroupBy | UserTypeConnectionId | UserTypeConnectionCreated_at | UserTypeConnectionUpdated_at | UserTypeConnectionName | UserTypeConnectionIsActive | UserTypeConnectionPublished_at | createUserTypePayload | updateUserTypePayload | deleteUserTypePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionFirstName | UsersPermissionsUserConnectionLastName | UsersPermissionsUserConnectionDOB | UsersPermissionsUserConnectionIneracEmail | UsersPermissionsUserConnectionDeliveryRadius | UsersPermissionsUserConnectionSecondaryContactsName | UsersPermissionsUserConnectionSecondaryContactsPhone | UsersPermissionsUserConnectionSecondaryContactsEmail | UsersPermissionsUserConnectionVendorCode | UsersPermissionsUserConnectionUserImage | UsersPermissionsUserConnectionDocumentsRequired | UsersPermissionsUserConnectionStore | UsersPermissionsUserConnectionAddress | createUserPayload | updateUserPayload | deleteUserPayload
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  addressType(id: ID!, publicationState: PublicationState): AddressType
+  addressTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [AddressType]
+  addressTypesConnection(sort: String, limit: Int, start: Int, where: JSON): AddressTypeConnection
+  address(id: ID!, publicationState: PublicationState): Address
+  addresses(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Address]
+  addressesConnection(sort: String, limit: Int, start: Int, where: JSON): AddressConnection
+  allergen(id: ID!, publicationState: PublicationState): Allergen
+  allergens(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Allergen]
+  allergensConnection(sort: String, limit: Int, start: Int, where: JSON): AllergenConnection
+  city(id: ID!, publicationState: PublicationState): City
+  cities(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [City]
+  citiesConnection(sort: String, limit: Int, start: Int, where: JSON): CityConnection
+  country(id: ID!, publicationState: PublicationState): Country
+  countries(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Country]
+  countriesConnection(sort: String, limit: Int, start: Int, where: JSON): CountryConnection
+  deleveiryCharge(id: ID!, publicationState: PublicationState): DeleveiryCharges
+  deleveiryCharges(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DeleveiryCharges]
+  deleveiryChargesConnection(sort: String, limit: Int, start: Int, where: JSON): DeleveiryChargesConnection
+  deliverType(id: ID!, publicationState: PublicationState): DeliverType
+  deliverTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DeliverType]
+  deliverTypesConnection(sort: String, limit: Int, start: Int, where: JSON): DeliverTypeConnection
+  deliver(id: ID!, publicationState: PublicationState): Delivers
+  delivers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Delivers]
+  deliversConnection(sort: String, limit: Int, start: Int, where: JSON): DeliversConnection
+  deliveryDay(id: ID!, publicationState: PublicationState): DeliveryDays
+  deliveryDays(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DeliveryDays]
+  deliveryDaysConnection(sort: String, limit: Int, start: Int, where: JSON): DeliveryDaysConnection
+  de(id: ID!, publicationState: PublicationState): Des
+  des(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Des]
+  desConnection(sort: String, limit: Int, start: Int, where: JSON): DesConnection
+  menuCategory(id: ID!, publicationState: PublicationState): MenuCategory
+  menuCategories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [MenuCategory]
+  menuCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): MenuCategoryConnection
+  offerDetail(id: ID!, publicationState: PublicationState): OfferDetail
+  offerDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [OfferDetail]
+  offerDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): OfferDetailConnection
+  offer(id: ID!, publicationState: PublicationState): Offer
+  offers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Offer]
+  offersConnection(sort: String, limit: Int, start: Int, where: JSON): OfferConnection
+  orderDetail(id: ID!, publicationState: PublicationState): OrderDetail
+  orderDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [OrderDetail]
+  orderDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): OrderDetailConnection
+  orderStatus(id: ID!, publicationState: PublicationState): OrderStatus
+  orderStatuses(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [OrderStatus]
+  orderStatusesConnection(sort: String, limit: Int, start: Int, where: JSON): OrderStatusConnection
+  order(id: ID!, publicationState: PublicationState): Order
+  orders(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Order]
+  ordersConnection(sort: String, limit: Int, start: Int, where: JSON): OrderConnection
+  packinging(id: ID!, publicationState: PublicationState): Packinging
+  packingings(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Packinging]
+  packingingsConnection(sort: String, limit: Int, start: Int, where: JSON): PackingingConnection
+  preferredCategory(id: ID!, publicationState: PublicationState): PreferredCategory
+  preferredCategories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [PreferredCategory]
+  preferredCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): PreferredCategoryConnection
+  productDetail(id: ID!, publicationState: PublicationState): ProductDetail
+  productDetails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductDetail]
+  productDetailsConnection(sort: String, limit: Int, start: Int, where: JSON): ProductDetailConnection
+  productImage(id: ID!, publicationState: PublicationState): ProductImage
+  productImages(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductImage]
+  productImagesConnection(sort: String, limit: Int, start: Int, where: JSON): ProductImageConnection
+  productProperty(id: ID!, publicationState: PublicationState): ProductProperties
+  productProperties(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductProperties]
+  productPropertiesConnection(sort: String, limit: Int, start: Int, where: JSON): ProductPropertiesConnection
+  productSize(id: ID!, publicationState: PublicationState): ProductSize
+  productSizes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductSize]
+  productSizesConnection(sort: String, limit: Int, start: Int, where: JSON): ProductSizeConnection
+  productType(id: ID!, publicationState: PublicationState): ProductType
+  productTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductType]
+  productTypesConnection(sort: String, limit: Int, start: Int, where: JSON): ProductTypeConnection
+  product(id: ID!, publicationState: PublicationState): Product
+  products(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Product]
+  productsConnection(sort: String, limit: Int, start: Int, where: JSON): ProductConnection
+  promotion(id: ID!, publicationState: PublicationState): Promotions
+  promotions(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Promotions]
+  promotionsConnection(sort: String, limit: Int, start: Int, where: JSON): PromotionsConnection
+  review(id: ID!, publicationState: PublicationState): Reviews
+  reviews(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Reviews]
+  reviewsConnection(sort: String, limit: Int, start: Int, where: JSON): ReviewsConnection
+  setting(id: ID!, publicationState: PublicationState): Settings
+  settings(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Settings]
+  settingsConnection(sort: String, limit: Int, start: Int, where: JSON): SettingsConnection
+  state(id: ID!, publicationState: PublicationState): State
+  states(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [State]
+  statesConnection(sort: String, limit: Int, start: Int, where: JSON): StateConnection
+  store(id: ID!, publicationState: PublicationState): Store
+  stores(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Store]
+  storesConnection(sort: String, limit: Int, start: Int, where: JSON): StoreConnection
+  subType(id: ID!, publicationState: PublicationState): SubType
+  subTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SubType]
+  subTypesConnection(sort: String, limit: Int, start: Int, where: JSON): SubTypeConnection
+  userType(id: ID!, publicationState: PublicationState): UserType
+  userTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UserType]
+  userTypesConnection(sort: String, limit: Int, start: Int, where: JSON): UserTypeConnection
+  files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!, publicationState: PublicationState): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+type Mutation {
+  createAddressType(input: createAddressTypeInput): createAddressTypePayload
+  updateAddressType(input: updateAddressTypeInput): updateAddressTypePayload
+  deleteAddressType(input: deleteAddressTypeInput): deleteAddressTypePayload
+  createAddress(input: createAddressInput): createAddressPayload
+  updateAddress(input: updateAddressInput): updateAddressPayload
+  deleteAddress(input: deleteAddressInput): deleteAddressPayload
+  createAllergen(input: createAllergenInput): createAllergenPayload
+  updateAllergen(input: updateAllergenInput): updateAllergenPayload
+  deleteAllergen(input: deleteAllergenInput): deleteAllergenPayload
+  createCity(input: createCityInput): createCityPayload
+  updateCity(input: updateCityInput): updateCityPayload
+  deleteCity(input: deleteCityInput): deleteCityPayload
+  createCountry(input: createCountryInput): createCountryPayload
+  updateCountry(input: updateCountryInput): updateCountryPayload
+  deleteCountry(input: deleteCountryInput): deleteCountryPayload
+  createDeleveiryCharge(input: createDeleveiryChargeInput): createDeleveiryChargePayload
+  updateDeleveiryCharge(input: updateDeleveiryChargeInput): updateDeleveiryChargePayload
+  deleteDeleveiryCharge(input: deleteDeleveiryChargeInput): deleteDeleveiryChargePayload
+  createDeliverType(input: createDeliverTypeInput): createDeliverTypePayload
+  updateDeliverType(input: updateDeliverTypeInput): updateDeliverTypePayload
+  deleteDeliverType(input: deleteDeliverTypeInput): deleteDeliverTypePayload
+  createDeliver(input: createDeliverInput): createDeliverPayload
+  updateDeliver(input: updateDeliverInput): updateDeliverPayload
+  deleteDeliver(input: deleteDeliverInput): deleteDeliverPayload
+  createDeliveryDay(input: createDeliveryDayInput): createDeliveryDayPayload
+  updateDeliveryDay(input: updateDeliveryDayInput): updateDeliveryDayPayload
+  deleteDeliveryDay(input: deleteDeliveryDayInput): deleteDeliveryDayPayload
+  createDe(input: createDeInput): createDePayload
+  updateDe(input: updateDeInput): updateDePayload
+  deleteDe(input: deleteDeInput): deleteDePayload
+  createMenuCategory(input: createMenuCategoryInput): createMenuCategoryPayload
+  updateMenuCategory(input: updateMenuCategoryInput): updateMenuCategoryPayload
+  deleteMenuCategory(input: deleteMenuCategoryInput): deleteMenuCategoryPayload
+  createOfferDetail(input: createOfferDetailInput): createOfferDetailPayload
+  updateOfferDetail(input: updateOfferDetailInput): updateOfferDetailPayload
+  deleteOfferDetail(input: deleteOfferDetailInput): deleteOfferDetailPayload
+  createOffer(input: createOfferInput): createOfferPayload
+  updateOffer(input: updateOfferInput): updateOfferPayload
+  deleteOffer(input: deleteOfferInput): deleteOfferPayload
+  createOrderDetail(input: createOrderDetailInput): createOrderDetailPayload
+  updateOrderDetail(input: updateOrderDetailInput): updateOrderDetailPayload
+  deleteOrderDetail(input: deleteOrderDetailInput): deleteOrderDetailPayload
+  createOrderStatus(input: createOrderStatusInput): createOrderStatusPayload
+  updateOrderStatus(input: updateOrderStatusInput): updateOrderStatusPayload
+  deleteOrderStatus(input: deleteOrderStatusInput): deleteOrderStatusPayload
+  createOrder(input: createOrderInput): createOrderPayload
+  updateOrder(input: updateOrderInput): updateOrderPayload
+  deleteOrder(input: deleteOrderInput): deleteOrderPayload
+  createPackinging(input: createPackingingInput): createPackingingPayload
+  updatePackinging(input: updatePackingingInput): updatePackingingPayload
+  deletePackinging(input: deletePackingingInput): deletePackingingPayload
+  createPreferredCategory(input: createPreferredCategoryInput): createPreferredCategoryPayload
+  updatePreferredCategory(input: updatePreferredCategoryInput): updatePreferredCategoryPayload
+  deletePreferredCategory(input: deletePreferredCategoryInput): deletePreferredCategoryPayload
+  createProductDetail(input: createProductDetailInput): createProductDetailPayload
+  updateProductDetail(input: updateProductDetailInput): updateProductDetailPayload
+  deleteProductDetail(input: deleteProductDetailInput): deleteProductDetailPayload
+  createProductImage(input: createProductImageInput): createProductImagePayload
+  updateProductImage(input: updateProductImageInput): updateProductImagePayload
+  deleteProductImage(input: deleteProductImageInput): deleteProductImagePayload
+  createProductProperty(input: createProductPropertyInput): createProductPropertyPayload
+  updateProductProperty(input: updateProductPropertyInput): updateProductPropertyPayload
+  deleteProductProperty(input: deleteProductPropertyInput): deleteProductPropertyPayload
+  createProductSize(input: createProductSizeInput): createProductSizePayload
+  updateProductSize(input: updateProductSizeInput): updateProductSizePayload
+  deleteProductSize(input: deleteProductSizeInput): deleteProductSizePayload
+  createProductType(input: createProductTypeInput): createProductTypePayload
+  updateProductType(input: updateProductTypeInput): updateProductTypePayload
+  deleteProductType(input: deleteProductTypeInput): deleteProductTypePayload
+  createProduct(input: createProductInput): createProductPayload
+  updateProduct(input: updateProductInput): updateProductPayload
+  deleteProduct(input: deleteProductInput): deleteProductPayload
+  createPromotion(input: createPromotionInput): createPromotionPayload
+  updatePromotion(input: updatePromotionInput): updatePromotionPayload
+  deletePromotion(input: deletePromotionInput): deletePromotionPayload
+  createReview(input: createReviewInput): createReviewPayload
+  updateReview(input: updateReviewInput): updateReviewPayload
+  deleteReview(input: deleteReviewInput): deleteReviewPayload
+  createSetting(input: createSettingInput): createSettingPayload
+  updateSetting(input: updateSettingInput): updateSettingPayload
+  deleteSetting(input: deleteSettingInput): deleteSettingPayload
+  createState(input: createStateInput): createStatePayload
+  updateState(input: updateStateInput): updateStatePayload
+  deleteState(input: deleteStateInput): deleteStatePayload
+  createStore(input: createStoreInput): createStorePayload
+  updateStore(input: updateStoreInput): updateStorePayload
+  deleteStore(input: deleteStoreInput): deleteStorePayload
+  createSubType(input: createSubTypeInput): createSubTypePayload
+  updateSubType(input: updateSubTypeInput): updateSubTypePayload
+  deleteSubType(input: deleteSubTypeInput): deleteSubTypePayload
+  createUserType(input: createUserTypeInput): createUserTypePayload
+  updateUserType(input: updateUserTypeInput): updateUserTypePayload
+  deleteUserType(input: deleteUserTypeInput): deleteUserTypePayload
+
+  """Delete one file"""
+  deleteFile(input: deleteFileInput): deleteFilePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, info: FileInfoInput, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

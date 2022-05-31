@@ -17,6 +17,10 @@
     },
     "isActive": {
       "type": "boolean"
+    },
+    "store": {
+      "via": "promotion_types",
+      "model": "store"
     }
   }
 }

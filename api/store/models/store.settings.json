@@ -93,6 +93,17 @@
     "promotions": {
       "via": "stores",
       "collection": "promotions"
+    },
+    "allergen": {
+      "type": "text"
+    },
+    "promotion_types": {
+      "collection": "product-type",
+      "via": "store"
+    },
+    "product_properties": {
+      "collection": "product-properties",
+      "via": "store"
     }
   }
 }

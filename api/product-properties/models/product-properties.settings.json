@@ -20,6 +20,10 @@
     },
     "isActive": {
       "type": "boolean"
+    },
+    "store": {
+      "via": "product_properties",
+      "model": "store"
     }
   }
 }

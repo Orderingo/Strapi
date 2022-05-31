@@ -541,6 +541,127 @@
           "isActive": {
             "type": "boolean"
           },
+          "store": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "StoreName": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "delivers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "preferred_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "menu_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reviews": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Image": {
+                "type": "string"
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "deliver_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "offers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "self_delivery": {
+                "type": "boolean"
+              },
+              "delivery_days": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "Latitude": {
+                "type": "number"
+              },
+              "Storeopen": {
+                "type": "string"
+              },
+              "StoreClose": {
+                "type": "string"
+              },
+              "promotion": {
+                "type": "string"
+              },
+              "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -554,6 +675,9 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "store": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

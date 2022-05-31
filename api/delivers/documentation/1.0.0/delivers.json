@@ -626,6 +626,21 @@
                     "type": "string"
                   }
                 },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },

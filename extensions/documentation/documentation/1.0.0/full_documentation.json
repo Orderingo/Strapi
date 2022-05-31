@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/25/2022 9:18:47 PM"
+    "x-generation-date": "05/28/2022 3:26:40 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -19392,7 +19392,7 @@
           "id": {
             "type": "string"
           },
-          "Text": {
+          "allergen": {
             "type": "string"
           },
           "published_at": {
@@ -19403,7 +19403,7 @@
       },
       "NewAllergen": {
         "properties": {
-          "Text": {
+          "allergen": {
             "type": "string"
           },
           "published_at": {
@@ -19671,6 +19671,21 @@
                     "type": "string"
                   }
                 },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -19822,6 +19837,21 @@
                   "type": "string"
                 },
                 "promotions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -19981,6 +20011,21 @@
                   "type": "string"
                 },
                 "promotions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -20359,6 +20404,21 @@
                   "type": "string"
                 },
                 "promotions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -21102,6 +21162,21 @@
                 "type": "string"
               },
               "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -21896,6 +21971,21 @@
                   "type": "string"
                 }
               },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -22349,6 +22439,21 @@
                 "type": "string"
               },
               "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -23107,6 +23212,127 @@
           "isActive": {
             "type": "boolean"
           },
+          "store": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "StoreName": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "delivers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "preferred_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "menu_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reviews": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Image": {
+                "type": "string"
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "deliver_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "offers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "self_delivery": {
+                "type": "boolean"
+              },
+              "delivery_days": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "Latitude": {
+                "type": "number"
+              },
+              "Storeopen": {
+                "type": "string"
+              },
+              "StoreClose": {
+                "type": "string"
+              },
+              "promotion": {
+                "type": "string"
+              },
+              "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -23123,6 +23349,9 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "store": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -23198,6 +23427,127 @@
           "isActive": {
             "type": "boolean"
           },
+          "store": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "StoreName": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "delivers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "preferred_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "menu_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reviews": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Image": {
+                "type": "string"
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "deliver_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "offers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "self_delivery": {
+                "type": "boolean"
+              },
+              "delivery_days": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "Latitude": {
+                "type": "number"
+              },
+              "Storeopen": {
+                "type": "string"
+              },
+              "StoreClose": {
+                "type": "string"
+              },
+              "promotion": {
+                "type": "string"
+              },
+              "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -23211,6 +23561,9 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "store": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -23328,6 +23681,21 @@
                   "type": "string"
                 },
                 "promotions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -23571,6 +23939,9 @@
                 "isActive": {
                   "type": "boolean"
                 },
+                "store": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -23602,6 +23973,9 @@
                 "isActive": {
                   "type": "boolean"
                 },
+                "store": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -23630,6 +24004,9 @@
               },
               "isActive": {
                 "type": "boolean"
+              },
+              "store": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -23661,6 +24038,9 @@
                 "isActive": {
                   "type": "boolean"
                 },
+                "store": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -23691,6 +24071,9 @@
                 },
                 "isActive": {
                   "type": "boolean"
+                },
+                "store": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -24198,6 +24581,21 @@
                     "type": "string"
                   }
                 },
+                "allergen": {
+                  "type": "string"
+                },
+                "promotion_types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "product_properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -24415,6 +24813,21 @@
                   "type": "string"
                 }
               },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -24561,6 +24974,9 @@
                 "isActive": {
                   "type": "boolean"
                 },
+                "store": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -24650,6 +25066,9 @@
                 },
                 "isActive": {
                   "type": "boolean"
+                },
+                "store": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -25109,6 +25528,21 @@
                 "type": "string"
               },
               "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -26140,6 +26574,74 @@
               }
             }
           },
+          "allergen": {
+            "type": "string"
+          },
+          "promotion_types": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "store": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "product_properties": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "store": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -26228,6 +26730,21 @@
             "type": "string"
           },
           "promotions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allergen": {
+            "type": "string"
+          },
+          "promotion_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "product_properties": {
             "type": "array",
             "items": {
               "type": "string"
@@ -26830,6 +27347,21 @@
                 "type": "string"
               },
               "promotions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allergen": {
+                "type": "string"
+              },
+              "promotion_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "product_properties": {
                 "type": "array",
                 "items": {
                   "type": "string"

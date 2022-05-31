@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "allergens",
   "info": {
-    "name": "Allergen"
+    "name": "allergen",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Text": {
+    "allergen": {
       "type": "text"
     }
   }
