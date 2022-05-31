@@ -632,6 +632,12 @@
                 "commission": {
                   "type": "string"
                 },
+                "delivery_distance": {
+                  "type": "number"
+                },
+                "cooking_experience": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -839,139 +845,6 @@
               }
             }
           },
-          "productProperty2": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "store": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "productProperty3": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "category": {
-                "type": "string"
-              },
-              "isActive": {
-                "type": "boolean"
-              },
-              "store": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "productProperty4": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "store": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "productProperty5": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "store": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "productImages": {
             "type": "array",
             "items": {
@@ -1070,6 +943,12 @@
               }
             }
           },
+          "ingredients": {
+            "type": "string"
+          },
+          "allergen": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1130,27 +1009,6 @@
               "type": "string"
             }
           },
-          "productProperty2": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "productProperty3": {
-            "type": "string"
-          },
-          "productProperty4": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "productProperty5": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "productImages": {
             "type": "array",
             "items": {
@@ -1162,6 +1020,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "allergen": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

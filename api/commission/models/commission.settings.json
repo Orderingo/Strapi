@@ -16,8 +16,8 @@
       "type": "string"
     },
     "store": {
-      "model": "store",
-      "via": "commission"
+      "via": "commission",
+      "model": "store"
     },
     "value": {
       "type": "float"

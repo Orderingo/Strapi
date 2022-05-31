@@ -629,6 +629,12 @@
               "commission": {
                 "type": "string"
               },
+              "delivery_distance": {
+                "type": "number"
+              },
+              "cooking_experience": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },

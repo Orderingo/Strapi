@@ -56,23 +56,17 @@
     "productProperty1": {
       "collection": "product-properties"
     },
-    "productProperty2": {
-      "collection": "product-properties"
-    },
-    "productProperty3": {
-      "model": "product-properties"
-    },
-    "productProperty4": {
-      "collection": "product-properties"
-    },
-    "productProperty5": {
-      "collection": "product-properties"
-    },
     "productImages": {
       "collection": "product-image"
     },
     "delivery_days": {
       "collection": "delivery-days"
+    },
+    "ingredients": {
+      "type": "text"
+    },
+    "allergen": {
+      "type": "string"
     }
   }
 }

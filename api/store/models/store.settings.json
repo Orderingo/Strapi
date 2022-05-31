@@ -100,6 +100,12 @@
     "commission": {
       "via": "store",
       "model": "commission"
+    },
+    "delivery_distance": {
+      "type": "float"
+    },
+    "cooking_experience": {
+      "type": "text"
     }
   }
 }
