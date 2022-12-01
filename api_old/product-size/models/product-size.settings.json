@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_sizes",
+  "info": {
+    "name": "ProductSize",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "discount_type": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "float"
+    },
+    "promotions": {
+      "via": "product_size_price",
+      "collection": "promotions",
+      "dominant": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_properties",
+  "info": {
+    "name": "Product Properties",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "store": {
+      "via": "product_properties",
+      "model": "store"
+    }
+  }
+}

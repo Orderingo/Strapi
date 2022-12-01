@@ -708,13 +708,13 @@
                 "store": {
                   "type": "string"
                 },
-                "orders": {
+                "addresses": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "addresses": {
+                "orders": {
                   "type": "array",
                   "items": {
                     "type": "string"

@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "productName": {
+      "type": "string"
+    },
+    "stores": {
+      "via": "products",
+      "collection": "store",
+      "dominant": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "productCategories": {
+      "via": "products",
+      "collection": "menu-category",
+      "dominant": true
+    },
+    "Price": {
+      "required": true,
+      "type": "decimal"
+    },
+    "preferredCategories": {
+      "via": "products",
+      "collection": "preferred-category",
+      "dominant": true
+    },
+    "createdDate": {
+      "type": "datetime"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "orderDetail": {
+      "model": "order-detail",
+      "via": "products"
+    },
+    "itemCode": {
+      "type": "string"
+    },
+    "productProperty1": {
+      "collection": "product-properties"
+    },
+    "productImages": {
+      "collection": "product-image"
+    },
+    "delivery_days": {
+      "collection": "delivery-days"
+    },
+    "ingredients": {
+      "type": "text"
+    },
+    "allergen": {
+      "type": "string"
+    }
+  }
+}

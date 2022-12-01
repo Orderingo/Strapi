@@ -1,0 +1,96 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "name": "promotions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "offerimage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "stores": {
+      "via": "promotions",
+      "collection": "store",
+      "dominant": true
+    },
+    "delivery_days": {
+      "collection": "delivery-days",
+      "via": "promotions",
+      "dominant": true
+    },
+    "product_category": {
+      "model": "menu-category",
+      "via": "promotions"
+    },
+    "promotion_types": {
+      "collection": "product-type"
+    },
+    "packingings": {
+      "collection": "packinging"
+    },
+    "product_properties": {
+      "collection": "product-properties"
+    },
+    "OfferImage": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "OfferVIdeo": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "text"
+    },
+    "discount_type": {
+      "type": "string"
+    },
+    "product_size_price": {
+      "via": "promotions",
+      "collection": "product-size"
+    },
+    "promotion_details": {
+      "via": "promotions",
+      "collection": "promotion-detail"
+    }
+  }
+}

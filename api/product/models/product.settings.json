@@ -56,9 +56,6 @@
     "productProperty1": {
       "collection": "product-properties"
     },
-    "productImages": {
-      "collection": "product-image"
-    },
     "delivery_days": {
       "collection": "delivery-days"
     },
@@ -67,6 +64,16 @@
     },
     "allergen": {
       "type": "string"
+    },
+    "productimagee": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

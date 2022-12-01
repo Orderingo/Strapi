@@ -721,12 +721,6 @@
                     "type": "string"
                   }
                 },
-                "productImages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "delivery_days": {
                   "type": "array",
                   "items": {
@@ -737,6 +731,9 @@
                   "type": "string"
                 },
                 "allergen": {
+                  "type": "string"
+                },
+                "productimagee": {
                   "type": "string"
                 },
                 "published_at": {

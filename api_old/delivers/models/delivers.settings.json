@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivers",
+  "info": {
+    "name": "Delivers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "stores": {
+      "via": "delivers_area",
+      "collection": "store"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "preferred_categories",
+  "info": {
+    "name": "Preferred Category",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean"
+    },
+    "store": {
+      "via": "preferred_categories",
+      "model": "store"
+    },
+    "products": {
+      "via": "preferredCategories",
+      "collection": "product"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "name": "Address",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "city": {
+      "model": "city"
+    },
+    "state": {
+      "model": "state"
+    },
+    "country": {
+      "model": "country"
+    },
+    "address_types": {
+      "collection": "address-type"
+    },
+    "streetaddress": {
+      "type": "string",
+      "required": true
+    },
+    "userAddresses": {
+      "via": "addresses",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

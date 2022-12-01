@@ -17,9 +17,9 @@
       "model": "store"
     },
     "customer": {
+      "via": "orders",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
+      "model": "user"
     },
     "delivery_date": {
       "type": "datetime"
