@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "packingings",
+  "info": {
+    "singularName": "packinging",
+    "pluralName": "packingings",
+    "displayName": "Packinging",
+    "name": "packinging"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

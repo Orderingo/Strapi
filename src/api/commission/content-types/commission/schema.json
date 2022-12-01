@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commissions",
+  "info": {
+    "singularName": "commission",
+    "pluralName": "commissions",
+    "displayName": "Commission",
+    "name": "commission"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store",
+      "inversedBy": "commission"
+    },
+    "value": {
+      "type": "float"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

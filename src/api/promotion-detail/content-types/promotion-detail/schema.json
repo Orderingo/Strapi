@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotion_details",
+  "info": {
+    "singularName": "promotion-detail",
+    "pluralName": "promotion-details",
+    "displayName": "Promotion-detail",
+    "name": "promotion-detail"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "free_product": {
+      "type": "boolean"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "inversedBy": "promotion_details"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "product_name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "Promotion",
+    "name": "promotion"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "offerimage": {
+      "type": "media",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::store.store",
+      "inversedBy": "promotions"
+    },
+    "delivery_days": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::delivery-day.delivery-day",
+      "inversedBy": "promotions"
+    },
+    "product_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::menu-category.menu-category",
+      "inversedBy": "promotions"
+    },
+    "promotion_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type"
+    },
+    "packingings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::packinging.packinging"
+    },
+    "product_properties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-property.product-property"
+    },
+    "OfferImage": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": true,
+      "required": false
+    },
+    "OfferVIdeo": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": true,
+      "required": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "discount_type": {
+      "type": "string"
+    },
+    "product_size_price": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-size.product-size",
+      "mappedBy": "promotions"
+    },
+    "promotion_details": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion-detail.promotion-detail",
+      "mappedBy": "promotions"
+    }
+  }
+}

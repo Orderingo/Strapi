@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review",
+    "name": "review"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "customerReviews": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "vendorAnswer": {
+      "type": "text"
+    },
+    "usersPermissionsUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store",
+      "inversedBy": "reviews"
+    }
+  }
+}

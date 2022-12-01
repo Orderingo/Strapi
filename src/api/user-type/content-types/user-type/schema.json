@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_types",
+  "info": {
+    "singularName": "user-type",
+    "pluralName": "user-types",
+    "displayName": "User-type",
+    "name": "user-type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

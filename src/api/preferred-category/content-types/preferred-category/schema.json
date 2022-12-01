@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "preferred_categories",
+  "info": {
+    "singularName": "preferred-category",
+    "pluralName": "preferred-categories",
+    "displayName": "Preferred-category",
+    "name": "preferred-category"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store",
+      "inversedBy": "preferred_categories"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "preferredCategories"
+    }
+  }
+}

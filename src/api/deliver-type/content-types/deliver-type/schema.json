@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deliver_types",
+  "info": {
+    "singularName": "deliver-type",
+    "pluralName": "deliver-types",
+    "displayName": "Deliver-type",
+    "name": "deliver-type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean"
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::store.store",
+      "inversedBy": "deliver_types"
+    }
+  }
+}

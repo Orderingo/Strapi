@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "name": "product"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "productName": {
+      "type": "string"
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::store.store",
+      "inversedBy": "products"
+    },
+    "description": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "productCategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::menu-category.menu-category",
+      "inversedBy": "products"
+    },
+    "Price": {
+      "required": true,
+      "type": "decimal"
+    },
+    "preferredCategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::preferred-category.preferred-category",
+      "inversedBy": "products"
+    },
+    "createdDate": {
+      "type": "datetime"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "orderDetail": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order-detail.order-detail",
+      "inversedBy": "products"
+    },
+    "itemCode": {
+      "type": "string"
+    },
+    "productProperty1": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-property.product-property"
+    },
+    "delivery_days": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::delivery-day.delivery-day"
+    },
+    "ingredients": {
+      "type": "text"
+    },
+    "allergen": {
+      "type": "string"
+    },
+    "productimagee": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "multiple": false,
+      "required": false
+    }
+  }
+}

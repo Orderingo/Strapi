@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_statuses",
+  "info": {
+    "singularName": "order-status",
+    "pluralName": "order-statuses",
+    "displayName": "Order-status",
+    "name": "order-status"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean"
+    }
+  }
+}

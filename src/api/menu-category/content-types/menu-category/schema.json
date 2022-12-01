@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productCategories",
+  "info": {
+    "singularName": "menu-category",
+    "pluralName": "menu-categories",
+    "displayName": "Menu-category",
+    "name": "menu-category"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean"
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::store.store",
+      "mappedBy": "menu_categories"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "productCategories"
+    },
+    "IsDisplayable": {
+      "type": "boolean",
+      "default": false
+    },
+    "Image": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "multiple": false,
+      "required": false
+    },
+    "delivery_days": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::delivery-day.delivery-day",
+      "inversedBy": "product_categories"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "pricey": {
+      "type": "decimal"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::promotion.promotion",
+      "mappedBy": "product_category"
+    }
+  }
+}

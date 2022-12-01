@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivers",
+  "info": {
+    "singularName": "deliver",
+    "pluralName": "delivers",
+    "displayName": "Deliver",
+    "name": "deliver"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store.store",
+      "mappedBy": "delivers_area"
+    }
+  }
+}

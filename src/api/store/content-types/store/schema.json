@@ -1,0 +1,133 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stores",
+  "info": {
+    "singularName": "store",
+    "pluralName": "stores",
+    "displayName": "Store",
+    "name": "store"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "StoreName": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "store"
+    },
+    "delivers_area": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::deliver.deliver",
+      "inversedBy": "stores"
+    },
+    "preferred_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::preferred-category.preferred-category",
+      "mappedBy": "store"
+    },
+    "menu_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::menu-category.menu-category",
+      "inversedBy": "stores"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "store"
+    },
+    "Image": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "stores"
+    },
+    "deliver_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::deliver-type.deliver-type",
+      "mappedBy": "stores"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "store"
+    },
+    "self_delivery": {
+      "type": "boolean",
+      "default": false
+    },
+    "delivery_days": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::delivery-day.delivery-day",
+      "inversedBy": "stores"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "Latitude": {
+      "type": "float"
+    },
+    "Storeopen": {
+      "type": "time"
+    },
+    "StoreClose": {
+      "type": "time"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "mappedBy": "stores"
+    },
+    "allergen": {
+      "type": "text"
+    },
+    "promotion_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type",
+      "mappedBy": "store"
+    },
+    "product_properties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-property.product-property",
+      "mappedBy": "store"
+    },
+    "commission": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::commission.commission",
+      "inversedBy": "store"
+    },
+    "delivery_distance": {
+      "type": "float"
+    },
+    "cooking_experience": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_histories",
+  "info": {
+    "singularName": "order-history",
+    "pluralName": "order-histories",
+    "displayName": "Order-history",
+    "name": "order-history"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OrderName": {
+      "type": "string"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "order_histories"
+    },
+    "order_statuses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-status.order-status"
+    },
+    "payment_status": {
+      "type": "string"
+    }
+  }
+}

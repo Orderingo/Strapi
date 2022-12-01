@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_days",
+  "info": {
+    "singularName": "delivery-day",
+    "pluralName": "delivery-days",
+    "displayName": "Delivery-day",
+    "name": "delivery-day"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "DaysName": {
+      "type": "string"
+    },
+    "DaysId": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean"
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::store.store",
+      "mappedBy": "delivery_days"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::menu-category.menu-category",
+      "mappedBy": "delivery_days"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promotion.promotion",
+      "mappedBy": "delivery_days"
+    }
+  }
+}

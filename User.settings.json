@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+
   "collectionName": "users-permissions_user",
   "info": {
     "name": "user",
