@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "s",
+  "info": {
+    "name": "Des",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bar": {
+      "type": "string",
+      "default": "x"
+    },
+    "isactive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

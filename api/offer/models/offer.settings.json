@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "name": "Offer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OfferName": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "store": {
+      "via": "offers",
+      "model": "store"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "OfferImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "OfferImage1": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "offer_details": {
+      "via": "offers",
+      "collection": "offer-detail"
+    },
+    "order_detail": {
+      "via": "offers",
+      "model": "order-detail"
+    }
+  }
+}
