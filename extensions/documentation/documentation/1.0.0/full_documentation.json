@@ -14,11 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-<<<<<<< Updated upstream
-    "x-generation-date": "12/26/2022 12:33:12 AM"
-=======
-    "x-generation-date": "01/10/2023 12:49:30 AM"
->>>>>>> Stashed changes
+    "x-generation-date": "01/19/2023 4:53:29 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17551,6 +17547,48 @@
                     "type": "string"
                   }
                 },
+                "approved": {
+                  "type": "boolean"
+                },
+                "catalogApprove": {
+                  "type": "boolean"
+                },
+                "cellPhone": {
+                  "type": "string"
+                },
+                "Homephone": {
+                  "type": "string"
+                },
+                "homeStreet": {
+                  "type": "string"
+                },
+                "homeUnitNo": {
+                  "type": "string"
+                },
+                "homeCity": {
+                  "type": "string"
+                },
+                "homePostalCode": {
+                  "type": "string"
+                },
+                "homeProvince": {
+                  "type": "string"
+                },
+                "pickStreet": {
+                  "type": "string"
+                },
+                "pickUnitNo": {
+                  "type": "string"
+                },
+                "pickCity": {
+                  "type": "string"
+                },
+                "pickPostalCode": {
+                  "type": "string"
+                },
+                "pickProvince": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -17774,6 +17812,9 @@
                 "type": "number"
               },
               "cooking_experience": {
+                "type": "string"
+              },
+              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -18037,6 +18078,9 @@
                 "cooking_experience": {
                   "type": "string"
                 },
+                "secondaryContact": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -18206,6 +18250,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -18380,6 +18427,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -18723,6 +18773,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -19633,6 +19686,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -19726,6 +19782,48 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "approved": {
+                "type": "boolean"
+              },
+              "catalogApprove": {
+                "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -20138,6 +20236,9 @@
                 "type": "number"
               },
               "cooking_experience": {
+                "type": "string"
+              },
+              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -20774,6 +20875,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -21101,6 +21205,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -21263,6 +21370,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -22104,6 +22214,9 @@
                 "cooking_experience": {
                   "type": "string"
                 },
+                "secondaryContact": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -22729,6 +22842,48 @@
                   "type": "string"
                 }
               },
+              "approved": {
+                "type": "boolean"
+              },
+              "catalogApprove": {
+                "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -22845,6 +23000,9 @@
                 "type": "number"
               },
               "cooking_experience": {
+                "type": "string"
+              },
+              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -23085,6 +23243,48 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "approved": {
+                "type": "boolean"
+              },
+              "catalogApprove": {
+                "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -23790,6 +23990,9 @@
           "cooking_experience": {
             "type": "string"
           },
+          "secondaryContact": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -23896,6 +24099,9 @@
             "type": "number"
           },
           "cooking_experience": {
+            "type": "string"
+          },
+          "secondaryContact": {
             "type": "string"
           },
           "published_at": {
@@ -24096,6 +24302,48 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "approved": {
+                  "type": "boolean"
+                },
+                "catalogApprove": {
+                  "type": "boolean"
+                },
+                "cellPhone": {
+                  "type": "string"
+                },
+                "Homephone": {
+                  "type": "string"
+                },
+                "homeStreet": {
+                  "type": "string"
+                },
+                "homeUnitNo": {
+                  "type": "string"
+                },
+                "homeCity": {
+                  "type": "string"
+                },
+                "homePostalCode": {
+                  "type": "string"
+                },
+                "homeProvince": {
+                  "type": "string"
+                },
+                "pickStreet": {
+                  "type": "string"
+                },
+                "pickUnitNo": {
+                  "type": "string"
+                },
+                "pickCity": {
+                  "type": "string"
+                },
+                "pickPostalCode": {
+                  "type": "string"
+                },
+                "pickProvince": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -24440,6 +24688,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -24570,6 +24821,50 @@
                 }
               }
             }
+          },
+          "approved": {
+            "type": "boolean",
+            "default": false
+          },
+          "catalogApprove": {
+            "type": "boolean",
+            "default": false
+          },
+          "cellPhone": {
+            "type": "string"
+          },
+          "Homephone": {
+            "type": "string"
+          },
+          "homeStreet": {
+            "type": "string"
+          },
+          "homeUnitNo": {
+            "type": "string"
+          },
+          "homeCity": {
+            "type": "string"
+          },
+          "homePostalCode": {
+            "type": "string"
+          },
+          "homeProvince": {
+            "type": "string"
+          },
+          "pickStreet": {
+            "type": "string"
+          },
+          "pickUnitNo": {
+            "type": "string"
+          },
+          "pickCity": {
+            "type": "string"
+          },
+          "pickPostalCode": {
+            "type": "string"
+          },
+          "pickProvince": {
+            "type": "string"
           }
         }
       },
@@ -24657,6 +24952,50 @@
             "items": {
               "type": "string"
             }
+          },
+          "approved": {
+            "type": "boolean",
+            "default": false
+          },
+          "catalogApprove": {
+            "type": "boolean",
+            "default": false
+          },
+          "cellPhone": {
+            "type": "string"
+          },
+          "Homephone": {
+            "type": "string"
+          },
+          "homeStreet": {
+            "type": "string"
+          },
+          "homeUnitNo": {
+            "type": "string"
+          },
+          "homeCity": {
+            "type": "string"
+          },
+          "homePostalCode": {
+            "type": "string"
+          },
+          "homeProvince": {
+            "type": "string"
+          },
+          "pickStreet": {
+            "type": "string"
+          },
+          "pickUnitNo": {
+            "type": "string"
+          },
+          "pickCity": {
+            "type": "string"
+          },
+          "pickPostalCode": {
+            "type": "string"
+          },
+          "pickProvince": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

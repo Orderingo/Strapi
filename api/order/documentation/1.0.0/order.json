@@ -632,6 +632,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -725,6 +728,48 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "approved": {
+                "type": "boolean"
+              },
+              "catalogApprove": {
+                "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
