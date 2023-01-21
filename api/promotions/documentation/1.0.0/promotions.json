@@ -708,9 +708,6 @@
                 "cooking_experience": {
                   "type": "string"
                 },
-                "secondaryContact": {
-                  "type": "string"
-                },
                 "published_at": {
                   "type": "string"
                 },

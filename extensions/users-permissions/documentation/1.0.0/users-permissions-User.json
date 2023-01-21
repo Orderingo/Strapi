@@ -1481,9 +1481,6 @@
               "cooking_experience": {
                 "type": "string"
               },
-              "secondaryContact": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -1615,49 +1612,13 @@
               }
             }
           },
-          "approved": {
+          "Approved": {
             "type": "boolean",
             "default": false
           },
-          "catalogApprove": {
+          "CatalogApprove": {
             "type": "boolean",
             "default": false
-          },
-          "cellPhone": {
-            "type": "string"
-          },
-          "Homephone": {
-            "type": "string"
-          },
-          "homeStreet": {
-            "type": "string"
-          },
-          "homeUnitNo": {
-            "type": "string"
-          },
-          "homeCity": {
-            "type": "string"
-          },
-          "homePostalCode": {
-            "type": "string"
-          },
-          "homeProvince": {
-            "type": "string"
-          },
-          "pickStreet": {
-            "type": "string"
-          },
-          "pickUnitNo": {
-            "type": "string"
-          },
-          "pickCity": {
-            "type": "string"
-          },
-          "pickPostalCode": {
-            "type": "string"
-          },
-          "pickProvince": {
-            "type": "string"
           }
         }
       },
@@ -1746,49 +1707,13 @@
               "type": "string"
             }
           },
-          "approved": {
+          "Approved": {
             "type": "boolean",
             "default": false
           },
-          "catalogApprove": {
+          "CatalogApprove": {
             "type": "boolean",
             "default": false
-          },
-          "cellPhone": {
-            "type": "string"
-          },
-          "Homephone": {
-            "type": "string"
-          },
-          "homeStreet": {
-            "type": "string"
-          },
-          "homeUnitNo": {
-            "type": "string"
-          },
-          "homeCity": {
-            "type": "string"
-          },
-          "homePostalCode": {
-            "type": "string"
-          },
-          "homeProvince": {
-            "type": "string"
-          },
-          "pickStreet": {
-            "type": "string"
-          },
-          "pickUnitNo": {
-            "type": "string"
-          },
-          "pickCity": {
-            "type": "string"
-          },
-          "pickPostalCode": {
-            "type": "string"
-          },
-          "pickProvince": {
-            "type": "string"
           },
           "created_by": {
             "type": "string"

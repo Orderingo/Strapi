@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/19/2023 4:53:29 AM"
+    "x-generation-date": "01/21/2023 3:25:30 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17547,47 +17547,11 @@
                     "type": "string"
                   }
                 },
-                "approved": {
+                "Approved": {
                   "type": "boolean"
                 },
-                "catalogApprove": {
+                "CatalogApprove": {
                   "type": "boolean"
-                },
-                "cellPhone": {
-                  "type": "string"
-                },
-                "Homephone": {
-                  "type": "string"
-                },
-                "homeStreet": {
-                  "type": "string"
-                },
-                "homeUnitNo": {
-                  "type": "string"
-                },
-                "homeCity": {
-                  "type": "string"
-                },
-                "homePostalCode": {
-                  "type": "string"
-                },
-                "homeProvince": {
-                  "type": "string"
-                },
-                "pickStreet": {
-                  "type": "string"
-                },
-                "pickUnitNo": {
-                  "type": "string"
-                },
-                "pickCity": {
-                  "type": "string"
-                },
-                "pickPostalCode": {
-                  "type": "string"
-                },
-                "pickProvince": {
-                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -17812,9 +17776,6 @@
                 "type": "number"
               },
               "cooking_experience": {
-                "type": "string"
-              },
-              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -18078,9 +18039,6 @@
                 "cooking_experience": {
                   "type": "string"
                 },
-                "secondaryContact": {
-                  "type": "string"
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -18250,9 +18208,6 @@
                   "type": "number"
                 },
                 "cooking_experience": {
-                  "type": "string"
-                },
-                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -18427,9 +18382,6 @@
                   "type": "number"
                 },
                 "cooking_experience": {
-                  "type": "string"
-                },
-                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -18773,9 +18725,6 @@
                   "type": "number"
                 },
                 "cooking_experience": {
-                  "type": "string"
-                },
-                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -19686,9 +19635,6 @@
               "cooking_experience": {
                 "type": "string"
               },
-              "secondaryContact": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -19783,47 +19729,11 @@
                   "type": "string"
                 }
               },
-              "approved": {
+              "Approved": {
                 "type": "boolean"
               },
-              "catalogApprove": {
+              "CatalogApprove": {
                 "type": "boolean"
-              },
-              "cellPhone": {
-                "type": "string"
-              },
-              "Homephone": {
-                "type": "string"
-              },
-              "homeStreet": {
-                "type": "string"
-              },
-              "homeUnitNo": {
-                "type": "string"
-              },
-              "homeCity": {
-                "type": "string"
-              },
-              "homePostalCode": {
-                "type": "string"
-              },
-              "homeProvince": {
-                "type": "string"
-              },
-              "pickStreet": {
-                "type": "string"
-              },
-              "pickUnitNo": {
-                "type": "string"
-              },
-              "pickCity": {
-                "type": "string"
-              },
-              "pickPostalCode": {
-                "type": "string"
-              },
-              "pickProvince": {
-                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -20236,9 +20146,6 @@
                 "type": "number"
               },
               "cooking_experience": {
-                "type": "string"
-              },
-              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -20875,9 +20782,6 @@
               "cooking_experience": {
                 "type": "string"
               },
-              "secondaryContact": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -21205,9 +21109,6 @@
               "cooking_experience": {
                 "type": "string"
               },
-              "secondaryContact": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -21370,9 +21271,6 @@
                   "type": "number"
                 },
                 "cooking_experience": {
-                  "type": "string"
-                },
-                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -22214,9 +22112,6 @@
                 "cooking_experience": {
                   "type": "string"
                 },
-                "secondaryContact": {
-                  "type": "string"
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -22842,47 +22737,11 @@
                   "type": "string"
                 }
               },
-              "approved": {
+              "Approved": {
                 "type": "boolean"
               },
-              "catalogApprove": {
+              "CatalogApprove": {
                 "type": "boolean"
-              },
-              "cellPhone": {
-                "type": "string"
-              },
-              "Homephone": {
-                "type": "string"
-              },
-              "homeStreet": {
-                "type": "string"
-              },
-              "homeUnitNo": {
-                "type": "string"
-              },
-              "homeCity": {
-                "type": "string"
-              },
-              "homePostalCode": {
-                "type": "string"
-              },
-              "homeProvince": {
-                "type": "string"
-              },
-              "pickStreet": {
-                "type": "string"
-              },
-              "pickUnitNo": {
-                "type": "string"
-              },
-              "pickCity": {
-                "type": "string"
-              },
-              "pickPostalCode": {
-                "type": "string"
-              },
-              "pickProvince": {
-                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -23000,9 +22859,6 @@
                 "type": "number"
               },
               "cooking_experience": {
-                "type": "string"
-              },
-              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -23244,47 +23100,11 @@
                   "type": "string"
                 }
               },
-              "approved": {
+              "Approved": {
                 "type": "boolean"
               },
-              "catalogApprove": {
+              "CatalogApprove": {
                 "type": "boolean"
-              },
-              "cellPhone": {
-                "type": "string"
-              },
-              "Homephone": {
-                "type": "string"
-              },
-              "homeStreet": {
-                "type": "string"
-              },
-              "homeUnitNo": {
-                "type": "string"
-              },
-              "homeCity": {
-                "type": "string"
-              },
-              "homePostalCode": {
-                "type": "string"
-              },
-              "homeProvince": {
-                "type": "string"
-              },
-              "pickStreet": {
-                "type": "string"
-              },
-              "pickUnitNo": {
-                "type": "string"
-              },
-              "pickCity": {
-                "type": "string"
-              },
-              "pickPostalCode": {
-                "type": "string"
-              },
-              "pickProvince": {
-                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -23990,9 +23810,6 @@
           "cooking_experience": {
             "type": "string"
           },
-          "secondaryContact": {
-            "type": "string"
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -24099,9 +23916,6 @@
             "type": "number"
           },
           "cooking_experience": {
-            "type": "string"
-          },
-          "secondaryContact": {
             "type": "string"
           },
           "published_at": {
@@ -24303,47 +24117,11 @@
                     "type": "string"
                   }
                 },
-                "approved": {
+                "Approved": {
                   "type": "boolean"
                 },
-                "catalogApprove": {
+                "CatalogApprove": {
                   "type": "boolean"
-                },
-                "cellPhone": {
-                  "type": "string"
-                },
-                "Homephone": {
-                  "type": "string"
-                },
-                "homeStreet": {
-                  "type": "string"
-                },
-                "homeUnitNo": {
-                  "type": "string"
-                },
-                "homeCity": {
-                  "type": "string"
-                },
-                "homePostalCode": {
-                  "type": "string"
-                },
-                "homeProvince": {
-                  "type": "string"
-                },
-                "pickStreet": {
-                  "type": "string"
-                },
-                "pickUnitNo": {
-                  "type": "string"
-                },
-                "pickCity": {
-                  "type": "string"
-                },
-                "pickPostalCode": {
-                  "type": "string"
-                },
-                "pickProvince": {
-                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -24688,9 +24466,6 @@
               "cooking_experience": {
                 "type": "string"
               },
-              "secondaryContact": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -24822,49 +24597,13 @@
               }
             }
           },
-          "approved": {
+          "Approved": {
             "type": "boolean",
             "default": false
           },
-          "catalogApprove": {
+          "CatalogApprove": {
             "type": "boolean",
             "default": false
-          },
-          "cellPhone": {
-            "type": "string"
-          },
-          "Homephone": {
-            "type": "string"
-          },
-          "homeStreet": {
-            "type": "string"
-          },
-          "homeUnitNo": {
-            "type": "string"
-          },
-          "homeCity": {
-            "type": "string"
-          },
-          "homePostalCode": {
-            "type": "string"
-          },
-          "homeProvince": {
-            "type": "string"
-          },
-          "pickStreet": {
-            "type": "string"
-          },
-          "pickUnitNo": {
-            "type": "string"
-          },
-          "pickCity": {
-            "type": "string"
-          },
-          "pickPostalCode": {
-            "type": "string"
-          },
-          "pickProvince": {
-            "type": "string"
           }
         }
       },
@@ -24953,49 +24692,13 @@
               "type": "string"
             }
           },
-          "approved": {
+          "Approved": {
             "type": "boolean",
             "default": false
           },
-          "catalogApprove": {
+          "CatalogApprove": {
             "type": "boolean",
             "default": false
-          },
-          "cellPhone": {
-            "type": "string"
-          },
-          "Homephone": {
-            "type": "string"
-          },
-          "homeStreet": {
-            "type": "string"
-          },
-          "homeUnitNo": {
-            "type": "string"
-          },
-          "homeCity": {
-            "type": "string"
-          },
-          "homePostalCode": {
-            "type": "string"
-          },
-          "homeProvince": {
-            "type": "string"
-          },
-          "pickStreet": {
-            "type": "string"
-          },
-          "pickUnitNo": {
-            "type": "string"
-          },
-          "pickCity": {
-            "type": "string"
-          },
-          "pickPostalCode": {
-            "type": "string"
-          },
-          "pickProvince": {
-            "type": "string"
           },
           "created_by": {
             "type": "string"
