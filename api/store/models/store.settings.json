@@ -106,6 +106,9 @@
     },
     "cooking_experience": {
       "type": "text"
+    },
+    "secondaryContact": {
+      "type": "string"
     }
   }
 }
