@@ -1615,10 +1615,6 @@
               }
             }
           },
-          "approved": {
-            "type": "boolean",
-            "default": false
-          },
           "catalogApprove": {
             "type": "boolean",
             "default": false
@@ -1658,6 +1654,14 @@
           },
           "pickProvince": {
             "type": "string"
+          },
+          "profileApproved": {
+            "type": "boolean",
+            "default": false
+          },
+          "approved": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -1746,10 +1750,6 @@
               "type": "string"
             }
           },
-          "approved": {
-            "type": "boolean",
-            "default": false
-          },
           "catalogApprove": {
             "type": "boolean",
             "default": false
@@ -1789,6 +1789,14 @@
           },
           "pickProvince": {
             "type": "string"
+          },
+          "profileApproved": {
+            "type": "boolean",
+            "default": false
+          },
+          "approved": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"
