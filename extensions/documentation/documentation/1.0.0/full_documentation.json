@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/21/2023 4:05:49 PM"
+    "x-generation-date": "01/19/2023 5:19:21 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17547,11 +17547,47 @@
                     "type": "string"
                   }
                 },
-                "Approved": {
+                "approved": {
                   "type": "boolean"
                 },
-                "CatalogApprove": {
+                "catalogApprove": {
                   "type": "boolean"
+                },
+                "cellPhone": {
+                  "type": "string"
+                },
+                "Homephone": {
+                  "type": "string"
+                },
+                "homeStreet": {
+                  "type": "string"
+                },
+                "homeUnitNo": {
+                  "type": "string"
+                },
+                "homeCity": {
+                  "type": "string"
+                },
+                "homePostalCode": {
+                  "type": "string"
+                },
+                "homeProvince": {
+                  "type": "string"
+                },
+                "pickStreet": {
+                  "type": "string"
+                },
+                "pickUnitNo": {
+                  "type": "string"
+                },
+                "pickCity": {
+                  "type": "string"
+                },
+                "pickPostalCode": {
+                  "type": "string"
+                },
+                "pickProvince": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -19747,11 +19783,47 @@
                   "type": "string"
                 }
               },
-              "Approved": {
+              "approved": {
                 "type": "boolean"
               },
-              "CatalogApprove": {
+              "catalogApprove": {
                 "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -22770,11 +22842,47 @@
                   "type": "string"
                 }
               },
-              "Approved": {
+              "approved": {
                 "type": "boolean"
               },
-              "CatalogApprove": {
+              "catalogApprove": {
                 "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -23136,11 +23244,47 @@
                   "type": "string"
                 }
               },
-              "Approved": {
+              "approved": {
                 "type": "boolean"
               },
-              "CatalogApprove": {
+              "catalogApprove": {
                 "type": "boolean"
+              },
+              "cellPhone": {
+                "type": "string"
+              },
+              "Homephone": {
+                "type": "string"
+              },
+              "homeStreet": {
+                "type": "string"
+              },
+              "homeUnitNo": {
+                "type": "string"
+              },
+              "homeCity": {
+                "type": "string"
+              },
+              "homePostalCode": {
+                "type": "string"
+              },
+              "homeProvince": {
+                "type": "string"
+              },
+              "pickStreet": {
+                "type": "string"
+              },
+              "pickUnitNo": {
+                "type": "string"
+              },
+              "pickCity": {
+                "type": "string"
+              },
+              "pickPostalCode": {
+                "type": "string"
+              },
+              "pickProvince": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -24159,11 +24303,47 @@
                     "type": "string"
                   }
                 },
-                "Approved": {
+                "approved": {
                   "type": "boolean"
                 },
-                "CatalogApprove": {
+                "catalogApprove": {
                   "type": "boolean"
+                },
+                "cellPhone": {
+                  "type": "string"
+                },
+                "Homephone": {
+                  "type": "string"
+                },
+                "homeStreet": {
+                  "type": "string"
+                },
+                "homeUnitNo": {
+                  "type": "string"
+                },
+                "homeCity": {
+                  "type": "string"
+                },
+                "homePostalCode": {
+                  "type": "string"
+                },
+                "homeProvince": {
+                  "type": "string"
+                },
+                "pickStreet": {
+                  "type": "string"
+                },
+                "pickUnitNo": {
+                  "type": "string"
+                },
+                "pickCity": {
+                  "type": "string"
+                },
+                "pickPostalCode": {
+                  "type": "string"
+                },
+                "pickProvince": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -24642,13 +24822,49 @@
               }
             }
           },
-          "Approved": {
+          "approved": {
             "type": "boolean",
             "default": false
           },
-          "CatalogApprove": {
+          "catalogApprove": {
             "type": "boolean",
             "default": false
+          },
+          "cellPhone": {
+            "type": "string"
+          },
+          "Homephone": {
+            "type": "string"
+          },
+          "homeStreet": {
+            "type": "string"
+          },
+          "homeUnitNo": {
+            "type": "string"
+          },
+          "homeCity": {
+            "type": "string"
+          },
+          "homePostalCode": {
+            "type": "string"
+          },
+          "homeProvince": {
+            "type": "string"
+          },
+          "pickStreet": {
+            "type": "string"
+          },
+          "pickUnitNo": {
+            "type": "string"
+          },
+          "pickCity": {
+            "type": "string"
+          },
+          "pickPostalCode": {
+            "type": "string"
+          },
+          "pickProvince": {
+            "type": "string"
           }
         }
       },
@@ -24737,13 +24953,49 @@
               "type": "string"
             }
           },
-          "Approved": {
+          "approved": {
             "type": "boolean",
             "default": false
           },
-          "CatalogApprove": {
+          "catalogApprove": {
             "type": "boolean",
             "default": false
+          },
+          "cellPhone": {
+            "type": "string"
+          },
+          "Homephone": {
+            "type": "string"
+          },
+          "homeStreet": {
+            "type": "string"
+          },
+          "homeUnitNo": {
+            "type": "string"
+          },
+          "homeCity": {
+            "type": "string"
+          },
+          "homePostalCode": {
+            "type": "string"
+          },
+          "homeProvince": {
+            "type": "string"
+          },
+          "pickStreet": {
+            "type": "string"
+          },
+          "pickUnitNo": {
+            "type": "string"
+          },
+          "pickCity": {
+            "type": "string"
+          },
+          "pickPostalCode": {
+            "type": "string"
+          },
+          "pickProvince": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

@@ -112,13 +112,49 @@
       "via": "customer",
       "collection": "order"
     },
-    "Approved": {
+    "approved": {
       "type": "boolean",
       "default": false
     },
-    "CatalogApprove": {
+    "catalogApprove": {
       "type": "boolean",
       "default": false
+    },
+    "cellPhone": {
+      "type": "string"
+    },
+    "Homephone": {
+      "type": "string"
+    },
+    "homeStreet": {
+      "type": "string"
+    },
+    "homeUnitNo": {
+      "type": "string"
+    },
+    "homeCity": {
+      "type": "string"
+    },
+    "homePostalCode": {
+      "type": "string"
+    },
+    "homeProvince": {
+      "type": "string"
+    },
+    "pickStreet": {
+      "type": "string"
+    },
+    "pickUnitNo": {
+      "type": "string"
+    },
+    "pickCity": {
+      "type": "string"
+    },
+    "pickPostalCode": {
+      "type": "string"
+    },
+    "pickProvince": {
+      "type": "string"
     }
   }
 }
