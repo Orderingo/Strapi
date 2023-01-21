@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/21/2023 3:25:30 PM"
+    "x-generation-date": "01/21/2023 4:05:49 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17778,6 +17778,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -18039,6 +18042,9 @@
                 "cooking_experience": {
                   "type": "string"
                 },
+                "secondaryContact": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -18208,6 +18214,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -18382,6 +18391,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -18725,6 +18737,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -19635,6 +19650,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -20146,6 +20164,9 @@
                 "type": "number"
               },
               "cooking_experience": {
+                "type": "string"
+              },
+              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -20782,6 +20803,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -21109,6 +21133,9 @@
               "cooking_experience": {
                 "type": "string"
               },
+              "secondaryContact": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -21271,6 +21298,9 @@
                   "type": "number"
                 },
                 "cooking_experience": {
+                  "type": "string"
+                },
+                "secondaryContact": {
                   "type": "string"
                 },
                 "published_at": {
@@ -22112,6 +22142,9 @@
                 "cooking_experience": {
                   "type": "string"
                 },
+                "secondaryContact": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -22859,6 +22892,9 @@
                 "type": "number"
               },
               "cooking_experience": {
+                "type": "string"
+              },
+              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
@@ -23810,6 +23846,9 @@
           "cooking_experience": {
             "type": "string"
           },
+          "secondaryContact": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -23916,6 +23955,9 @@
             "type": "number"
           },
           "cooking_experience": {
+            "type": "string"
+          },
+          "secondaryContact": {
             "type": "string"
           },
           "published_at": {
@@ -24464,6 +24506,9 @@
                 "type": "number"
               },
               "cooking_experience": {
+                "type": "string"
+              },
+              "secondaryContact": {
                 "type": "string"
               },
               "published_at": {
