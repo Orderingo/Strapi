@@ -649,9 +649,6 @@
                 "profileApproved": {
                   "type": "boolean"
                 },
-                "approved": {
-                  "type": "boolean"
-                },
                 "created_by": {
                   "type": "string"
                 },

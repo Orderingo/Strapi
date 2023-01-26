@@ -1658,10 +1658,6 @@
           "profileApproved": {
             "type": "boolean",
             "default": false
-          },
-          "approved": {
-            "type": "boolean",
-            "default": false
           }
         }
       },
@@ -1791,10 +1787,6 @@
             "type": "string"
           },
           "profileApproved": {
-            "type": "boolean",
-            "default": false
-          },
-          "approved": {
             "type": "boolean",
             "default": false
           },

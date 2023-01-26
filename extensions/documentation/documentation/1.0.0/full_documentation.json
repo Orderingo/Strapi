@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/19/2023 5:19:21 AM"
+    "x-generation-date": "01/24/2023 12:19:40 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17547,9 +17547,6 @@
                     "type": "string"
                   }
                 },
-                "approved": {
-                  "type": "boolean"
-                },
                 "catalogApprove": {
                   "type": "boolean"
                 },
@@ -17588,6 +17585,9 @@
                 },
                 "pickProvince": {
                   "type": "string"
+                },
+                "profileApproved": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"
@@ -19783,9 +19783,6 @@
                   "type": "string"
                 }
               },
-              "approved": {
-                "type": "boolean"
-              },
               "catalogApprove": {
                 "type": "boolean"
               },
@@ -19824,6 +19821,9 @@
               },
               "pickProvince": {
                 "type": "string"
+              },
+              "profileApproved": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -22842,9 +22842,6 @@
                   "type": "string"
                 }
               },
-              "approved": {
-                "type": "boolean"
-              },
               "catalogApprove": {
                 "type": "boolean"
               },
@@ -22883,6 +22880,9 @@
               },
               "pickProvince": {
                 "type": "string"
+              },
+              "profileApproved": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -23244,9 +23244,6 @@
                   "type": "string"
                 }
               },
-              "approved": {
-                "type": "boolean"
-              },
               "catalogApprove": {
                 "type": "boolean"
               },
@@ -23285,6 +23282,9 @@
               },
               "pickProvince": {
                 "type": "string"
+              },
+              "profileApproved": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -24303,9 +24303,6 @@
                     "type": "string"
                   }
                 },
-                "approved": {
-                  "type": "boolean"
-                },
                 "catalogApprove": {
                   "type": "boolean"
                 },
@@ -24344,6 +24341,9 @@
                 },
                 "pickProvince": {
                   "type": "string"
+                },
+                "profileApproved": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"
@@ -24822,10 +24822,6 @@
               }
             }
           },
-          "approved": {
-            "type": "boolean",
-            "default": false
-          },
           "catalogApprove": {
             "type": "boolean",
             "default": false
@@ -24865,6 +24861,10 @@
           },
           "pickProvince": {
             "type": "string"
+          },
+          "profileApproved": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -24953,10 +24953,6 @@
               "type": "string"
             }
           },
-          "approved": {
-            "type": "boolean",
-            "default": false
-          },
           "catalogApprove": {
             "type": "boolean",
             "default": false
@@ -24996,6 +24992,10 @@
           },
           "pickProvince": {
             "type": "string"
+          },
+          "profileApproved": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"

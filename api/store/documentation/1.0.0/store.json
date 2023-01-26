@@ -608,9 +608,6 @@
                   "type": "string"
                 }
               },
-              "approved": {
-                "type": "boolean"
-              },
               "catalogApprove": {
                 "type": "boolean"
               },
@@ -649,6 +646,9 @@
               },
               "pickProvince": {
                 "type": "string"
+              },
+              "profileApproved": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"

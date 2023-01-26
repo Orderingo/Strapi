@@ -155,10 +155,6 @@
     "profileApproved": {
       "type": "boolean",
       "default": false
-    },
-    "approved": {
-      "type": "boolean",
-      "default": false
     }
   }
 }
