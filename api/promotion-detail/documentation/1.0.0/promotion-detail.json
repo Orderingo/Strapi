@@ -652,7 +652,7 @@
                     "type": "string"
                   }
                 },
-                "description": {
+                "Ingredients": {
                   "type": "string"
                 },
                 "isActive": {
@@ -697,13 +697,28 @@
                     "type": "string"
                   }
                 },
-                "ingredients": {
-                  "type": "string"
-                },
                 "allergen": {
                   "type": "string"
                 },
                 "productimagee": {
+                  "type": "string"
+                },
+                "availableForDailyMenu": {
+                  "type": "boolean"
+                },
+                "ProductCategory": {
+                  "type": "string"
+                },
+                "PrefferedCategory": {
+                  "type": "string"
+                },
+                "DeliveryDays": {
+                  "type": "string"
+                },
+                "ProductProperties": {
+                  "type": "string"
+                },
+                "Packaging": {
                   "type": "string"
                 },
                 "published_at": {

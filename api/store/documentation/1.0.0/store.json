@@ -920,7 +920,7 @@
                     "type": "string"
                   }
                 },
-                "description": {
+                "Ingredients": {
                   "type": "string"
                 },
                 "isActive": {
@@ -965,13 +965,28 @@
                     "type": "string"
                   }
                 },
-                "ingredients": {
-                  "type": "string"
-                },
                 "allergen": {
                   "type": "string"
                 },
                 "productimagee": {
+                  "type": "string"
+                },
+                "availableForDailyMenu": {
+                  "type": "boolean"
+                },
+                "ProductCategory": {
+                  "type": "string"
+                },
+                "PrefferedCategory": {
+                  "type": "string"
+                },
+                "DeliveryDays": {
+                  "type": "string"
+                },
+                "ProductProperties": {
+                  "type": "string"
+                },
+                "Packaging": {
                   "type": "string"
                 },
                 "published_at": {
@@ -1151,12 +1166,6 @@
           },
           "Latitude": {
             "type": "number"
-          },
-          "Storeopen": {
-            "type": "string"
-          },
-          "StoreClose": {
-            "type": "string"
           },
           "promotions": {
             "type": "array",
@@ -1357,6 +1366,26 @@
           "secondaryContact": {
             "type": "string"
           },
+          "productCategory": {
+            "type": "string"
+          },
+          "promotionType": {
+            "type": "string"
+          },
+          "delivers": {
+            "type": "string"
+          },
+          "scale": {
+            "type": "string"
+          },
+          "openTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "closeTime": {
+            "type": "string",
+            "format": "date-time"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1429,12 +1458,6 @@
           "Latitude": {
             "type": "number"
           },
-          "Storeopen": {
-            "type": "string"
-          },
-          "StoreClose": {
-            "type": "string"
-          },
           "promotions": {
             "type": "array",
             "items": {
@@ -1467,6 +1490,26 @@
           },
           "secondaryContact": {
             "type": "string"
+          },
+          "productCategory": {
+            "type": "string"
+          },
+          "promotionType": {
+            "type": "string"
+          },
+          "delivers": {
+            "type": "string"
+          },
+          "scale": {
+            "type": "string"
+          },
+          "openTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "closeTime": {
+            "type": "string",
+            "format": "date-time"
           },
           "published_at": {
             "type": "string",

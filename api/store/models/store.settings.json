@@ -76,12 +76,6 @@
     "Latitude": {
       "type": "float"
     },
-    "Storeopen": {
-      "type": "time"
-    },
-    "StoreClose": {
-      "type": "time"
-    },
     "promotions": {
       "via": "stores",
       "collection": "promotions"
@@ -109,6 +103,24 @@
     },
     "secondaryContact": {
       "type": "string"
+    },
+    "productCategory": {
+      "type": "string"
+    },
+    "promotionType": {
+      "type": "string"
+    },
+    "delivers": {
+      "type": "string"
+    },
+    "scale": {
+      "type": "string"
+    },
+    "openTime": {
+      "type": "datetime"
+    },
+    "closeTime": {
+      "type": "datetime"
     }
   }
 }

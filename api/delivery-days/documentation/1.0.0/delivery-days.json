@@ -620,12 +620,6 @@
                 "Latitude": {
                   "type": "number"
                 },
-                "Storeopen": {
-                  "type": "string"
-                },
-                "StoreClose": {
-                  "type": "string"
-                },
                 "promotions": {
                   "type": "array",
                   "items": {
@@ -657,6 +651,24 @@
                   "type": "string"
                 },
                 "secondaryContact": {
+                  "type": "string"
+                },
+                "productCategory": {
+                  "type": "string"
+                },
+                "promotionType": {
+                  "type": "string"
+                },
+                "delivers": {
+                  "type": "string"
+                },
+                "scale": {
+                  "type": "string"
+                },
+                "openTime": {
+                  "type": "string"
+                },
+                "closeTime": {
                   "type": "string"
                 },
                 "published_at": {
