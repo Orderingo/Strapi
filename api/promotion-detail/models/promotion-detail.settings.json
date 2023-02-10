@@ -16,8 +16,8 @@
       "type": "boolean"
     },
     "promotions": {
-      "collection": "promotions",
       "via": "promotion_details",
+      "collection": "promotions",
       "dominant": true
     },
     "products": {

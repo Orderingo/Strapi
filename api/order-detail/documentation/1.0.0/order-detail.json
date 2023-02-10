@@ -709,6 +709,9 @@
                 "Packaging": {
                   "type": "string"
                 },
+                "UserId": {
+                  "type": "integer"
+                },
                 "published_at": {
                   "type": "string"
                 },

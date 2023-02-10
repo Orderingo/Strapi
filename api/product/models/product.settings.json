@@ -90,6 +90,9 @@
     },
     "Packaging": {
       "type": "string"
+    },
+    "UserId": {
+      "type": "biginteger"
     }
   }
 }

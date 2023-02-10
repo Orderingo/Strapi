@@ -769,6 +769,9 @@
                 "Packaging": {
                   "type": "string"
                 },
+                "UserId": {
+                  "type": "integer"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -920,9 +923,6 @@
                 "name": {
                   "type": "string"
                 },
-                "offerimage": {
-                  "type": "string"
-                },
                 "isActive": {
                   "type": "boolean"
                 },
@@ -988,6 +988,27 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "Serve": {
+                  "type": "string"
+                },
+                "products": {
+                  "type": "object"
+                },
+                "singleservingprice": {
+                  "type": "string"
+                },
+                "promotionalprice": {
+                  "type": "string"
+                },
+                "deliverydays": {
+                  "type": "object"
+                },
+                "userid": {
+                  "type": "string"
+                },
+                "isDaily": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

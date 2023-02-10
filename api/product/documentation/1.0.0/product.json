@@ -998,6 +998,9 @@
           "Packaging": {
             "type": "string"
           },
+          "UserId": {
+            "type": "integer"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1085,6 +1088,9 @@
           },
           "Packaging": {
             "type": "string"
+          },
+          "UserId": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
