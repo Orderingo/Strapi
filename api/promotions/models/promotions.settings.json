@@ -15,18 +15,6 @@
     "name": {
       "type": "string"
     },
-    "offerimage": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "files",
-        "images",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
     "isActive": {
       "type": "boolean",
       "default": true
@@ -91,6 +79,27 @@
     "promotion_details": {
       "via": "promotions",
       "collection": "promotion-detail"
+    },
+    "Serve": {
+      "type": "string"
+    },
+    "products": {
+      "type": "json"
+    },
+    "singleservingprice": {
+      "type": "string"
+    },
+    "promotionalprice": {
+      "type": "string"
+    },
+    "deliverydays": {
+      "type": "json"
+    },
+    "userid": {
+      "type": "string"
+    },
+    "isDaily": {
+      "type": "boolean"
     }
   }
 }
