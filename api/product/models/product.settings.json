@@ -93,6 +93,21 @@
     },
     "UserId": {
       "type": "biginteger"
+    },
+    "DiscountedPrice": {
+      "type": "string"
+    },
+    "ProductImage": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

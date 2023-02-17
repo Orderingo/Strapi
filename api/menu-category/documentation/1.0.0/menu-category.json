@@ -772,6 +772,15 @@
                 "UserId": {
                   "type": "integer"
                 },
+                "DiscountedPrice": {
+                  "type": "string"
+                },
+                "ProductImage": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
