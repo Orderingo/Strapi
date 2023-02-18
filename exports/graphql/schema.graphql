@@ -2469,6 +2469,7 @@ type Product {
   DeliveryDays: String
   ProductProperties: String
   Packaging: String
+  UserId: Long
   published_at: DateTime
   stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
   productCategories(sort: String, limit: Int, start: Int, where: JSON): [MenuCategory]
@@ -2528,6 +2529,7 @@ type ProductGroupBy {
   DeliveryDays: [ProductConnectionDeliveryDays]
   ProductProperties: [ProductConnectionProductProperties]
   Packaging: [ProductConnectionPackaging]
+  UserId: [ProductConnectionUserId]
   published_at: [ProductConnectionPublished_at]
 }
 
@@ -2626,6 +2628,11 @@ type ProductConnectionPackaging {
   connection: ProductConnection
 }
 
+type ProductConnectionUserId {
+  key: ID
+  connection: ProductConnection
+}
+
 type ProductConnectionPublished_at {
   key: DateTime
   connection: ProductConnection
@@ -2653,6 +2660,7 @@ input ProductInput {
   DeliveryDays: String
   ProductProperties: String
   Packaging: String
+  UserId: Long
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -2680,6 +2688,7 @@ input editProductInput {
   DeliveryDays: String
   ProductProperties: String
   Packaging: String
+  UserId: Long
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -2821,11 +2830,17 @@ type Promotions {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  offerimage: UploadFile
   isActive: Boolean
   product_category: MenuCategory
   description: String
   discount_type: String
+  Serve: String
+  products: JSON
+  singleservingprice: String
+  promotionalprice: String
+  deliverydays: JSON
+  userid: String
+  isDaily: Boolean
   published_at: DateTime
   stores(sort: String, limit: Int, start: Int, where: JSON): [Store]
   delivery_days(sort: String, limit: Int, start: Int, where: JSON): [DeliveryDays]
@@ -2854,11 +2869,17 @@ type PromotionsGroupBy {
   created_at: [PromotionsConnectionCreated_at]
   updated_at: [PromotionsConnectionUpdated_at]
   name: [PromotionsConnectionName]
-  offerimage: [PromotionsConnectionOfferimage]
   isActive: [PromotionsConnectionIsActive]
   product_category: [PromotionsConnectionProduct_category]
   description: [PromotionsConnectionDescription]
   discount_type: [PromotionsConnectionDiscount_type]
+  Serve: [PromotionsConnectionServe]
+  products: [PromotionsConnectionProducts]
+  singleservingprice: [PromotionsConnectionSingleservingprice]
+  promotionalprice: [PromotionsConnectionPromotionalprice]
+  deliverydays: [PromotionsConnectionDeliverydays]
+  userid: [PromotionsConnectionUserid]
+  isDaily: [PromotionsConnectionIsDaily]
   published_at: [PromotionsConnectionPublished_at]
 }
 
@@ -2882,11 +2903,6 @@ type PromotionsConnectionName {
   connection: PromotionsConnection
 }
 
-type PromotionsConnectionOfferimage {
-  key: ID
-  connection: PromotionsConnection
-}
-
 type PromotionsConnectionIsActive {
   key: Boolean
   connection: PromotionsConnection
@@ -2907,6 +2923,41 @@ type PromotionsConnectionDiscount_type {
   connection: PromotionsConnection
 }
 
+type PromotionsConnectionServe {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionProducts {
+  key: JSON
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionSingleservingprice {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionPromotionalprice {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionDeliverydays {
+  key: JSON
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionUserid {
+  key: String
+  connection: PromotionsConnection
+}
+
+type PromotionsConnectionIsDaily {
+  key: Boolean
+  connection: PromotionsConnection
+}
+
 type PromotionsConnectionPublished_at {
   key: DateTime
   connection: PromotionsConnection
@@ -2914,7 +2965,6 @@ type PromotionsConnectionPublished_at {
 
 input PromotionInput {
   name: String
-  offerimage: ID
   isActive: Boolean
   stores: [ID]
   delivery_days: [ID]
@@ -2928,6 +2978,13 @@ input PromotionInput {
   discount_type: String
   product_size_price: [ID]
   promotion_details: [ID]
+  Serve: String
+  products: JSON
+  singleservingprice: String
+  promotionalprice: String
+  deliverydays: JSON
+  userid: String
+  isDaily: Boolean
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -2935,7 +2992,6 @@ input PromotionInput {
 
 input editPromotionInput {
   name: String
-  offerimage: ID
   isActive: Boolean
   stores: [ID]
   delivery_days: [ID]
@@ -2949,6 +3005,13 @@ input editPromotionInput {
   discount_type: String
   product_size_price: [ID]
   promotion_details: [ID]
+  Serve: String
+  products: JSON
+  singleservingprice: String
+  promotionalprice: String
+  deliverydays: JSON
+  userid: String
+  isDaily: Boolean
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -4397,7 +4460,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | AddressType | AddressTypeConnection | AddressTypeAggregator | AddressTypeGroupBy | AddressTypeConnectionId | AddressTypeConnectionCreated_at | AddressTypeConnectionUpdated_at | AddressTypeConnectionName | AddressTypeConnectionIsActive | AddressTypeConnectionPublished_at | createAddressTypePayload | updateAddressTypePayload | deleteAddressTypePayload | Address | AddressConnection | AddressAggregator | AddressGroupBy | AddressConnectionId | AddressConnectionCreated_at | AddressConnectionUpdated_at | AddressConnectionCity | AddressConnectionState | AddressConnectionCountry | AddressConnectionStreetaddress | AddressConnectionPublished_at | createAddressPayload | updateAddressPayload | deleteAddressPayload | City | CityConnection | CityAggregator | CityGroupBy | CityConnectionId | CityConnectionCreated_at | CityConnectionUpdated_at | CityConnectionCityName | CityConnectionIsActive | CityConnectionPublished_at | createCityPayload | updateCityPayload | deleteCityPayload | Commission | CommissionConnection | CommissionAggregator | CommissionAggregatorSum | CommissionAggregatorAvg | CommissionAggregatorMin | CommissionAggregatorMax | CommissionGroupBy | CommissionConnectionId | CommissionConnectionCreated_at | CommissionConnectionUpdated_at | CommissionConnectionName | CommissionConnectionStore | CommissionConnectionValue | CommissionConnectionType | createCommissionPayload | updateCommissionPayload | deleteCommissionPayload | Country | CountryConnection | CountryAggregator | CountryGroupBy | CountryConnectionId | CountryConnectionCreated_at | CountryConnectionUpdated_at | CountryConnectionCountryName | CountryConnectionIsActive | CountryConnectionPublished_at | createCountryPayload | updateCountryPayload | deleteCountryPayload | DeleveiryCharges | DeleveiryChargesConnection | DeleveiryChargesAggregator | DeleveiryChargesAggregatorSum | DeleveiryChargesAggregatorAvg | DeleveiryChargesAggregatorMin | DeleveiryChargesAggregatorMax | DeleveiryChargesGroupBy | DeleveiryChargesConnectionId | DeleveiryChargesConnectionCreated_at | DeleveiryChargesConnectionUpdated_at | DeleveiryChargesConnectionDistanceFrom | DeleveiryChargesConnectionDistanceTo | DeleveiryChargesConnectionRate | DeleveiryChargesConnectionPublished_at | createDeleveiryChargePayload | updateDeleveiryChargePayload | deleteDeleveiryChargePayload | DeliverType | DeliverTypeConnection | DeliverTypeAggregator | DeliverTypeGroupBy | DeliverTypeConnectionId | DeliverTypeConnectionCreated_at | DeliverTypeConnectionUpdated_at | DeliverTypeConnectionName | DeliverTypeConnectionIsActive | DeliverTypeConnectionPublished_at | createDeliverTypePayload | updateDeliverTypePayload | deleteDeliverTypePayload | Delivers | DeliversConnection | DeliversAggregator | DeliversGroupBy | DeliversConnectionId | DeliversConnectionCreated_at | DeliversConnectionUpdated_at | DeliversConnectionName | DeliversConnectionIsActive | DeliversConnectionPublished_at | createDeliverPayload | updateDeliverPayload | deleteDeliverPayload | DeliveryDays | DeliveryDaysConnection | DeliveryDaysAggregator | DeliveryDaysGroupBy | DeliveryDaysConnectionId | DeliveryDaysConnectionCreated_at | DeliveryDaysConnectionUpdated_at | DeliveryDaysConnectionDaysName | DeliveryDaysConnectionDaysId | DeliveryDaysConnectionIsActive | DeliveryDaysConnectionPublished_at | createDeliveryDayPayload | updateDeliveryDayPayload | deleteDeliveryDayPayload | MenuCategory | MenuCategoryConnection | MenuCategoryAggregator | MenuCategoryAggregatorSum | MenuCategoryAggregatorAvg | MenuCategoryAggregatorMin | MenuCategoryAggregatorMax | MenuCategoryGroupBy | MenuCategoryConnectionId | MenuCategoryConnectionCreated_at | MenuCategoryConnectionUpdated_at | MenuCategoryConnectionName | MenuCategoryConnectionIsActive | MenuCategoryConnectionIsDisplayable | MenuCategoryConnectionImage | MenuCategoryConnectionPrice | MenuCategoryConnectionPricey | MenuCategoryConnectionPublished_at | createMenuCategoryPayload | updateMenuCategoryPayload | deleteMenuCategoryPayload | OrderDetail | OrderDetailConnection | OrderDetailAggregator | OrderDetailGroupBy | OrderDetailConnectionId | OrderDetailConnectionCreated_at | OrderDetailConnectionUpdated_at | OrderDetailConnectionIsActive | OrderDetailConnectionIsOffer | OrderDetailConnectionAmount | OrderDetailConnectionPublished_at | createOrderDetailPayload | updateOrderDetailPayload | deleteOrderDetailPayload | OrderHistory | OrderHistoryConnection | OrderHistoryAggregator | OrderHistoryGroupBy | OrderHistoryConnectionId | OrderHistoryConnectionCreated_at | OrderHistoryConnectionUpdated_at | OrderHistoryConnectionOrderName | OrderHistoryConnectionOrder | OrderHistoryConnectionPayment_status | OrderHistoryConnectionPublished_at | createOrderHistoryPayload | updateOrderHistoryPayload | deleteOrderHistoryPayload | OrderStatus | OrderStatusConnection | OrderStatusAggregator | OrderStatusGroupBy | OrderStatusConnectionId | OrderStatusConnectionCreated_at | OrderStatusConnectionUpdated_at | OrderStatusConnectionName | OrderStatusConnectionIsActive | OrderStatusConnectionPublished_at | createOrderStatusPayload | updateOrderStatusPayload | deleteOrderStatusPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnectionCreated_at | OrderConnectionUpdated_at | OrderConnectionStore | OrderConnectionCustomer | OrderConnectionDelivery_date | OrderConnectionName | OrderConnectionWeekly_needed | OrderConnectionTotal_amount | OrderConnectionDisocunt | OrderConnectionDiscount_code | OrderConnectionQuantity | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | Packinging | PackingingConnection | PackingingAggregator | PackingingGroupBy | PackingingConnectionId | PackingingConnectionCreated_at | PackingingConnectionUpdated_at | PackingingConnectionName | PackingingConnectionIsActive | PackingingConnectionPublished_at | createPackingingPayload | updatePackingingPayload | deletePackingingPayload | PreferredCategory | PreferredCategoryConnection | PreferredCategoryAggregator | PreferredCategoryGroupBy | PreferredCategoryConnectionId | PreferredCategoryConnectionCreated_at | PreferredCategoryConnectionUpdated_at | PreferredCategoryConnectionName | PreferredCategoryConnectionIsActive | PreferredCategoryConnectionStore | PreferredCategoryConnectionPublished_at | createPreferredCategoryPayload | updatePreferredCategoryPayload | deletePreferredCategoryPayload | ProductImage | ProductImageConnection | ProductImageAggregator | ProductImageGroupBy | ProductImageConnectionId | ProductImageConnectionCreated_at | ProductImageConnectionUpdated_at | ProductImageConnectionImage | ProductImageConnectionPublished_at | createProductImagePayload | updateProductImagePayload | deleteProductImagePayload | ProductProperties | ProductPropertiesConnection | ProductPropertiesAggregator | ProductPropertiesGroupBy | ProductPropertiesConnectionId | ProductPropertiesConnectionCreated_at | ProductPropertiesConnectionUpdated_at | ProductPropertiesConnectionName | ProductPropertiesConnectionCategory | ProductPropertiesConnectionIsActive | ProductPropertiesConnectionStore | ProductPropertiesConnectionPublished_at | createProductPropertyPayload | updateProductPropertyPayload | deleteProductPropertyPayload | ProductSize | ProductSizeConnection | ProductSizeAggregator | ProductSizeAggregatorSum | ProductSizeAggregatorAvg | ProductSizeAggregatorMin | ProductSizeAggregatorMax | ProductSizeGroupBy | ProductSizeConnectionId | ProductSizeConnectionCreated_at | ProductSizeConnectionUpdated_at | ProductSizeConnectionName | ProductSizeConnectionIsActive | ProductSizeConnectionPrice | ProductSizeConnectionDiscount_type | ProductSizeConnectionDiscount | ProductSizeConnectionPublished_at | createProductSizePayload | updateProductSizePayload | deleteProductSizePayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnectionCreated_at | ProductTypeConnectionUpdated_at | ProductTypeConnectionName | ProductTypeConnectionIsActive | ProductTypeConnectionStore | ProductTypeConnectionPublished_at | createProductTypePayload | updateProductTypePayload | deleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionProductName | ProductConnectionIngredients | ProductConnectionIsActive | ProductConnectionPrice | ProductConnectionCreatedDate | ProductConnectionCreatedBy | ProductConnectionOrderDetail | ProductConnectionItemCode | ProductConnectionAllergen | ProductConnectionProductimagee | ProductConnectionAvailableForDailyMenu | ProductConnectionProductCategory | ProductConnectionPrefferedCategory | ProductConnectionDeliveryDays | ProductConnectionProductProperties | ProductConnectionPackaging | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | PromotionDetail | PromotionDetailConnection | PromotionDetailAggregator | PromotionDetailGroupBy | PromotionDetailConnectionId | PromotionDetailConnectionCreated_at | PromotionDetailConnectionUpdated_at | PromotionDetailConnectionFree_product | PromotionDetailConnectionProduct_name | PromotionDetailConnectionPublished_at | createPromotionDetailPayload | updatePromotionDetailPayload | deletePromotionDetailPayload | Promotions | PromotionsConnection | PromotionsAggregator | PromotionsGroupBy | PromotionsConnectionId | PromotionsConnectionCreated_at | PromotionsConnectionUpdated_at | PromotionsConnectionName | PromotionsConnectionOfferimage | PromotionsConnectionIsActive | PromotionsConnectionProduct_category | PromotionsConnectionDescription | PromotionsConnectionDiscount_type | PromotionsConnectionPublished_at | createPromotionPayload | updatePromotionPayload | deletePromotionPayload | Reviews | ReviewsConnection | ReviewsAggregator | ReviewsGroupBy | ReviewsConnectionId | ReviewsConnectionCreated_at | ReviewsConnectionUpdated_at | ReviewsConnectionCustomerReviews | ReviewsConnectionRating | ReviewsConnectionIsActive | ReviewsConnectionVendorAnswer | ReviewsConnectionUsersPermissionsUser | ReviewsConnectionStore | ReviewsConnectionPublished_at | createReviewPayload | updateReviewPayload | deleteReviewPayload | Settings | SettingsConnection | SettingsAggregator | SettingsGroupBy | SettingsConnectionId | SettingsConnectionCreated_at | SettingsConnectionUpdated_at | SettingsConnectionSettingName | SettingsConnectionSettingValue | SettingsConnectionIsActive | SettingsConnectionPublished_at | createSettingPayload | updateSettingPayload | deleteSettingPayload | State | StateConnection | StateAggregator | StateGroupBy | StateConnectionId | StateConnectionCreated_at | StateConnectionUpdated_at | StateConnectionStateName | StateConnectionIsActive | StateConnectionPublished_at | createStatePayload | updateStatePayload | deleteStatePayload | Store | StoreConnection | StoreAggregator | StoreAggregatorSum | StoreAggregatorAvg | StoreAggregatorMin | StoreAggregatorMax | StoreGroupBy | StoreConnectionId | StoreConnectionCreated_at | StoreConnectionUpdated_at | StoreConnectionStoreName | StoreConnectionUsers_permissions_user | StoreConnectionImage | StoreConnectionSelf_delivery | StoreConnectionLongitude | StoreConnectionLatitude | StoreConnectionAllergen | StoreConnectionCommission | StoreConnectionDelivery_distance | StoreConnectionCooking_experience | StoreConnectionSecondaryContact | StoreConnectionProductCategory | StoreConnectionPromotionType | StoreConnectionDelivers | StoreConnectionScale | StoreConnectionOpenTime | StoreConnectionCloseTime | StoreConnectionPublished_at | createStorePayload | updateStorePayload | deleteStorePayload | UserType | UserTypeConnection | UserTypeAggregator | UserTypeGroupBy | UserTypeConnectionId | UserTypeConnectionCreated_at | UserTypeConnectionUpdated_at | UserTypeConnectionName | UserTypeConnectionIsActive | UserTypeConnectionPublished_at | createUserTypePayload | updateUserTypePayload | deleteUserTypePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionFirstName | UsersPermissionsUserConnectionLastName | UsersPermissionsUserConnectionDOB | UsersPermissionsUserConnectionIneracEmail | UsersPermissionsUserConnectionVendorCode | UsersPermissionsUserConnectionUserImage | UsersPermissionsUserConnectionDocumentsRequired | UsersPermissionsUserConnectionStore | UsersPermissionsUserConnectionCatalogApprove | UsersPermissionsUserConnectionCellPhone | UsersPermissionsUserConnectionHomephone | UsersPermissionsUserConnectionHomeStreet | UsersPermissionsUserConnectionHomeUnitNo | UsersPermissionsUserConnectionHomeCity | UsersPermissionsUserConnectionHomePostalCode | UsersPermissionsUserConnectionHomeProvince | UsersPermissionsUserConnectionPickStreet | UsersPermissionsUserConnectionPickUnitNo | UsersPermissionsUserConnectionPickCity | UsersPermissionsUserConnectionPickPostalCode | UsersPermissionsUserConnectionPickProvince | UsersPermissionsUserConnectionProfileApproved | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | AddressType | AddressTypeConnection | AddressTypeAggregator | AddressTypeGroupBy | AddressTypeConnectionId | AddressTypeConnectionCreated_at | AddressTypeConnectionUpdated_at | AddressTypeConnectionName | AddressTypeConnectionIsActive | AddressTypeConnectionPublished_at | createAddressTypePayload | updateAddressTypePayload | deleteAddressTypePayload | Address | AddressConnection | AddressAggregator | AddressGroupBy | AddressConnectionId | AddressConnectionCreated_at | AddressConnectionUpdated_at | AddressConnectionCity | AddressConnectionState | AddressConnectionCountry | AddressConnectionStreetaddress | AddressConnectionPublished_at | createAddressPayload | updateAddressPayload | deleteAddressPayload | City | CityConnection | CityAggregator | CityGroupBy | CityConnectionId | CityConnectionCreated_at | CityConnectionUpdated_at | CityConnectionCityName | CityConnectionIsActive | CityConnectionPublished_at | createCityPayload | updateCityPayload | deleteCityPayload | Commission | CommissionConnection | CommissionAggregator | CommissionAggregatorSum | CommissionAggregatorAvg | CommissionAggregatorMin | CommissionAggregatorMax | CommissionGroupBy | CommissionConnectionId | CommissionConnectionCreated_at | CommissionConnectionUpdated_at | CommissionConnectionName | CommissionConnectionStore | CommissionConnectionValue | CommissionConnectionType | createCommissionPayload | updateCommissionPayload | deleteCommissionPayload | Country | CountryConnection | CountryAggregator | CountryGroupBy | CountryConnectionId | CountryConnectionCreated_at | CountryConnectionUpdated_at | CountryConnectionCountryName | CountryConnectionIsActive | CountryConnectionPublished_at | createCountryPayload | updateCountryPayload | deleteCountryPayload | DeleveiryCharges | DeleveiryChargesConnection | DeleveiryChargesAggregator | DeleveiryChargesAggregatorSum | DeleveiryChargesAggregatorAvg | DeleveiryChargesAggregatorMin | DeleveiryChargesAggregatorMax | DeleveiryChargesGroupBy | DeleveiryChargesConnectionId | DeleveiryChargesConnectionCreated_at | DeleveiryChargesConnectionUpdated_at | DeleveiryChargesConnectionDistanceFrom | DeleveiryChargesConnectionDistanceTo | DeleveiryChargesConnectionRate | DeleveiryChargesConnectionPublished_at | createDeleveiryChargePayload | updateDeleveiryChargePayload | deleteDeleveiryChargePayload | DeliverType | DeliverTypeConnection | DeliverTypeAggregator | DeliverTypeGroupBy | DeliverTypeConnectionId | DeliverTypeConnectionCreated_at | DeliverTypeConnectionUpdated_at | DeliverTypeConnectionName | DeliverTypeConnectionIsActive | DeliverTypeConnectionPublished_at | createDeliverTypePayload | updateDeliverTypePayload | deleteDeliverTypePayload | Delivers | DeliversConnection | DeliversAggregator | DeliversGroupBy | DeliversConnectionId | DeliversConnectionCreated_at | DeliversConnectionUpdated_at | DeliversConnectionName | DeliversConnectionIsActive | DeliversConnectionPublished_at | createDeliverPayload | updateDeliverPayload | deleteDeliverPayload | DeliveryDays | DeliveryDaysConnection | DeliveryDaysAggregator | DeliveryDaysGroupBy | DeliveryDaysConnectionId | DeliveryDaysConnectionCreated_at | DeliveryDaysConnectionUpdated_at | DeliveryDaysConnectionDaysName | DeliveryDaysConnectionDaysId | DeliveryDaysConnectionIsActive | DeliveryDaysConnectionPublished_at | createDeliveryDayPayload | updateDeliveryDayPayload | deleteDeliveryDayPayload | MenuCategory | MenuCategoryConnection | MenuCategoryAggregator | MenuCategoryAggregatorSum | MenuCategoryAggregatorAvg | MenuCategoryAggregatorMin | MenuCategoryAggregatorMax | MenuCategoryGroupBy | MenuCategoryConnectionId | MenuCategoryConnectionCreated_at | MenuCategoryConnectionUpdated_at | MenuCategoryConnectionName | MenuCategoryConnectionIsActive | MenuCategoryConnectionIsDisplayable | MenuCategoryConnectionImage | MenuCategoryConnectionPrice | MenuCategoryConnectionPricey | MenuCategoryConnectionPublished_at | createMenuCategoryPayload | updateMenuCategoryPayload | deleteMenuCategoryPayload | OrderDetail | OrderDetailConnection | OrderDetailAggregator | OrderDetailGroupBy | OrderDetailConnectionId | OrderDetailConnectionCreated_at | OrderDetailConnectionUpdated_at | OrderDetailConnectionIsActive | OrderDetailConnectionIsOffer | OrderDetailConnectionAmount | OrderDetailConnectionPublished_at | createOrderDetailPayload | updateOrderDetailPayload | deleteOrderDetailPayload | OrderHistory | OrderHistoryConnection | OrderHistoryAggregator | OrderHistoryGroupBy | OrderHistoryConnectionId | OrderHistoryConnectionCreated_at | OrderHistoryConnectionUpdated_at | OrderHistoryConnectionOrderName | OrderHistoryConnectionOrder | OrderHistoryConnectionPayment_status | OrderHistoryConnectionPublished_at | createOrderHistoryPayload | updateOrderHistoryPayload | deleteOrderHistoryPayload | OrderStatus | OrderStatusConnection | OrderStatusAggregator | OrderStatusGroupBy | OrderStatusConnectionId | OrderStatusConnectionCreated_at | OrderStatusConnectionUpdated_at | OrderStatusConnectionName | OrderStatusConnectionIsActive | OrderStatusConnectionPublished_at | createOrderStatusPayload | updateOrderStatusPayload | deleteOrderStatusPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnectionCreated_at | OrderConnectionUpdated_at | OrderConnectionStore | OrderConnectionCustomer | OrderConnectionDelivery_date | OrderConnectionName | OrderConnectionWeekly_needed | OrderConnectionTotal_amount | OrderConnectionDisocunt | OrderConnectionDiscount_code | OrderConnectionQuantity | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | Packinging | PackingingConnection | PackingingAggregator | PackingingGroupBy | PackingingConnectionId | PackingingConnectionCreated_at | PackingingConnectionUpdated_at | PackingingConnectionName | PackingingConnectionIsActive | PackingingConnectionPublished_at | createPackingingPayload | updatePackingingPayload | deletePackingingPayload | PreferredCategory | PreferredCategoryConnection | PreferredCategoryAggregator | PreferredCategoryGroupBy | PreferredCategoryConnectionId | PreferredCategoryConnectionCreated_at | PreferredCategoryConnectionUpdated_at | PreferredCategoryConnectionName | PreferredCategoryConnectionIsActive | PreferredCategoryConnectionStore | PreferredCategoryConnectionPublished_at | createPreferredCategoryPayload | updatePreferredCategoryPayload | deletePreferredCategoryPayload | ProductImage | ProductImageConnection | ProductImageAggregator | ProductImageGroupBy | ProductImageConnectionId | ProductImageConnectionCreated_at | ProductImageConnectionUpdated_at | ProductImageConnectionImage | ProductImageConnectionPublished_at | createProductImagePayload | updateProductImagePayload | deleteProductImagePayload | ProductProperties | ProductPropertiesConnection | ProductPropertiesAggregator | ProductPropertiesGroupBy | ProductPropertiesConnectionId | ProductPropertiesConnectionCreated_at | ProductPropertiesConnectionUpdated_at | ProductPropertiesConnectionName | ProductPropertiesConnectionCategory | ProductPropertiesConnectionIsActive | ProductPropertiesConnectionStore | ProductPropertiesConnectionPublished_at | createProductPropertyPayload | updateProductPropertyPayload | deleteProductPropertyPayload | ProductSize | ProductSizeConnection | ProductSizeAggregator | ProductSizeAggregatorSum | ProductSizeAggregatorAvg | ProductSizeAggregatorMin | ProductSizeAggregatorMax | ProductSizeGroupBy | ProductSizeConnectionId | ProductSizeConnectionCreated_at | ProductSizeConnectionUpdated_at | ProductSizeConnectionName | ProductSizeConnectionIsActive | ProductSizeConnectionPrice | ProductSizeConnectionDiscount_type | ProductSizeConnectionDiscount | ProductSizeConnectionPublished_at | createProductSizePayload | updateProductSizePayload | deleteProductSizePayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnectionCreated_at | ProductTypeConnectionUpdated_at | ProductTypeConnectionName | ProductTypeConnectionIsActive | ProductTypeConnectionStore | ProductTypeConnectionPublished_at | createProductTypePayload | updateProductTypePayload | deleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionProductName | ProductConnectionIngredients | ProductConnectionIsActive | ProductConnectionPrice | ProductConnectionCreatedDate | ProductConnectionCreatedBy | ProductConnectionOrderDetail | ProductConnectionItemCode | ProductConnectionAllergen | ProductConnectionProductimagee | ProductConnectionAvailableForDailyMenu | ProductConnectionProductCategory | ProductConnectionPrefferedCategory | ProductConnectionDeliveryDays | ProductConnectionProductProperties | ProductConnectionPackaging | ProductConnectionUserId | ProductConnectionPublished_at | createProductPayload | updateProductPayload | deleteProductPayload | PromotionDetail | PromotionDetailConnection | PromotionDetailAggregator | PromotionDetailGroupBy | PromotionDetailConnectionId | PromotionDetailConnectionCreated_at | PromotionDetailConnectionUpdated_at | PromotionDetailConnectionFree_product | PromotionDetailConnectionProduct_name | PromotionDetailConnectionPublished_at | createPromotionDetailPayload | updatePromotionDetailPayload | deletePromotionDetailPayload | Promotions | PromotionsConnection | PromotionsAggregator | PromotionsGroupBy | PromotionsConnectionId | PromotionsConnectionCreated_at | PromotionsConnectionUpdated_at | PromotionsConnectionName | PromotionsConnectionIsActive | PromotionsConnectionProduct_category | PromotionsConnectionDescription | PromotionsConnectionDiscount_type | PromotionsConnectionServe | PromotionsConnectionProducts | PromotionsConnectionSingleservingprice | PromotionsConnectionPromotionalprice | PromotionsConnectionDeliverydays | PromotionsConnectionUserid | PromotionsConnectionIsDaily | PromotionsConnectionPublished_at | createPromotionPayload | updatePromotionPayload | deletePromotionPayload | Reviews | ReviewsConnection | ReviewsAggregator | ReviewsGroupBy | ReviewsConnectionId | ReviewsConnectionCreated_at | ReviewsConnectionUpdated_at | ReviewsConnectionCustomerReviews | ReviewsConnectionRating | ReviewsConnectionIsActive | ReviewsConnectionVendorAnswer | ReviewsConnectionUsersPermissionsUser | ReviewsConnectionStore | ReviewsConnectionPublished_at | createReviewPayload | updateReviewPayload | deleteReviewPayload | Settings | SettingsConnection | SettingsAggregator | SettingsGroupBy | SettingsConnectionId | SettingsConnectionCreated_at | SettingsConnectionUpdated_at | SettingsConnectionSettingName | SettingsConnectionSettingValue | SettingsConnectionIsActive | SettingsConnectionPublished_at | createSettingPayload | updateSettingPayload | deleteSettingPayload | State | StateConnection | StateAggregator | StateGroupBy | StateConnectionId | StateConnectionCreated_at | StateConnectionUpdated_at | StateConnectionStateName | StateConnectionIsActive | StateConnectionPublished_at | createStatePayload | updateStatePayload | deleteStatePayload | Store | StoreConnection | StoreAggregator | StoreAggregatorSum | StoreAggregatorAvg | StoreAggregatorMin | StoreAggregatorMax | StoreGroupBy | StoreConnectionId | StoreConnectionCreated_at | StoreConnectionUpdated_at | StoreConnectionStoreName | StoreConnectionUsers_permissions_user | StoreConnectionImage | StoreConnectionSelf_delivery | StoreConnectionLongitude | StoreConnectionLatitude | StoreConnectionAllergen | StoreConnectionCommission | StoreConnectionDelivery_distance | StoreConnectionCooking_experience | StoreConnectionSecondaryContact | StoreConnectionProductCategory | StoreConnectionPromotionType | StoreConnectionDelivers | StoreConnectionScale | StoreConnectionOpenTime | StoreConnectionCloseTime | StoreConnectionPublished_at | createStorePayload | updateStorePayload | deleteStorePayload | UserType | UserTypeConnection | UserTypeAggregator | UserTypeGroupBy | UserTypeConnectionId | UserTypeConnectionCreated_at | UserTypeConnectionUpdated_at | UserTypeConnectionName | UserTypeConnectionIsActive | UserTypeConnectionPublished_at | createUserTypePayload | updateUserTypePayload | deleteUserTypePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionFirstName | UsersPermissionsUserConnectionLastName | UsersPermissionsUserConnectionDOB | UsersPermissionsUserConnectionIneracEmail | UsersPermissionsUserConnectionVendorCode | UsersPermissionsUserConnectionUserImage | UsersPermissionsUserConnectionDocumentsRequired | UsersPermissionsUserConnectionStore | UsersPermissionsUserConnectionCatalogApprove | UsersPermissionsUserConnectionCellPhone | UsersPermissionsUserConnectionHomephone | UsersPermissionsUserConnectionHomeStreet | UsersPermissionsUserConnectionHomeUnitNo | UsersPermissionsUserConnectionHomeCity | UsersPermissionsUserConnectionHomePostalCode | UsersPermissionsUserConnectionHomeProvince | UsersPermissionsUserConnectionPickStreet | UsersPermissionsUserConnectionPickUnitNo | UsersPermissionsUserConnectionPickCity | UsersPermissionsUserConnectionPickPostalCode | UsersPermissionsUserConnectionPickProvince | UsersPermissionsUserConnectionProfileApproved | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
