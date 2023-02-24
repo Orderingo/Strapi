@@ -531,7 +531,7 @@
               "username",
               "email",
               "FirstName",
-              "lastName",
+              "LastName",
               "DOB",
               "vendorCode"
             ],
@@ -569,7 +569,7 @@
               "FirstName": {
                 "type": "string"
               },
-              "lastName": {
+              "LastName": {
                 "type": "string"
               },
               "DOB": {

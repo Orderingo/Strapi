@@ -63,7 +63,7 @@
       "type": "string",
       "required": true
     },
-    "lastName": {
+    "LastName": {
       "type": "string",
       "required": true
     },
